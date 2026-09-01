@@ -228,7 +228,7 @@ def make_md(doc_id: str) -> markdown.Markdown:
 
 def render_body(doc: Doc, path_to_id: dict[Path, str], doc_id: str) -> str:
     body = PLACEHOLDER_RE.sub(r'<span class="ph">[\1]</span>', doc.body)
-    body = re.sub(r"^# .*\n", "", body, count=1)  # H1 is rendered from the meta
+    body = re.sub(r"^# .*\n", "", body, count=1, flags=re.M)  # H1 is rendered from the meta
     out = make_md(doc_id).convert(body)
 
     def rewrite(m):
