@@ -1,0 +1,1583 @@
+<title>The Family CFO Primer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Archivo:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#eceae5;--s0:#f8f7f4;--s1:#f3f1ed;--s2:#e5e2db;--s3:#dbd7ce;
+  --ink:#1c2120;--muted:#5e6663;--faint:#8a918d;--line:#d2cec5;--line-soft:#e0dcd4;
+  --accent:#155e63;--accent-ink:#ffffff;--accent-soft:#d9e8e8;
+  --mark:#9c5326;--mark-soft:#f0e3d8;
+  --pip-off:#c9c4ba;
+  --f-disp:"Instrument Serif","Iowan Old Style",Georgia,serif;
+  --f-body:"Newsreader","Iowan Old Style",Georgia,serif;
+  --f-ui:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --shadow:0 1px 2px rgba(28,33,32,.06),0 6px 18px rgba(28,33,32,.05);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#14171a;--s0:#1b1f22;--s1:#202528;--s2:#282e31;--s3:#31383b;
+  --ink:#e9e8e3;--muted:#a2aba7;--faint:#7d8783;--line:#333b3e;--line-soft:#2a3134;
+  --accent:#74c3c7;--accent-ink:#0e1c1d;--accent-soft:#1a2f31;
+  --mark:#dd9a68;--mark-soft:#33251a;
+  --pip-off:#414a4d;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.22);
+}}
+:root[data-theme="dark"]{
+  --ground:#14171a;--s0:#1b1f22;--s1:#202528;--s2:#282e31;--s3:#31383b;
+  --ink:#e9e8e3;--muted:#a2aba7;--faint:#7d8783;--line:#333b3e;--line-soft:#2a3134;
+  --accent:#74c3c7;--accent-ink:#0e1c1d;--accent-soft:#1a2f31;
+  --mark:#dd9a68;--mark-soft:#33251a;
+  --pip-off:#414a4d;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--ground);color:var(--ink);font:18px/1.62 var(--f-body);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+/* ---------- masthead ---------- */
+.mast{padding:clamp(32px,6vw,72px) clamp(20px,5vw,64px) 30px;border-bottom:1px solid var(--line);background:var(--s0)}
+.mast-in{max-width:1030px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:20px 56px;align-items:end}
+@media (max-width:820px){.mast-in{grid-template-columns:1fr}}
+.kicker{font:500 .72rem/1 var(--f-ui);letter-spacing:.2em;text-transform:uppercase;color:var(--mark);margin:0 0 18px}
+.mast h1{font:400 clamp(2.6rem,6vw,4.4rem)/.98 var(--f-disp);margin:0;letter-spacing:-.015em;text-wrap:balance}
+.mast .stand{font:400 clamp(1.05rem,2vw,1.3rem)/1.5 var(--f-body);color:var(--muted);margin:18px 0 0;max-width:56ch}
+.mast .stand em{color:var(--ink);font-style:italic}
+.glance{border-left:1px solid var(--line);padding-left:26px}
+.glance h2{font:500 .68rem/1 var(--f-ui);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:0 0 12px}
+.glance ol{list-style:none;margin:0;padding:0;columns:2;column-gap:26px;font:400 .86rem/1.75 var(--f-ui)}
+.glance li{break-inside:avoid}
+.glance a{color:var(--muted);text-decoration:none;display:block}
+.glance a:hover{color:var(--accent)}
+.glance b{color:var(--faint);font-weight:500;font-variant-numeric:tabular-nums;margin-right:7px}
+@media (max-width:820px){.glance{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px}}
+
+/* ---------- depth control ---------- */
+.rail{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.rail-in{max-width:1030px;margin:0 auto;padding:10px clamp(20px,5vw,64px);display:flex;gap:18px 22px;align-items:center;justify-content:space-between}
+@media (max-width:1080px){nav.chapters{display:none}}
+.depth{display:flex;align-items:center;gap:10px}
+.depth-lbl{font:500 .68rem/1 var(--f-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.depth-btns{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--s0)}
+.depth-btns button{appearance:none;border:0;background:none;color:var(--muted);font:500 .78rem/1 var(--f-ui);padding:8px 14px;cursor:pointer;white-space:nowrap;border-right:1px solid var(--line-soft)}
+.depth-btns button:last-child{border-right:0}
+.depth-btns button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.depth-btns button:hover:not([aria-pressed="true"]){background:var(--s2);color:var(--ink)}
+nav.chapters{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;max-width:100%;-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent)}
+nav.chapters::-webkit-scrollbar{display:none}
+nav.chapters a{font:500 .76rem/1 var(--f-ui);color:var(--muted);text-decoration:none;padding:7px 9px;border-radius:5px;white-space:nowrap}
+nav.chapters a:hover{background:var(--s2);color:var(--ink)}
+nav.chapters a.on{color:var(--accent);background:var(--accent-soft)}
+
+/* ---------- layout ---------- */
+main{max-width:1030px;margin:0 auto;padding:0 clamp(20px,5vw,64px) 120px}
+.chapter{padding:clamp(44px,7vw,86px) 0 10px;border-top:1px solid var(--line-soft)}
+.chapter:first-of-type{border-top:0}
+.ch-head{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;margin:0 0 34px;max-width:78ch}
+.eyebrow{font:500 .7rem/1 var(--f-ui);letter-spacing:.18em;text-transform:uppercase;color:var(--mark);margin:0}
+.ch-head h2{font:400 clamp(1.9rem,3.6vw,2.7rem)/1.08 var(--f-disp);margin:6px 0 0;letter-spacing:-.01em;text-wrap:balance}
+.lede{font-size:1.08rem;color:var(--muted);margin:12px 0 0;max-width:62ch}
+.cards{display:grid;gap:16px}
+
+/* ---------- card = depth 1 ---------- */
+.card{background:var(--s0);border:1px solid var(--line);border-radius:12px;padding:24px 26px 8px;box-shadow:var(--shadow)}
+.card-t{font:600 1.16rem/1.35 var(--f-body);margin:0;letter-spacing:-.005em;text-wrap:balance;max-width:60ch}
+.essence{margin:8px 0 4px;color:var(--muted);max-width:70ch;font-size:1.02rem}
+.card .num{font:500 .72rem/1 var(--f-ui);color:var(--faint);letter-spacing:.1em;display:block;margin:0 0 8px}
+
+/* ---------- layers ---------- */
+details.layer{margin:12px -26px 0;border-top:1px solid var(--line-soft)}
+details.layer>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 26px;font:500 .74rem/1 var(--f-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+details.layer>summary::-webkit-details-marker{display:none}
+details.layer>summary:hover{color:var(--ink)}
+details.layer>summary .chev{width:9px;height:9px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg);transition:transform .18s ease;margin-top:-4px}
+details.layer[open]>summary .chev{transform:rotate(225deg);margin-top:2px}
+details.layer>summary .pips{margin-left:auto;display:flex;gap:4px}
+details.layer>summary .pips i{width:6px;height:6px;border-radius:50%;background:var(--pip-off);display:block}
+details.layer>summary .pips i.on{background:var(--accent)}
+.layer-body{padding:2px 26px 20px;font-size:1rem}
+.layer-body>*:first-child{margin-top:0}
+.layer-body p{max-width:70ch}
+.layer-body ul,.layer-body ol{max-width:64ch;padding-left:1.15em}
+.layer-body li{margin:5px 0}
+details.l2{background:var(--s1)}
+details.l2>.layer-body{background:var(--s1)}
+details.l3{margin:14px 0 0;border:1px solid var(--line-soft);border-radius:9px;background:var(--s2);overflow:hidden}
+details.l3>summary{padding:11px 18px;color:var(--mark)}
+details.l3>.layer-body{padding:0 18px 16px;background:var(--s2)}
+details.l3 .pips i.on{background:var(--mark)}
+.card>details.layer:last-child{border-radius:0 0 12px 12px;overflow:hidden}
+
+/* ---------- inner furniture ---------- */
+.sop{margin:14px 0 0;padding-top:10px;border-top:1px dashed var(--line);font:500 .82rem/1.5 var(--f-ui)}
+.sop a{text-decoration:none;border-bottom:1px solid var(--accent-soft)}
+.sop::before{content:"↳ ";color:var(--faint)}
+.pull{margin:16px 0;padding:14px 18px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;font-size:.98rem}
+.pull.warn{border-left-color:var(--mark);background:var(--mark-soft)}
+.pull p{margin:0}
+.pull .lbl{display:block;font:500 .68rem/1 var(--f-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--mark);margin:0 0 6px}
+.pull:not(.warn) .lbl{color:var(--accent)}
+.tw{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font:400 .92rem/1.45 var(--f-ui);font-variant-numeric:tabular-nums}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--s3);font-weight:600}
+code{font:.88em var(--f-ui);background:var(--s3);padding:1px 5px;border-radius:4px}
+.seq{list-style:none;padding:0;margin:14px 0;counter-reset:s}
+.seq li{counter-increment:s;position:relative;padding:0 0 0 34px;margin:9px 0;max-width:64ch}
+.seq li::before{content:counter(s);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:600 .72rem/22px var(--f-ui);text-align:center}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:12px 0;font-size:.96rem}
+.kv dt{font:500 .78rem/1.5 var(--f-ui);color:var(--mark);white-space:nowrap}
+.kv dd{margin:0}
+
+/* ---------- misc ---------- */
+.chapter-foot{display:flex;justify-content:space-between;gap:16px;margin:28px 0 0;font:500 .8rem/1 var(--f-ui)}
+.chapter-foot a{text-decoration:none;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--s0)}
+.chapter-foot a:hover{background:var(--s2)}
+footer.end{max-width:1030px;margin:0 auto;padding:40px clamp(20px,5vw,64px) 80px;border-top:1px solid var(--line);color:var(--faint);font:400 .88rem/1.6 var(--f-ui)}
+@media (max-width:720px){
+  body{font-size:17px}
+  .mast{padding-top:34px}
+  .card{padding:20px 18px 6px;border-radius:10px}
+  details.layer{margin:12px -18px 0}
+  details.layer>summary{padding:12px 18px}
+  .layer-body{padding:2px 18px 18px}
+  details.l3{margin:12px 0 0}
+  nav.chapters{display:none}
+}
+@media print{
+  .rail,.chapter-foot{display:none}
+  details.layer{border:0}
+  details.layer>summary{display:none}
+  .layer-body,details.l3>.layer-body{display:block!important;background:none;padding:0}
+  details.l3{background:none;border:0;border-left:2px solid #999;border-radius:0;padding-left:12px}
+  .card{break-inside:avoid;box-shadow:none;background:none;border:0;border-bottom:1px solid #ccc;padding:0 0 14px}
+  body{background:#fff;color:#000;font-size:11pt}
+}
+</style>
+<header class="mast"><div class="mast-in"><div>
+<p class="kicker">A guided walkthrough · read once, then keep the playbook</p>
+<h1>The Family CFO Primer</h1>
+<p class="stand">Everything the practice does, in ten chapters — each idea stated in one line, explained in a paragraph, and taken down to the mechanics when you want them. <em>Open only as deep as you need.</em></p>
+</div><div class="glance"><h2>Inside</h2><ol><li><a href="#start"><b>·</b>Start</a></li><li><a href="#ch-sell"><b>1</b>Selling</a></li><li><a href="#ch-seq"><b>2</b>Sequence</a></li><li><a href="#ch-know"><b>3</b>Knowing</a></li><li><a href="#ch-plan"><b>4</b>Planning</a></li><li><a href="#ch-stay"><b>5</b>Staying</a></li><li><a href="#ch-family"><b>6</b>Family</a></li><li><a href="#ch-trust"><b>7</b>Trusts</a></li><li><a href="#ch-grow"><b>8</b>Growing</a></li><li><a href="#ch-team"><b>9</b>Team</a></li><li><a href="#ch-monday"><b>10</b>Monday</a></li></ol></div></div></header>
+<div class="rail"><div class="rail-in">
+<div class="depth"><span class="depth-lbl">Depth</span><div class="depth-btns" role="group" aria-label="Reading depth"><button data-depth="1" aria-pressed="true">1 · The claim</button><button data-depth="2" aria-pressed="false">2 · Why &amp; how</button><button data-depth="3" aria-pressed="false">3 · Mechanics</button></div></div>
+<nav class="chapters" aria-label="Chapters"><a href="#start">Start</a><a href="#ch-sell">1 · Selling</a><a href="#ch-seq">2 · Sequence</a><a href="#ch-know">3 · Knowing</a><a href="#ch-plan">4 · Planning</a><a href="#ch-stay">5 · Staying</a><a href="#ch-family">6 · Family</a><a href="#ch-trust">7 · Trusts</a><a href="#ch-grow">8 · Growing</a><a href="#ch-team">9 · Team</a><a href="#ch-monday">10 · Monday</a></nav>
+</div></div>
+<main>
+<section class="chapter" id="start" data-nav="Start">
+  <header class="ch-head">
+    <p class="eyebrow">Before you begin</p>
+    <h2>How to read this</h2>
+    <p class="lede">This is the whole practice in ten chapters. Every idea appears three times, at three depths, and you decide how far down to go.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">How the depths work</span>
+      <h3 class="card-t">One line, one paragraph, then the mechanics.</h3>
+      <p class="essence">Read the bold lines straight through for the shape of the practice. Open a card when you want the reasoning. Open the inner panel when you want the numbers, the sequence, and the script.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Depth 1 is the claim — what is true, in a sentence you could say out loud to a client. Depth 2 is why it is true and roughly how it goes. Depth 3 is what you actually do: the order of steps, the timing, the numbers, and a pointer into the procedure itself.</p>
+          <p>The control at the top opens every card to the same depth at once. It remembers where you left it. You can also open any single card deeper than the rest — that is the normal way to use this once you know the material.</p>
+          <div class="pull"><span class="lbl">A reading plan</span><p>First pass at depth 1, front to back — about ten minutes, and you will have the map. Second pass at depth 2 on the chapters you will use this quarter. Depth 3 when you are about to do the thing.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Every depth-3 panel ends with a pointer like the one below. That is the procedure in the companion playbook — the version with the checklists, the role assignments, the templates, and the source attribution. This primer explains; the playbook is what you work from.</p>
+              <p>The two are meant to sit side by side. When something here is compressed to a sentence, the playbook has the full version; when the playbook says "do this," the reason is here.</p>
+              <p class="sop"><a href="playbook.html">The Family CFO Playbook</a> — 38 procedures, 28 templates</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">What this is for</span>
+      <h3 class="card-t">A practice this size fails on process, not on markets.</h3>
+      <p class="essence">Families with $30M to several hundred million already assume you can invest. What they buy is judgment, coordination, and the confidence that nothing is being dropped.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Two findings shape everything in this primer. Clients almost never leave over investment performance — they leave over service and relationship failures. And competence does not differentiate you: satisfied and dissatisfied clients rate their advisors nearly identically on expertise, because expertise is assumed the moment they hire you.</p>
+          <p>What differentiates is reliability, the absence of surprises, hearing things from you first, and the sense that someone is holding the whole picture. Those are process outcomes. They are produced by procedures, not by talent — which is why this practice is written down.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The second reason to write it down is that you cannot delegate what only exists in your head. Every hire you make will be trained from this material, and every borrowed specialist will be briefed from it. The order is fixed: write the recipes, then bring in another cook.</p>
+              <p class="sop"><a href="playbook.html">SOP 60 — SOP maintenance</a> · <a href="playbook.html">SOP 70 — Team roadmap</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><span></span><a href="#ch-sell">Chapter 1 — What you are selling →</a></div>
+</section>
+
+<section class="chapter" id="ch-sell" data-nav="1 · Selling">
+  <header class="ch-head">
+    <p class="eyebrow">Chapter 1</p>
+    <h2>What you are actually selling</h2>
+    <p class="lede">Before any procedure makes sense, five things have to be settled: what the service is, what you are called, what you are actually managing, which of two jobs you have with this particular family, and which kind of advisor you are choosing to be.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">1.1</span>
+      <h3 class="card-t">Wealth management is three things, not one.</h3>
+      <p class="essence">Investment consulting, plus advanced planning, plus relationship management. Take away any one of the three and you are a money manager with good manners.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p><strong>Investment consulting</strong> is the portfolio — necessary, assumed, and not what you are paid for. <strong>Advanced planning</strong> is everything else about the money: tax-aware growth, moving wealth between generations, protecting it, and giving it away. <strong>Relationship management</strong> is two jobs at once — the depth of your relationship with the family, and your management of the experts who serve them.</p>
+          <p>Almost every advisor claims all three. Very few deliver the middle one on anything but a reactive basis, because it requires a network you have to build before you can promise it. That gap is the whole opportunity, and it is also the reason the expert network appears this early in the practice.</p>
+          <div class="pull"><span class="lbl">The practical test</span><p>If a client's estate attorney, CPA, and insurance specialist have never been in the same conversation, you are doing investment consulting and calling it wealth management.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The shorthand the practice uses, because it makes the gaps visible:</p>
+              <dl class="kv">
+                <dt>Wealth management</dt><dd>investment consulting + advanced planning + relationship management</dd>
+                <dt>Advanced planning</dt><dd>wealth enhancement + wealth transfer + wealth protection + charitable planning</dd>
+                <dt>Relationship management</dt><dd>the client relationship + the expert-network relationships</dd>
+              </dl>
+              <p>Those four advanced-planning areas are the permanent agenda of every wealth management plan and the four sections of the tracker you carry into every progress meeting. Nothing is ever "done" — items sit as completed, in progress, or slated for the future, and the client decides which is which.</p>
+              <p class="sop"><a href="playbook.html">SOP 01 — The wealth management model</a> · <a href="playbook.html">SOP 30 — The wealth management plan</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">1.2</span>
+      <h3 class="card-t">The title is personal chief financial officer.</h3>
+      <p class="essence">Not the person who runs the family's money — the person who runs the decisions about it, and who is answerable when one is missed.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>A corporate CFO does not personally do the tax return, the audit, or the treasury work. They hold the whole picture, convene the people who do those things, and are accountable for the result. That is exactly the offer here, and it is what a family with real complexity is actually shopping for.</p>
+          <p>It has one hard prerequisite: you must be competent enough in each area to supervise the specialist. Not expert — competent. Without that you cannot tell whether the advice you are relaying is good, and the role collapses into introductions.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Three rules make the role real rather than rhetorical:</p>
+              <ol class="seq">
+                <li><strong>You keep the whole picture.</strong> The client profile is yours, it covers every entity and trust, and it is refreshed at every meeting — not reconstructed when something breaks.</li>
+                <li><strong>You convene.</strong> The specialists meet about this family on a quarterly rhythm whether or not there is a live problem, and you run that meeting.</li>
+                <li><strong>Whoever has the ball is the quarterback.</strong> A request that reaches anyone on your side is owned to completion by the person it reached. "Let me put you through to someone" is not an answer this practice gives.</li>
+              </ol>
+              <p class="sop"><a href="playbook.html">SOP 01 — Model and operating principles</a> · <a href="playbook.html">SOP 31 — Expert network</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">1.3</span>
+      <h3 class="card-t">At this level, money is one of five things you are managing.</h3>
+      <p class="essence">A family's wealth is human, intellectual, social, spiritual, and financial capital. The last one is the tool that grows the other four — and it is the only one most families measure.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p><strong>Human</strong> is the members themselves — health, capacity, the ability to pursue their own lives. <strong>Intellectual</strong> is what they know and can teach each other. <strong>Social</strong> is the quality of their relationships and their ability to decide together. <strong>Spiritual</strong> is whether they hold an intention larger than any one person's interest. <strong>Financial</strong> is the property.</p>
+          <p>This is not sentiment. The three-generation pattern — wealth created, held, then dissipated — is overwhelmingly a failure of communication, preparation, and joint decision-making, not of investing. A family that tracks only the fifth capital is flying with most of its instruments switched off.</p>
+          <div class="pull warn"><span class="lbl">The uncomfortable question</span><p>Add up what the family spends each year preserving its financial capital — management, advisory, legal, accounting, custody. Then add up what it spends, deliberately and on an ongoing basis, growing the other four. The ratio is the conversation.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The practice makes this measurable rather than philosophical. Every adult in a family engagement rates a short set of statements about the four qualitative capitals; the results are averaged per capital, per member, and across the family, and re-run every one to three years so the trend is visible. Alongside it sits an annual statement of change, assembled from updated personal résumés, personal mission statements, and — where trusts exist — beneficiary and trustee self-reports.</p>
+              <p>The output is not a score to show off. It is an agenda: it tells you which capital is thinning, and therefore which of the next three chapters you spend the year on.</p>
+              <p class="sop"><a href="playbook.html">SOP 44 — Family capitals assessment</a> · <a href="playbook.html">T18 — Balance sheet &amp; income statement</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">1.4</span>
+      <h3 class="card-t">Decide which of two jobs you have, before anything else.</h3>
+      <p class="essence">Either the whole family is under your umbrella, or you serve individuals inside a family that already has its own central team. Every procedure branches on the answer.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p><strong>Mode A</strong> — you are the family's personal CFO. You coordinate their incumbent CPA and attorney, you run the expert network, and the family layer of this practice applies in full.</p>
+          <p><strong>Mode B</strong> — a large family has a family office, a trust company, or its own lead advisor, and you serve one or more individuals or branches inside it. That central team quarterbacks the family-level structures; your mandate is narrower and has to be written down. It is not one job: it runs from full wealth management for that person, through investment consulting plus liaison, down to a single trust's portfolio.</p>
+          <p>Getting this wrong is expensive in both directions — overstepping into a family office's territory, or under-serving an individual who assumed you had the whole picture.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The mode is determined during the first meeting, confirmed with the client before the second, and written into the engagement letter at the third — with the scope rung, who may instruct you, and what may be shared with whom.</p>
+              <div class="tw"><table>
+                <tr><th>Rung</th><th>You own</th><th>They own</th></tr>
+                <tr><td>B-full</td><td>Full wealth management for the individual or branch</td><td>Family-level structures and policy</td></tr>
+                <tr><td>B-partial</td><td>Investment consulting plus liaison into their process</td><td>Planning, tax, estate for the whole family</td></tr>
+                <tr><td>B-narrow</td><td>A defined mandate — one trust, one set of accounts</td><td>Everything else</td></tr>
+              </table></div>
+              <p>And one rule that resolves most of the awkward moments in Mode B: an adult's personal information is never shared upward to parents, sideways to siblings, or with the central team without that adult's written consent — including where a sister company of your own firm sits on that team.</p>
+              <p class="sop"><a href="playbook.html">SOP 02 — Engagement modes</a> · <a href="playbook.html">T05 — Engagement scoping worksheet</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">1.5</span>
+      <h3 class="card-t">Say which service you are selling, and then sell that one.</h3>
+      <p class="essence">Some advisors supply knowledge the family lacks. Some supply the courage to act on what the family already knows. Families need both — but you must not market one and deliver the other.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Knowledge work is a transaction: a gap exists, you fill it, the relationship need not outlast it. Courage work is different — it asks the family-system questions, and it supplies the resolve when the client already knows the right answer and cannot act on it. It is the harder service, it is what a personal CFO is for, and it is priced and paced differently.</p>
+          <p>What makes a client able to take hard advice is the accumulated experience of your care, which is why the courage service cannot be delivered on a transactional footing. It is also why the first meeting of this practice qualifies the client rather than selling to them.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Choosing the courage service has consequences you should accept deliberately, because they show up in the procedures:</p>
+              <ul>
+                <li>The engagement is scoped and priced as an ongoing relationship, and the fee conversation is repeated every year in plain language.</li>
+                <li>Meetings alternate between knowledge questions and courage questions, depending on which the client is ready for that day.</li>
+                <li>Roughly speaking, doing nothing is often the right move: many problems resolve themselves, and forcing a decision the family is not ready for costs more than the wait.</li>
+                <li>Some boundaries are absolute — you never mediate a marriage, and you never let a structure be executed without walking the family through what it might do to the people inside it.</li>
+              </ul>
+              <p class="sop"><a href="playbook.html">SOP 01 — Operating principles</a> · <a href="playbook.html">SOP 20 — Regular progress meeting</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><a href="#start">← How to read this</a><a href="#ch-seq">Chapter 2 — The sequence →</a></div>
+</section>
+
+<section class="chapter" id="ch-seq" data-nav="2 · Sequence">
+  <header class="ch-head">
+    <p class="eyebrow">Chapter 2</p>
+    <h2>The sequence</h2>
+    <p class="lede">Five meetings, on a fixed clock, in a fixed order. Each one has a single job, and each one refuses to do the next one's job — which is the part most advisors get wrong and the part clients actually notice.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">2.1</span>
+      <h3 class="card-t">The intervals are not scheduling — they are the product.</h3>
+      <p class="essence">Discovery, then two weeks, then one week, then six, then ninety days. A family that has been courted by four firms has never been walked through anything this deliberate.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Each gap does work that the meeting cannot. Two weeks between Discovery and the plan is the time it takes to build something worth presenting. One week between the plan and the commitment is the client's thinking time, and it is the reason the commitment holds. Six weeks to the follow-up is how long the paperwork takes to arrive and settle. Ninety days to the first progress meeting is long enough for the expert network to have met about this family.</p>
+          <p>Shortening a gap because the client is eager feels responsive and is not. It converts a considered decision into an impulse, and impulses are what buyer's remorse is made of.</p>
+          <div class="pull"><span class="lbl">Two ways in</span><p>A new family enters at Discovery. An existing client enters at the same meeting run as a Rediscovery — same seven areas, no qualifying, the old map on the table beside the new one.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The clock, and what each meeting is forbidden from doing:</p>
+              <div class="tw"><table>
+                <tr><th>Meeting</th><th>When</th><th>Its one job</th><th>What it must not do</th></tr>
+                <tr><td>Discovery</td><td>Day 0, ≤ 90 min</td><td>Understand and qualify</td><td>Recommend anything</td></tr>
+                <tr><td>Investment plan</td><td>+2 weeks</td><td>Present the written plan</td><td>Take a signature or a check</td></tr>
+                <tr><td>Mutual commitment</td><td>+1 week</td><td>Define and execute the engagement</td><td>Rush past a hesitation</td></tr>
+                <tr><td>45-day follow-up</td><td>+ about 6 weeks</td><td>Organize and explain the paperwork</td><td>Let an annualized figure stand unframed</td></tr>
+                <tr><td>Progress meeting</td><td>+ about 90 days, then the client's cadence</td><td>Present and advance the planning</td><td>Surprise the client with anything</td></tr>
+              </table></div>
+              <p>With an existing book, the highest-value work is not new families at all: complete at least ten Rediscovery meetings before any new-client effort, because they surface held-away assets and planning openings at almost no acquisition cost.</p>
+              <p class="sop"><a href="playbook.html">SOP 10 — CCM1 Discovery Meeting</a> · <a href="playbook.html">T02 — Meeting agendas</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">2.2</span>
+      <h3 class="card-t">Discovery qualifies the family. It does not sell to them.</h3>
+      <p class="essence">Ninety minutes, no recommendations, and an honest willingness to send them elsewhere. You are deciding whether you can make a substantial difference — out loud, with them in the room.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>A family with real money has sat through the pitch many times. What they have almost never sat through is a professional who says, at the start, that the purpose of the hour is to find out whether this is a fit, and who means it enough to name a better firm if it is not. That posture does more to establish expertise than any presentation, and it is also simply true: this practice cannot serve everyone well.</p>
+          <p>The meeting is also where you learn how this particular person wants to be worked with, and where you decide — silently at first — whether the mandate in front of you is workable at all.</p>
+          <div class="pull"><span class="lbl">The tell</span><p>If you find yourself explaining your investment philosophy in the first meeting, you have started selling and stopped qualifying.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The rules that make the ninety minutes work:</p>
+              <ol class="seq">
+                <li><strong>Ask consent to record</strong>, and explain why — so you can listen rather than write. Confidential whether or not they become a client.</li>
+                <li><strong>Ask about assets fourth</strong>, after values, goals, and relationships. The order tells the family what you think the money is for, and it produces better answers about the money.</li>
+                <li><strong>Hand statements to the team to scan</strong> during the conversation rather than reading them at the table.</li>
+                <li><strong>Assess fit before you describe next steps</strong>, and if it is poor, say so, name one or two firms who would serve them better, and send a note the same day.</li>
+                <li><strong>Leave with the next meeting in the calendar</strong> and a written confirmation inside 24 hours.</li>
+              </ol>
+              <p>Where the family is larger than the household in front of you, the same meeting adds a few questions about the generational arc, what the family spends developing its people rather than its money, and who is preparing the next generation. Those answers become the seed of the family-level profile.</p>
+              <p class="sop"><a href="playbook.html">SOP 10 — CCM1 Discovery Meeting</a> · <a href="playbook.html">T03 — Discovery interview guide</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">2.3</span>
+      <h3 class="card-t">Do not take the check at the plan meeting.</h3>
+      <p class="essence">You are asking the family to commit to a plan, not to buy a product. They take the materials home; the commitment gets a meeting of its own a week later.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Many clients are ready to sign in the room, and taking the signature is the single most tempting shortcut in the sequence. Refuse it. A decision made under the warmth of a good presentation is fragile; a decision made a week later, at the kitchen table, with the document in hand, is the one that survives the first bad quarter.</p>
+          <p>The refusal also says something no brochure can: that you are not selling, that the plan is meant to be examined, and that you would rather lose a week than have a client who has not thought it through. Clients remember being sent home to think.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The meeting opens with the client's own words, not with markets. The executive summary reads back the seven areas of the profile; the first real question is whether anything in it is wrong or missing, because corrections there are the point of the exercise.</p>
+              <p>Then the recommendations, section by section, with a pause for questions after each. The policy statement is introduced but never walked through page by page — clients want to know the discipline exists, not to read it. An associate presents one defined piece of analysis, by name, so the family meets the team properly.</p>
+              <p>Then the ask: are you ready to move forward on this basis? Yes means we meet next week to make it mutual. Concerns raised are written down and answered in writing within 48 hours, whether or not they were answered in the room.</p>
+              <p class="sop"><a href="playbook.html">SOP 12 — CCM2 Investment Plan Meeting</a> · <a href="playbook.html">SOP 13 — Investment plan and IPS</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">2.4</span>
+      <h3 class="card-t">The commitment meeting is where the engagement is actually defined.</h3>
+      <p class="essence">Not the paperwork — the terms. Who the client is, what is in and out of scope, how you are paid, what may be shared with whom, and every conflict read aloud.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Most engagements are defined by accident — by what happened to get discussed, by what the client assumed, by an account form. This meeting defines them on purpose. The engagement letter names the client, states the mode and scope, states the fee in dollars as well as in basis points, and records what you may share with a spouse, a parent, a trustee, or a family office.</p>
+          <p>It is also the moment to inoculate. Second thoughts are normal, especially for anyone who follows the financial media; gains arrive unevenly and missing short periods costs more than sitting through them. Saying that before it happens is worth more than explaining it afterwards.</p>
+          <div class="pull warn"><span class="lbl">Never push past a hesitation</span><p>If the client hesitates at "are you ready," go back to collecting questions. A signature obtained over a hesitation is a service failure with a delay built in.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The order matters, because it puts the terms before the signatures and the celebration before the ask:</p>
+              <ol class="seq">
+                <li>Collect every question that arose in the week — all of them — before answering any.</li>
+                <li>Walk the engagement letter and sign the scoping worksheet alongside it.</li>
+                <li>Hold the fee conversation properly, in dollars, in context, and note that it repeats every year.</li>
+                <li>Read the conflicts register aloud and record the acknowledgement.</li>
+                <li>Execute the documents, explaining each before it is signed; collect transfers and checks now.</li>
+                <li>Pause and congratulate — most families put this step off for years.</li>
+                <li>Coach for the first weeks, then make the first introductions ask.</li>
+                <li>Schedule the follow-up about six weeks out and ask them to keep every piece of paper.</li>
+              </ol>
+              <p class="sop"><a href="playbook.html">SOP 14 — CCM3 Mutual Commitment Meeting</a> · <a href="playbook.html">T05 — Engagement scoping worksheet</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">2.5</span>
+      <h3 class="card-t">The 45-day meeting exists because paperwork drowns people.</h3>
+      <p class="essence">Transfers generate a mountain of documents a family cannot read and will not ask about. You sit down together, file all of it, and teach them what each piece means.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>In the six weeks after commitment, custodians send confirmations, statements, tax notices, and account paperwork to a family that has just been told everything is under control. Left alone, that pile becomes quiet anxiety and the first evidence that the new arrangement is complicated. Handled together, it becomes the moment the client decides the service is real.</p>
+          <p>The notebook you build is designed for five years and more, not for this meeting — it is where the plan, the policy statement, the coming wealth management plan, the statements, and the summaries of every new structure will live. The client leaves knowing where everything is and that you will keep it that way.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>One thing in this meeting must not be improvised. Reporting software annualizes short periods, so six weeks of returns will appear as a number that looks either brilliant or alarming, and the client will find it. Prepare the reframe before you know which one it is: six weeks says nothing, nobody can call the short term, and the plan works by sound decisions held through both kinds of period.</p>
+              <p>The rest of the agenda: gather questions first and answer in order; walk the notebook section by section; file the client's own stack alongside yours, explaining how to read a statement, a confirmation, a tax notice; review the plain-language summary of every new trust or entity and agree what the client will tell whom; ask for introductions a second time; then confirm the contact cadence they chose at Discovery and schedule the first progress meeting.</p>
+              <p class="sop"><a href="playbook.html">SOP 16 — CCM4 45-Day Follow-up</a> · <a href="playbook.html">T08 — Client notebook index</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">2.6</span>
+      <h3 class="card-t">Every meeting in the practice runs inside the same wrapper.</h3>
+      <p class="essence">Letter, agenda, greeting by name, what would make this worth your time, what has changed, decisions recorded, next meeting scheduled in the room, recap within 24 hours.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The five consultative meetings differ in content and not at all in form. So do family meetings, trustee meetings, and the ad hoc review after a market shock. That sameness is what allows a team member or a borrowed specialist to walk into any of them without the client feeling handed off, and it is what makes the experience legible to a family that meets you three times a year.</p>
+          <p>Two of the steps do most of the work. Asking what would make the meeting worth their time surfaces the agenda item they did not write down. Asking what has changed since you last met catches the marriage, the diagnosis, or the business offer before it becomes a planning emergency.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The clock around every meeting is fixed: the agenda drafted about ten business days out, the pre-meeting letter at seven days, the packet and team briefing at three, a confirmation the day before, the written recap within 24 hours, and — after a first meeting or any meeting carrying heavy news — a call one week later for the questions that only surface on reflection.</p>
+              <div class="pull"><span class="lbl">One rule above the rest</span><p>Anything material that changed since the last contact is told to the client <em>before</em> the meeting, at the three-day mark. There are no surprises in the room, ever.</p></div>
+              <p>Two more standing habits: anyone new in the room is introduced by name, role, and what they will do for this client today; and the next meeting is scheduled before anyone stands up. "We'll be in touch" is not how this practice ends a meeting.</p>
+              <p class="sop"><a href="playbook.html">SOP 05 — Client meeting protocol</a> · <a href="playbook.html">T01 — Client correspondence</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><a href="#ch-sell">← Chapter 1 — What you are selling</a><a href="#ch-know">Chapter 3 — Knowing the client →</a></div>
+</section>
+
+<section class="chapter" id="ch-know" data-nav="3 · Knowing">
+  <header class="ch-head">
+    <p class="eyebrow">Chapter 3</p>
+    <h2>Knowing the client</h2>
+    <p class="lede">One picture of the family, gathered in a fixed order, drawn rather than filled in, and kept current at every meeting. Every document the practice produces is drawn from it, which is why it is treated as infrastructure rather than as notes.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">3.1</span>
+      <h3 class="card-t">Seven areas, in one order, and the money comes fourth.</h3>
+      <p class="essence">Values, goals, relationships, assets, advisors, process, interests. The order is not a preference — it changes both what the family tells you and what they conclude about you.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Everyone who has ever asked this family for money opened with the assets. Opening with what they care about, what they want, and who depends on them signals that you think the money is instrumental — which is the position you actually hold, and the one the rest of the practice is built on. It also produces better answers about the assets, because by the time you reach them the family is talking about their life rather than defending a balance sheet.</p>
+          <p>The last three areas are the ones advisors skip and the ones that pay off longest. Advisors tells you the map of professionals you will coordinate. Process tells you how to keep the client. Interests is the raw material of a relationship that lasts decades.</p>
+          <div class="pull"><span class="lbl">The one habit that matters most</span><p>Never accept the first answer. "Security" is not an answer; what specifically about security, and what it would look like in practice, is.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>What each area is for, and the second-order question that opens it:</p>
+              <div class="tw"><table>
+                <tr><th>Area</th><th>What you are actually after</th><th>Go one level deeper with</th></tr>
+                <tr><td>Values</td><td>The why behind every goal</td><td>What specifically about that matters most?</td></tr>
+                <tr><td>Goals</td><td>What, by when, for whom</td><td>What does "done" look like?</td></tr>
+                <tr><td>Relationships</td><td>Who counts, who depends, who decides</td><td>Who influences this decision that isn't in the room?</td></tr>
+                <tr><td>Assets</td><td>Everything, and where and with whom</td><td>Who controls it? What is held away?</td></tr>
+                <tr><td>Advisors</td><td>The professionals you will coordinate</td><td>What has worked and what hasn't?</td></tr>
+                <tr><td>Process</td><td>How to work with this person</td><td>Recorded verbatim; honored for good</td></tr>
+                <tr><td>Interests</td><td>The material of a long relationship</td><td>Noted for contact, never performed</td></tr>
+              </table></div>
+              <p>At this level the profile carries an overlay the seven areas alone will not hold: the entity and trust map, concentrated positions and closely held businesses, liquidity events past and pending, philanthropy, any family office, existing governance, the rising generation, and the transitions under way.</p>
+              <p class="sop"><a href="playbook.html">SOP 11 — Total Client Profile</a> · <a href="playbook.html">T03 — Discovery interview guide</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">3.2</span>
+      <h3 class="card-t">It is a map you draw, not a form you fill in.</h3>
+      <p class="essence">One unlined sheet, the client's name in the middle, a branch per area, lines drawn between the things that connect. The drawing is what makes the conversation go deeper.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>A form asks closed questions in a fixed order and produces the answers it deserves. A map lets you follow the client — a comment under Relationships gets a line drawn to an entity under Assets, and the connection prompts the question neither of you had planned. Clients watch it being drawn and correct it, which means they are working on their own picture rather than being interviewed.</p>
+          <p>The practical payoff comes later. A map is one page, so it can be reviewed in two minutes before a meeting, handed to a specialist as a case brief, and laid beside next year's version to show exactly what changed.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Rules that keep the map usable rather than decorative: both names at the centre for a couple; the client's own words, not your interpretation, which belongs in the system note; every node dated with when it was last confirmed; the source of every asset figure recorded, whether statement, tax return, or estimate; and every area with at least one entry before the plan meeting, with "not discussed" written explicitly where that is the truth.</p>
+              <p>It is scanned the same day and transcribed within 24 hours, then feeds directly into the investment plan, the wealth management plan, the anonymized case brief the expert network works from, the contact plan, and the list of held-away assets. Nothing in the practice asks the family to repeat something the map already knows.</p>
+              <p class="sop"><a href="playbook.html">SOP 11 — Total Client Profile</a> · <a href="playbook.html">T04 — Total Client Profile outline</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">3.3</span>
+      <h3 class="card-t">"Process" is a promise, not a preference.</h3>
+      <p class="essence">How they want to be contacted, how often, in how much detail, with whom present. You record it verbatim and then you honor it for the life of the relationship.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>This is the cheapest loyalty available to you and the one most practices waste. A client who says they want quarterly email and no phone calls has told you exactly how to keep them; calling them anyway, however warmly, is a small betrayal repeated forever. The preference belongs to them, it is asked once, and it governs until they change it.</p>
+          <p>It matters more at this level, not less, because families with real complexity are managing many professionals and have already learned that most of them will work in whatever way suits the professional. Being the one who works their way is disproportionately memorable.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The recorded preference becomes a written contact plan for each client: the channel, the frequency, the meeting cadence, who else is present, how much detail they want, and — stated to them plainly — who they call for what inside the practice. It is confirmed at the follow-up meeting and again whenever the team changes.</p>
+              <p>Two extensions the practice adds. Both partners in a couple may speak with the Advisor directly, and both are kept knowledgeable enough to do so, which is contingency planning as much as courtesy. And a meaningful share of the contacts across a year should be about something other than the portfolio — the practice treats regular non-account contact as a design target rather than a quota.</p>
+              <p class="sop"><a href="playbook.html">SOP 21 — Service standards and contact plan</a> · <a href="playbook.html">SOP 11 — Total Client Profile</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">3.4</span>
+      <h3 class="card-t">Above a certain size, the profile has two levels.</h3>
+      <p class="essence">One picture of the family, and one picture per household inside it. Confusing the two is how advisors end up telling a sibling something they had no right to know.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The family level holds what is genuinely shared: the family map of households and roles, the entity and trust map, the summary of the five capitals, the shared values and goals, the transitions under way, the full advisor map, and whatever governance already exists. The household level holds the seven areas and the overlay for each household, exactly as for a single client.</p>
+          <p>Keeping them separate is what lets you serve a family and its members at the same time without becoming the channel through which one branch learns about another. Anything that rolls up from a household to the family level does so because that household consented to it.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The family level is not built in a Discovery meeting; it is built through a separate family discovery, in confidential interviews with every adult and with the family's key professionals, and it produces a written summary the family reads together. That process is Chapter 6.</p>
+              <p>Where you serve an individual inside a family that has its own central team, the profile gains two things instead: a family-context node recording the client's position, the entities in which they have an interest but no control, and what they simply cannot access — and a table of that central team by name, function, and what each of them does for this client. The second one keeps the scope of your plan honest.</p>
+              <p class="sop"><a href="playbook.html">SOP 41 — Family discovery and executive summary</a> · <a href="playbook.html">T14 — Family map and matrices</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">3.5</span>
+      <h3 class="card-t">Confidentiality is a structural feature of the profile.</h3>
+      <p class="essence">Every item carries a flag: shared with the family, visible to the household, or private between that adult and you. The default is the most private setting, and consent is specific.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Once you serve more than one member of a family, everything you know becomes a hazard. The protection cannot be your discretion in the moment — it has to be built into the record, so that the question "may I say this?" is already answered before anyone asks it. Nothing an adult tells you is shared upward, sideways, or with a trustee or family office without that adult's written, specific consent, and summary-only is a valid setting.</p>
+          <p>One deliberate exception keeps you honest in the other direction. The existence and terms of trusts and family structures are family knowledge for the members entitled to know them: you encourage staged disclosure, and you never become the instrument by which one branch keeps another in the dark.</p>
+          <div class="pull warn"><span class="lbl">Inside your own firm</span><p>Where a sister company serves a trust or another branch of the same family, the same wall runs between your team and their staff. It is written into the scope memo before any specialist is briefed.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Three flags, applied node by node. <strong>Shared</strong> may appear in family-level documents. <strong>Household</strong> is visible to that household only. <strong>Private</strong> is visible to the individual and the Advisor. The default is Household for a couple and Private for anything one adult tells you alone.</p>
+              <p>The flags come from the consent recorded on the scoping worksheet or the family matrices, they are set before the profile is shared with anyone — including a sister-company specialist, who receives an extract rather than the profile — and they are reviewed at every Rediscovery meeting and every annual scope review. Consent is not permanent, and asking to renew it is a normal part of the annual conversation rather than an awkward one.</p>
+              <p class="sop"><a href="playbook.html">SOP 40 — Family engagement model</a> · <a href="playbook.html">SOP 02 — Engagement modes</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><a href="#ch-seq">← Chapter 2 — The sequence</a><a href="#ch-plan">Chapter 4 — Making it comprehensive →</a></div>
+</section>
+
+<section class="chapter" id="ch-plan" data-nav="4 · Planning">
+  <header class="ch-head">
+    <p class="eyebrow">Chapter 4</p>
+    <h2>Making it comprehensive</h2>
+    <p class="lede">This is the chapter that separates the practice from a well-run investment business. It has two halves: what advanced planning actually is, and the network of people without whom you cannot honestly offer it.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">4.1</span>
+      <h3 class="card-t">Advanced planning is four permanent areas, not a project.</h3>
+      <p class="essence">Wealth enhancement, transfer, protection, and giving are open for as long as the family exists. Items move between completed, in progress, and future — nothing is ever finished.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p><strong>Enhancement</strong> is the best return the family can hold on to after tax. <strong>Transfer</strong> is moving wealth to the next generations in the way the family actually wants. <strong>Protection</strong> is creditors, litigants, divorcing spouses, and catastrophe. <strong>Charitable</strong> is giving, which usually turns out to support the other three.</p>
+          <p>Most advisors treat these as episodes — an estate plan gets done, a trust gets funded, the file closes. Treating them as standing areas changes the conversation from "do you need anything?" to "here is where each of the four stands, and here is what I recommend we move this year." The four areas are not silos either; a single trust often lives in both transfer and protection, and the plan says so.</p>
+          <div class="pull"><span class="lbl">Why it holds together</span><p>Every recommendation in the plan carries five things: the expert responsible, the rationale, a consequence check, the client's decision, and a dated next step. No recommendation enters the plan without all five.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The wealth management plan is one document in three parts: the client profile in summary, a pointer to the investment plan and policy statement, and the advanced-planning plan itself. Each of the four areas gets the same structure — definition, current situation, prioritized recommendations, and the open questions the practice cannot decide on its own.</p>
+              <p>The one-page "big picture" at the front shows all four areas with every item status-coded, so the family can see the whole program without reading forty pages. Behind it sits the tracker, updated within forty-eight hours of every progress meeting and every network meeting. The full plan is re-issued annually or whenever a life event changes the picture.</p>
+              <p>Each area also carries a standing menu of what to consider — investor allocation and intra-family lending under enhancement, staged disclosure and purpose language under transfer, the prenuptial process and trustee structures under protection, placement rules and vehicle choice under giving. These are checklists for your own thinking, not recommendations to the client, and nothing moves from the menu into the plan until the network has looked at it.</p>
+              <p class="sop"><a href="playbook.html">SOP 30 — The wealth management plan</a> · <a href="playbook.html">T10 — Advanced-planning tracker</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">4.2</span>
+      <h3 class="card-t">You cannot promise advanced planning before the network exists.</h3>
+      <p class="essence">Two people have to be on written terms first: a private-client attorney the client hires directly, and an insurance specialist with no carrier incentives. Until then the service is "coordinated," not "delivered."</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The attorney should be a partner in a high-end boutique, not a trust officer employed by a bank or an insurer — you want someone whose loyalty runs to the family. The insurance specialist has to be genuinely independent, because a specialist who is compensated by one carrier will find that carrier's answer. These two are the core; almost everything else can be reached through them.</p>
+          <p>That is the deliberate design. Rather than recruiting a dozen specialists you use once a year, you let the core two bring their own people — an actuary behind the insurance specialist, a valuation or corporate tax specialist behind the attorney. You add a direct member only for a capability you will use more than annually.</p>
+          <div class="pull warn"><span class="lbl">The line that never moves</span><p>You take no share of legal fees, ever. The client hires the attorney directly. Everything else you are paid on is disclosed to the client in writing and cleared with compliance before the work starts.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Vetting is a real search, not a phone call to someone you know. Shortlist five, interview for four traits — specific expertise, integrity, professionalism, and chemistry — and ask the questions that reveal how they behave rather than what they know: how they work when someone else quarterbacks the relationship, whom they bring in when a matter is beyond them and how those people are paid, what would make them decline a matter you send, and what an unhappy client says about them.</p>
+              <p>Then check references the candidate did not choose. Ask each reference who else the candidate works with, and call those firms. Finish with a trial matter — meaningful but not mission-critical. For counselors, coaches, and facilitators, run a two-meeting trial instead: two sessions to assess fit on both sides, either party free to stop without cost.</p>
+              <p>Once in, every member goes on written terms covering scope, the rule that you remain the client's point of contact, the communication protocol, confidentiality, compensation, and how either side ends it. Then a scorecard, reviewed after every matter, and a full review of every external relationship once a year.</p>
+              <p class="sop"><a href="playbook.html">SOP 31 — Expert network</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">4.3</span>
+      <h3 class="card-t">Your firm hands you a network most advisors have to build from nothing.</h3>
+      <p class="essence">A trust company, an ESOP company, sister RIAs, tax, insurance, and lending specialists are already inside the building. That is an advantage — provided you engage them on written terms like anyone else.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The standard model assumes the network is assembled from external free agents, which takes years. You start with a bench: the trust company for administration, trusteeship, and distribution process; the ESOP company when a closely held business has no obvious successor; a sister RIA for planning and analysis capacity before you have hired anyone; plus tax, risk, and lending specialists.</p>
+          <p>The discipline that makes it safe is a rule about when <em>not</em> to use it. Use the internal bench where the expertise exists and independence is not compromised. Use the external network where independence matters — insurance, or a second opinion on a sister company's own product. Use the client's existing advisor where they already have a good one, and coordinate rather than duplicate.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Every engagement of the bench follows the same short protocol:</p>
+              <ol class="seq">
+                <li><strong>Clear conflicts and declare the wall.</strong> Ask whether that sister company already serves this family in any capacity. If it does — especially if it sits on a Mode B family's central team — record which people may see what, and that nothing learned here flows to the other relationship.</li>
+                <li><strong>Write the scope memo.</strong> Deliverable, timeline, what data they receive, whether they are client-facing, who signs off, and the credit basis. Five lines is enough for a small matter; nothing proceeds without one.</li>
+                <li><strong>Introduce them properly.</strong> By name, role, and what they will do for this family — and state plainly that everything still comes back through you.</li>
+                <li><strong>Review, then debrief.</strong> You check the work against the family's profile before it reaches the client, then score the specialist within a week.</li>
+                <li><strong>Log the hours.</strong> Borrowed hours count against the relationship, because that number is part of the case for your first hire.</li>
+              </ol>
+              <p>Internal referral credit follows firm policy and always sits below what an external source would receive. Own the process even where the bench does the work — keep the data, templates, and client relationship in your own systems so the service survives a reorganization.</p>
+              <p class="sop"><a href="playbook.html">SOP 71 — Engaging borrowed expertise</a> · <a href="playbook.html">T25 — Specialist engagement scope memo</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">4.4</span>
+      <h3 class="card-t">The network meets about families, not about problems.</h3>
+      <p class="essence">Once a quarter your specialists sit down over one to six families whether or not anything is wrong. That is where advanced planning is actually produced.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>A network convened only when something breaks produces reactive advice, and each specialist sees a slice. A network convened on a rhythm produces a plan, because the attorney hears what the insurance specialist is worried about and both hear what the family actually values before anyone proposes a structure.</p>
+          <p>You present the case and you do <em>not</em> present solutions. The specialists name what they each see, you build scenarios on the two or three issues that matter, opportunities are identified per area, and then you prioritize — prioritization is your call, the experts advise. The meeting also does something quieter: it is where disagreements about approach get worked out before they ever reach a client.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Ninety minutes covers up to three families; half a day covers six. Families are selected three weeks out with consent confirmed for each; briefs are drafted two weeks out and circulated with the agenda a week ahead, along with a request for conflicts declarations.</p>
+              <p>The brief is one page: who the family is, what they value and want, the structures in place, the issues, and your specific questions. Where consent is limited, the brief is anonymized. In a family engagement it also carries the five-capitals picture, on a simple principle — an action that grows financial capital while draining human or social capital is not a good recommendation.</p>
+              <p>The output is a draft plan per family with every item status-coded and every in-progress or future item carrying an expert, a next step, and a date. Drafts go to the assigned experts within three days for correction, are finalized within two weeks, and are scheduled into each family's next progress meeting. You also decide, in the room, which items warrant the specialist attending that meeting in person.</p>
+              <p class="sop"><a href="playbook.html">SOP 32 — Expert-network meeting</a> · <a href="playbook.html">T09 — Expert-network meeting pack</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">4.5</span>
+      <h3 class="card-t">Every recommendation is coached to a decision, never sold.</h3>
+      <p class="essence">The client chooses drop, defer, or do on each item — one at a time, with the reasoning recorded. Your job is to help them decide well, not to get to yes.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>A plan presented as a package invites one verdict on twenty things, which is how families end up with structures nobody understands. Item by item, the family engages with each decision, and "defer" becomes a legitimate answer rather than a polite refusal — which means the item stays on the tracker and comes back next time instead of dying quietly.</p>
+          <p>Recording the reasoning matters as much as the decision. Two years later, when a deferred item becomes urgent, you have the family's own words about why they waited. In Mode B there is a fourth outcome — refer to the family team — for anything touching a structure the central team owns.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>At the first progress meeting you present the whole plan at a high level, point out the highest-priority items, then work through each recommendation with as much detail as the client needs to decide. Take complete notes; summarize the next step for every item before moving on. At later meetings you are reviewing the tracker rather than presenting: completed items acknowledged, in-progress items with owner and date, future items re-prioritized. For anything complex — a family partnership, a dynasty trust, a succession structure — the specialist explains it directly, in the room.</p>
+              <p>Two disciplines sit on top of the decision itself. Before anything long-term moves from "do" to execution, you run the consequences check together: what could this do to the people it is meant to benefit, what harm might we do before we try to do good, what if it turns out to be wrong. And you pace the conversation — alternating questions that supply knowledge with questions that call for courage, and accepting that when the family is not ready, waiting is usually the right move.</p>
+              <p class="sop"><a href="playbook.html">SOP 20 — Regular Progress Meeting</a> · <a href="playbook.html">T10 — Advanced-planning tracker</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">4.6</span>
+      <h3 class="card-t">You coordinate the advisors the family already has.</h3>
+      <p class="essence">Their CPA, attorney, trustees, and — in Mode B — their family office are not competitors to be worked around. Coordinating them is a third of the job description.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Relationship management has three parts, and one of them is working with the professionals already on board. In Mode B this is the whole game: the family's counsel and trust company <em>are</em> the private-client attorney and the fiduciary, your network fills gaps only, and the central team should never learn of a recommendation from the client after the fact.</p>
+          <p>The mechanism is unglamorous and it works: map who owns each function, let the client make the introductions, get consent in writing, agree a communication protocol, and hold a short coordination call before every client meeting. Where you disagree with another advisor, you raise it with them first, document both positions, present both neutrally, and let the client decide.</p>
+          <div class="pull"><span class="lbl">Mode A opportunity</span><p>Families are routinely surprised that their own advisors have never met. Propose that they meet once or twice a year with you convening — and bring a professional facilitator to the first one, so that professional defensiveness does not derail it.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The advisor map distinguishes who <em>owns</em> a function (decides), who executes it, and who is merely informed; you confirm it with the client before contacting anyone. The consent letter is one page, signed by the client, stating what may be shared in each direction, for what purpose, and for how long — and nothing is shared before it is signed.</p>
+              <p>The communication protocol names who contacts whom for what, keeps one thread per topic, sets cc rules and turnaround expectations, and says how urgent matters escalate. The quarterly coordination call runs twenty minutes, two weeks before the client's progress meeting: changes on either side, items in flight, the family's calendar, and anything the other team needs from your reporting.</p>
+              <p>Two rules hold the whole thing together. Never argue with another advisor in front of the client. And never assign blame for another advisor's failure — you still own the recovery for your client.</p>
+              <p class="sop"><a href="playbook.html">SOP 33 — Coordinating with outside advisors</a> · <a href="playbook.html">T21 — Structure summary and communication plan</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><a href="#ch-know">← Chapter 3 — Knowing the client</a><a href="#ch-stay">Chapter 5 — Why clients stay →</a></div>
+</section>
+
+<section class="chapter" id="ch-stay" data-nav="5 · Staying">
+  <header class="ch-head">
+    <p class="eyebrow">Chapter 5</p>
+    <h2>Why clients stay</h2>
+    <p class="lede">Almost everything in this chapter is unglamorous and none of it is optional. Retention at this level is produced by a small number of promises kept on a schedule — and lost, almost always, in the gap between something happening and the client hearing about it from you.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">5.1</span>
+      <h3 class="card-t">Clients leave over relationships, not returns.</h3>
+      <p class="essence">Competence does not differentiate you — satisfied and dissatisfied clients rate their advisors almost identically on expertise, because expertise is assumed the day they hire you.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>A small minority of clients leave because of investment performance. The overwhelming majority leave because of a service or relationship failure — the advisor met their investment needs and lost them anyway. This is good news, because it means retention is something you can build rather than something the market grants you.</p>
+          <p>Six things actually differentiate: reliability, meaning promises kept on time; no surprises, meaning problems and their fixes reach the client from you; being first to know about their affairs, the markets and your firm; genuine warmth rather than mere politeness; listening, with patience while explaining and attention while hearing; and work that is visibly built around their specific situation with real alternatives offered.</p>
+          <div class="pull"><span class="lbl">The design rule</span><p>Every standard in this chapter maps to one of those six. If a proposed service improvement does not, it is decoration.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Two audits keep this honest. Twice a year the team scores the practice against a self-audit covering the relationship, the service, and the wealth-management work — every item marked met, partly, or not, and every gap given an owner and a date. Once a year a trusted outsider tests the practice as a mystery shopper: a call to the main line, an email request, a document request, measured against the response-time standard.</p>
+              <p>Both run <em>before</em> the client survey goes out, for a simple reason. Asking clients what to improve while you already know about unclosed gaps wastes their goodwill, and they can tell.</p>
+              <p class="sop"><a href="playbook.html">SOP 21 — Service standards and contact plan</a> · <a href="playbook.html">T12 — Service quality instruments</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">5.2</span>
+      <h3 class="card-t">Each client's contact plan is written down, and then honored.</h3>
+      <p class="essence">They tell you in the first meeting how they want to be worked with. You write it on one page, confirm it back to them, and every person on your team follows it.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The process preference you capture at Discovery is a commitment, not a note. Writing it down is what makes it survive a staff change, a busy quarter, and your own habits — a client who asked never to be called at the office should not have to ask twice, three years later, because someone new joined.</p>
+          <p>The plan names the preferred channel, how often they want to hear from you and about what, meeting cadence and format, who in the household is the primary and secondary contact, and what they have asked you never to do. It also names <em>who they call for what</em>: you for advice and decisions, the service advisor for the plan and routine reviews, the client service associate for paperwork and money movement, a named specialist for an active matter.</p>
+          <div class="pull warn"><span class="lbl">A target, never a quota</span><p>Advisors who keep their best clients loyal reach them roughly fifteen times a year, and most of those touches are about the client's life rather than the portfolio. Use that to design the year — but a client who asked for quarterly contact gets quarterly contact, done well.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The plan is drafted from the Discovery notes before the commitment meeting, confirmed with the client at the forty-five-day follow-up, and issued in writing with the notebook. The client service associate reviews the touch log against it monthly and flags gaps; it is reviewed with the client every year at the first progress meeting.</p>
+              <p>Two standing rules sit alongside it. Every client message is acknowledged the same business day by the person who received it, with a time by which the answer will come — and whoever received the request owns it to completion. And both partners in a couple may speak directly with you and are named as contacts unless the client instructs otherwise in writing, which protects the household if one of them is suddenly unable to act.</p>
+              <p>Service itself is defined by scope, so the team can plan capacity and the client knows what they bought: a whole-family engagement gets quarterly household meetings, an annual family meeting, a full plan across all four planning areas, and consolidated reporting across entities and trusts; a narrow single-trust mandate gets an annual meeting and reporting on that mandate. Anything beyond the definition is priced into the fee or declined — never absorbed silently.</p>
+              <p class="sop"><a href="playbook.html">SOP 21 — Service standards and contact plan</a> · <a href="playbook.html">T15 — Annual service calendar</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">5.3</span>
+      <h3 class="card-t">Bad news reaches the client from you, first, always.</h3>
+      <p class="essence">A market shock, a fee error, a departure from your firm — the client should never learn of it from a statement, a competitor, or the news.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Clients dislike service failures. They dislike unpleasant surprises considerably more, and a surprise is what happens when the information travels faster than you do. Being first to know is one of the six differentiating factors precisely because so few advisors manage it under pressure.</p>
+          <p>On a market shock you call the top relationships personally that day, with one consistent message: what happened, what it means for their plan, what you are doing, and when they will hear from you next. Everyone else gets the approved note within two business days — and nobody on the team sends their own market commentary. On a firm or staff change the sequence is fixed: the team is told, then each affected client is called, then the written note goes out, and only then does the change happen.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>What makes this possible is detection rather than diligence. The client service associate runs a red-flag review monthly and watches activity daily; anyone who hears of an event tells you the same day. Each flag has a defined owner, message, and follow-on task:</p>
+              <div class="tw"><table>
+                <tr><th>Trigger</th><th>The response</th></tr>
+                <tr><td>Large or unusual cash movement</td><td>Confirm the client authorized it — by callback on a known number, never by replying to the request</td></tr>
+                <tr><td>Statement anomaly: missing account, unexpected position, fee error</td><td>Explain what happened and what you did about it, before the client notices</td></tr>
+                <tr><td>Repeated missed or cancelled meetings</td><td>You call and ask whether everything is all right; not a rescheduling email</td></tr>
+                <tr><td>Third party asking about the client</td><td>Nothing confirmed to anyone; the client is told the same day</td></tr>
+              </table></div>
+              <p>One more, easily forgotten: an external disaster affecting the client's community or business. Contact immediately to ask whether the family is safe and what you can do — money, documents, a hotel — and stay in touch daily until things are stable. That is a moment relationships are made or lost.</p>
+              <p class="sop"><a href="playbook.html">SOP 22 — Event-driven contact</a> · <a href="playbook.html">SOP 24 — Quarterly reporting package</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">5.4</span>
+      <h3 class="card-t">Life events are where the relationship is made or lost.</h3>
+      <p class="essence">An engagement, a business sale, a death — each one has a defined trigger, an owner, a message, and a planning task that opens the same day.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Every one of these events is simultaneously a human moment and a planning trigger, and the order matters: you acknowledge personally first, and open the planning task afterwards. A condolence call that arrives with a document request attached is remembered for a long time, and not fondly.</p>
+          <p>Some triggers have long fuses that only work if you start early. An engagement starts the prenuptial timeline <em>months</em> before the wedding, with the conversation held with the couple and the parents, disclosure of trust interests to both partners, and the family's spouse policy applied if one exists — never in the final weeks. A business sale or a principal's retirement convenes a family meeting about what the liquidity event means for the family, not just for the balance sheet.</p>
+          <div class="pull warn"><span class="lbl">One boundary</span><p>On separation or divorce, confidentiality between the parties is enforced from the first call, compliance is consulted, conflicts are assessed — and you never mediate a marriage.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The death or incapacity of a principal runs on a written checklist, because this is exactly when improvisation fails. Day one is the call to the surviving spouse or designated contact — condolences first, logistics only if asked, and nothing else that day. Days one to three: compliance and the custodian notified, accounts restricted as required, recurring transfers paused, authorized signers confirmed from the file and never from a phone call.</p>
+              <p>Week one: executor, trustees, counsel and CPA identified and contacted; the will, trusts, powers of attorney and letters of wishes located; valuations ordered. Weeks one to two: the household's immediate cash needs covered, and one person on your team named as the family's single point of contact. Months one to three: administration coordinated with counsel and the trust company, the family map updated, the contact plan rewritten with the survivors.</p>
+              <p>And within the year: a family meeting that includes remembrance, and the deceased's story captured for the family archive. Incapacity runs the same sequence with the agent under the power of attorney and the successor trustee.</p>
+              <p class="sop"><a href="playbook.html">SOP 22 — Event-driven contact</a> · <a href="playbook.html">SOP 42 — Family member onboarding</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">5.5</span>
+      <h3 class="card-t">When you fail a client, you call them yourself, the same day.</h3>
+      <p class="essence">Problem, cause in one sentence, the fix, the date, and what you are changing so it does not recur. One clear apology, no excuses, and never a word of blame.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>A service failure handled well can leave a client more confident than they were before it, because they have now seen what happens when something goes wrong. Handled badly — by a delegated call, a vague update, or a diagnosis you have not actually done yet — it does permanent damage.</p>
+          <p>So the sequence is: log it, contain it, diagnose it fast enough to give a real date, and only then call. And never attribute the failure to the custodian, a sister company, the client's other advisors, or the client, in front of the client. You own the client's experience whoever caused the problem; escalation and cost recovery happen behind the scenes.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Fix it by the date promised — and if the date is going to slip, the client hears before the date, not after. Confirm closure in writing the day the fix lands, and check at the next contact that the client considers it closed.</p>
+              <p>Then the part most practices skip. Within five business days you and the person closest to the failure write a two-line root-cause note: the step in the procedure that failed or was missing, and the change. The procedure is amended. If the same failure recurs, it is treated as a system failure rather than a person's, which is the only way anyone will keep reporting failures honestly.</p>
+              <p>Before assigning cause elsewhere, ask what your side did or did not do that contributed — most "custodian problems" have a missing check on your end. The log is reviewed monthly at the team meeting for patterns, and those patterns feed the twice-yearly self-audit.</p>
+              <p class="sop"><a href="playbook.html">SOP 23 — Service failure recovery</a> · <a href="playbook.html">SOP 60 — SOP maintenance</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">5.6</span>
+      <h3 class="card-t">Ask how you are doing once a year — then change something and say so.</h3>
+      <p class="essence">A survey that produces no visible change is worse than no survey. The loop only closes when clients hear, in specific terms, what you are doing differently because of what they said.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The order is deliberate: audit yourself first and close what you can, then ask. Send it with a short personal note saying why you ask, that you read every answer, and that criticism is what you most want. Then follow up individually <em>before</em> any team discussion — every client whose answers flag a problem gets a call to thank them, ask what happened, and say what you will do. That call is a service-recovery moment, not a data point.</p>
+          <p>Only then does the team meet on the results, together with the year's failure log, the lost-client findings, and the mystery-shopper results. The people who do the work usually know the fix, which is why everyone contributes to the action list.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Each action item names the change, the procedure it amends, the owner, and the date — distinguishing what changes for everyone from what changes for one client. Within two weeks of the session, every client gets a letter: what you heard, in their words where possible; the specific changes you are making; thanks. Anyone who asked for something particular hears it from you personally.</p>
+              <p>The action list is then tracked at the monthly team meeting until every item is closed, and this year's results become next year's baseline.</p>
+              <p>The last piece is the one nobody wants to do. When a client leaves, ask for thirty minutes within two weeks: what changed, what you missed, what they would tell a friend about you, and whether anything could bring them back. Thank them for the time whatever they say, record it, and act on it.</p>
+              <p class="sop"><a href="playbook.html">SOP 25 — Annual client satisfaction survey</a> · <a href="playbook.html">T12 — Service quality instruments</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><a href="#ch-plan">← Chapter 4 — Making it comprehensive</a><a href="#ch-family">Chapter 6 — When the client is a family →</a></div>
+</section>
+
+<section class="chapter" id="ch-family" data-nav="6 · Family">
+  <header class="ch-head">
+    <p class="eyebrow">Chapter 6</p>
+    <h2>When the client is a family</h2>
+    <p class="lede">Everything so far assumed a household. A family of several households, generations, entities and in-laws is a different animal: no one member can speak for it, no single interview reveals it, and the plan you build for the person who pays you will fail if the rest of the family never had a voice in it.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">6.1</span>
+      <h3 class="card-t">A family is not a bigger client. It is a different unit.</h3>
+      <p class="essence">One relationship, several clients. Every household signs its own engagement letter and every entity has a named decision-maker, because "the family" cannot sign anything or be owed a duty.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The moment you serve more than one household, four questions stop being obvious: who may instruct you about what, what you may tell whom, who speaks for the family as a whole, and what you do when serving one member well disadvantages another. Left unanswered they surface at the worst possible time — during a distribution fight, a divorce, or a death.</p>
+          <p>So they get answered in advance and written down. The default that resolves most of them is simple and strict: nothing an adult tells you moves upward to parents, sideways to siblings, or across to a trustee without that adult's specific written consent. Structural facts — that a trust exists, what the family's own rules are — are family knowledge and you encourage staged disclosure rather than secrecy. You never become the mechanism by which one branch keeps another in the dark.</p>
+          <div class="pull warn"><span class="lbl">The conflict rule</span><p>Name the conflict to both parties in general terms, hold your fidelity to the relationship rather than to whoever pays most, and arrange separate representation when one professional cannot hold both sides. You never mediate a marriage — you refer, and you step back.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The family map is one document with six parts, and every family-layer procedure reads from and writes to it: every member with generation, household, roles and interests; the entity and trust map; a decision-rights matrix; a signed confidentiality row per adult; a communication map; and a transitions inventory.</p>
+              <p>Two habits make it honest. Where the family has never actually decided who decides something, you record what happens in practice, <em>label it as such</em>, and put it on the next family meeting's agenda — you never invent a decision right on the family's behalf. And you ask the principals early whether any asset has ever been formally set aside as the family's rather than someone's personal property; until that has happened there is no family money to govern, only individual money that others hope to inherit.</p>
+              <p class="sop"><a href="playbook.html">SOP 40 — Family engagement model</a> · <a href="playbook.html">T14 — Family map and matrices</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">6.2</span>
+      <h3 class="card-t">Family discovery is a listening exercise, not a fact-find.</h3>
+      <p class="essence">Every adult gets a confidential hour on the same five questions. What comes back to the family is what the family thinks — never who said it.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>A ninety-minute Discovery profiles one household. It cannot profile a system, because the people who see the system most clearly are usually the ones with the least standing to describe it — the in-law, the rising-generation member, the sibling who moved away. Interviewing only the principals produces the principals' plan, and the family will treat it as such for a generation.</p>
+          <p>So you interview everyone: every adult member, adult in-laws by default, and the key non-family stakeholders — the family's counsel, the CPA, a long-serving trustee, a family-office executive. Each gets sixty to ninety minutes, the same topics, and a promise of confidentiality you keep absolutely. The output is a written summary of themes, and the contradictions between generations are usually the single most valuable finding in it.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The sequence runs about fourteen weeks from kickoff to the family meeting where it is presented.</p>
+              <ol class="seq">
+                <li><strong>Kickoff with the principals</strong> — why the family is doing this, who gets interviewed, who will see the result and in what form.</li>
+                <li><strong>Invitations</strong> with the confidentiality promise, the topics, and the capitals instrument to complete beforehand.</li>
+                <li><strong>The interviews</strong> — open with what the person is passionate about and who they learn from, then five topics: what is working, what is coming, what they would do, what they hope to learn, and what they will contribute.</li>
+                <li><strong>Synthesis</strong> into four sections: themes, strengths, challenges and opportunities, recommendations.</li>
+                <li><strong>Leader review</strong> — correct facts, never soften themes.</li>
+                <li><strong>Presentation at a family meeting</strong>, then straight into the profile, the plan, and the tracker.</li>
+              </ol>
+              <p>Offer an outside facilitator where the family is in conflict, or where members would not be candid with you specifically. Close the loop afterwards: every person interviewed gets a note saying what the family decided.</p>
+              <p class="sop"><a href="playbook.html">SOP 41 — Family discovery and executive summary</a> · <a href="playbook.html">T17 — Executive summary pack</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">6.3</span>
+      <h3 class="card-t">A family meeting runs on rules the family adopts and you enforce.</h3>
+      <p class="essence">The family owns the meeting and sets the agenda. You design it, prepare it, and facilitate it only until the family can facilitate itself.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>What separates a family meeting from a family argument is a short list of behaviors everyone agreed to in advance — be here, one voice at a time, play it back before you push back, say "I", hold your outcome loosely, park what cannot be settled today. The family writes its own version and signs it. Then the rules are enforced the moment they are broken, kindly and on everyone, including the people paying for the room. Rules enforced on the principals are the strongest counter-entitlement lesson in the practice; rules ignored teach the rising generation that the meeting is theater.</p>
+          <p>A chair and a secretary are appointed from the family for each meeting, after the agenda is set so the person with the big report is not also running the room. Minutes go out within five days. Roles rotate.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>When a disagreement turns destructive, you run a protocol rather than improvising: ask whether the disagreement is producing better discussion or stopping it; require each side to state the other's position before arguing; separate the people from the problem and <em>name the source</em> — a misunderstanding, different needs, different values, or a structure that is not working; invoke the relevant rule; look for common ground and for legitimate difference; call a break when stuck. If it cannot be settled in the room it goes to the family's elders or an outside mediator. You never adjudicate.</p>
+              <p>The practical furniture matters more than it sounds. Spouses attend by default and the organizing generation asks the adult children rather than deciding for them. Under-fourteens get childcare or a parallel program. Experts attend only their portion. The venue is never a parent's home or office, and heavy content is split across two half-days with a free evening between.</p>
+              <p class="sop"><a href="playbook.html">SOP 43 — Family meetings</a> · <a href="playbook.html">T16 — Family meeting pack</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">6.4</span>
+      <h3 class="card-t">The mission session is the meeting that changes the other meetings.</h3>
+      <p class="essence">Half a day on values and purpose. Its real output is not the statement — it is finding out whether the family has a shared reason to stay together at all.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Every later decision — how distributions are judged, what the family bank funds, which structures are worth their cost — is a values decision wearing financial clothes. Families that have never articulated the values argue the same argument repeatedly in different disguises.</p>
+          <p>The session is deliberately participatory rather than presented, because a statement written by a patriarch and ratified by everyone else goes into a drawer. Pre-work comes in two weeks ahead: a one-page personal profile — what a good friend would know about you, your passions, who mentors you — and a ten-year statement of where you want to be and what the family could do to help. Reading those aloud is often the first time cousins have heard each other's actual ambitions.</p>
+          <div class="pull"><span class="lbl">The diagnostic value</span><p>If the family cannot agree on why it wants to stay together, you have learned something more important than any statement it might have produced. Do not paper over it.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Four to six hours for a family up to about twenty; larger families break into groups that report back.</p>
+              <div class="tw"><table>
+                <tr><th>Step</th><th>Min</th><th>What happens</th></tr>
+                <tr><td>Rules and roles</td><td>10</td><td>Read the ground rules; confirm chair and secretary</td></tr>
+                <tr><td>Profiles</td><td>15</td><td>Each person: passions and mentors</td></tr>
+                <tr><td>Values lists</td><td>25</td><td>Each writes the values the family's success depends on; posted and clustered</td></tr>
+                <tr><td>The long view</td><td>20</td><td>Looking back from old age, what mattered most</td></tr>
+                <tr><td>Twenty years out</td><td>30</td><td>Each describes the family two decades from now</td></tr>
+                <tr><td>Family history</td><td>45–60</td><td>A committee's draft — crises, ancestors, decisions good and bad — corrected together</td></tr>
+                <tr><td>How we will decide</td><td>30</td><td>The family chooses how it decides and who represents whom</td></tr>
+              </table></div>
+              <p>A drafting committee of two or three spanning generations writes the first version from what is on the wall. It is a first draft, revisited annually, and read aloud by a rising-generation member at every annual meeting thereafter.</p>
+              <p class="sop"><a href="playbook.html">SOP 43 — Family meetings, Part B</a> · <a href="playbook.html">T16 — Mission session run-sheet</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">6.5</span>
+      <h3 class="card-t">The annual family meeting is the family's progress meeting.</h3>
+      <p class="essence">Same structure as a client progress meeting, one level up: what changed, how the capitals moved, what the plan says, what we decide, and who we are.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The agenda runs in three tracks. The <strong>individual</strong> track is each member's update on life, work and plans. The <strong>generational</strong> track has each generation caucus separately on what it wants to share with the others and what it wants to learn from them, then report — this is where the things nobody says in a mixed room get said. The <strong>family-wide</strong> track is the business of the family enterprise.</p>
+          <p>The family-wide track is where the practice's work lands: the capitals reviewed year on year, the family-level planning tracker walked item by item with drop, defer or do confirmed on each, the year's reporting, the giving, and a review of everyone who represents the family — council members, trustees, and you. The fee conversation happens here or in the principals' own meeting, and it is never skipped.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Four questions anchor the family-wide track, asked plainly every year: is each person here thriving; do the leaders of each generation give their peers reason to stay and to listen; does everyone know how they <em>could</em> leave the family enterprise, so that nobody stays because they cannot; and are the people who represent the family looking after all of its capitals — with members agreeing that they are.</p>
+              <p>Three things are protected in every annual meeting and are the first to be cut if you let them be. Reserve time for one or two stories from a designated storyteller who got the prompts in advance. Mark the year's passages — a birth, a coming of age, a marriage, a new elder, a death, the welcome of a new advisor. And hold the rising-generation conversation — <em>what is your dream, and how can the family invest in it?</em> — as a separate session, never in the same room as a money decision. Close with a round in which each person names someone they will thank, and how.</p>
+              <p class="sop"><a href="playbook.html">SOP 43 — Family meetings, Part C</a> · <a href="playbook.html">SOP 44 — Family capitals assessment</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">6.6</span>
+      <h3 class="card-t">Build governance only if it serves the members — and build it in order.</h3>
+      <p class="essence">Principles, then policies, then practices. Most families need clarity in three or four areas long before they need a system, and some never need a system at all.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Governance is nothing more mysterious than joint decision-making. A family that needs to know where it gathers, how the foundation decides, and how discretionary distributions are handled needs three answers — not a constitution. Offer that first. A system that does not serve individual members' flourishing is make-work, and it will be abandoned.</p>
+          <p>When a family does build, the order is fixed. Principles — values and purpose — come from the mission session. Policies come second: the constitution, the council charter, the spouse policy, the distribution rules. Practices come last: meetings, the executive summary, the education program. A practice adopted without a policy behind it fades within two years; a policy without agreed principles is contested at the first hard case.</p>
+          <div class="pull warn"><span class="lbl">The design that gets sabotaged</span><p>A governance structure with no active role for the senior generation will be undermined by that generation. The elders' role — mediating, keeping the stories, holding the rituals, telling the family when it is breaking its own rules — is where founders go. Design it first.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Two defaults and one arc. The <strong>confederal default</strong>: each branch keeps authority over most matters, and only genuinely family-wide things — a shared business or foundation, pooled learning, relations with outside professionals — go to a family body. Founder-driven centralized designs rarely outlive the founder. The <strong>three-stage arc</strong>: all adults voting with a founder's veto; then a representative democracy of siblings; then, from roughly fifteen to twenty adult members and certainly above thirty, a council of branch representatives who caucus before they come. Design for the next stage, not the current one.</p>
+              <p>Your own position needs stating out loud, because families will hand you more than you should take. You convene, translate, and prepare. You do not draft the constitution, chair the council, mediate disputes, or deliver therapy — those go to counsel, a governance facilitator, or a mediator from the network. Where the family asks you to hold an elder's function because it has no elder yet, you do it only when invited and hand it back as soon as one emerges.</p>
+              <p class="sop"><a href="playbook.html">SOP 45 — Family governance readiness</a> · <a href="playbook.html">SOP 31 — Expert network</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><a href="#ch-stay">← Chapter 5 — Why clients stay</a><a href="#ch-trust">Chapter 7 — When the money sits in trust →</a></div>
+</section>
+
+<section class="chapter" id="ch-trust" data-nav="7 · Trusts">
+  <header class="ch-head">
+    <p class="eyebrow">Chapter 7</p>
+    <h2>When the money sits in trust</h2>
+    <p class="lede">By the third generation most of a family's financial capital is held in trust, and most beneficiaries experience those trusts as a burden rather than a gift. Your firm owns trust companies, so you will sit inside that landscape constantly — sometimes advising the beneficiary, sometimes the trustee, sometimes the person about to create one.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">7.1</span>
+      <h3 class="card-t">A trust is a relationship that happens to live inside a document.</h3>
+      <p class="essence">Creator, trustee, beneficiary — plus protectors, committees and each party's advisors. Treat it as a legal instrument and you will manage the instrument perfectly while the relationship fails.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Draw the whole landscape before you read a word of the document. Put every person and institution touching the trust on a page, placed by closeness and joined by lines: the beneficiary, the trustee, the creator living or dead, the protector, any committee, and the advisors each of them uses. Then draw the version the client would <em>like</em> to have. The gap between the two pictures is your agenda for the next three years.</p>
+          <p>Then audit the stories. Every party arrives carrying beliefs about trusts in general, about this trust, about the other side, and about themselves — beliefs that feel like facts and harden under stress. Ask each party separately what they believe and where the belief came from. Do not argue with a narrative; name it, and ask what small step would test it.</p>
+          <div class="pull"><span class="lbl">Two questions that reorient a room</span><p>What is the single most important reason this trust exists? What is the most important outcome you want from it? If nobody present can answer either, the trust needs a statement of purpose more than it needs anything else you were planning to discuss.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Most trusts say nothing about their own purpose beyond a distribution standard, because they were built for tax reasons in a rush. Where the creator is alive, encourage them to write purpose language for counsel to place before the mechanics, and offer the three letters of wishes: creator to beneficiaries explaining why; creator to trustees on how to approach discretion; and later, trustee to successor trustees on what this trust has meant in practice. Broaden the vocabulary beyond health, education, maintenance and support to what the family actually intends — a start in a career, a lower-paid calling, lifelong learning, gatherings that hold the family together.</p>
+              <p>Where the creator is gone or silent, the trustee and beneficiary write their own short relationship preamble: how they will work together and what they understand the purposes to be. Revisit it every ten years and at any material change — a new trustee, a sale, a new life stage, a health change. Counsel drafts anything that touches the instrument; the family's words lead.</p>
+              <p class="sop"><a href="playbook.html">SOP 46 — Trustee–beneficiary relationship</a> · <a href="playbook.html">T14 — Trust map</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">7.2</span>
+      <h3 class="card-t">The distributive function is the heart of the trust, and everybody neglects it.</h3>
+      <p class="essence">Trustees concentrate on administration, beneficiaries on investments, and distributions get treated as an awkward event to be deferred. That is the part that decides whether the trust helps anyone.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>A trustee has three jobs — administration, investment, and distribution. The first two have industries built around them and can be bought. The third cannot, because it requires knowing a particular person well enough to judge what a given sum of money would do to their life. So it defaults to reaction: a request arrives, it is measured against the document, and an answer goes back.</p>
+          <p>The standard that changes this is whether the distribution <em>enhances</em> the person's life — their maturation and their pursuit of their own aims — or merely subsidises it. That question will not appear in the instrument; it is the practical expression of fidelity to the trust's purpose, and it is heavily life-stage dependent. A request from a professional in her forties is not the same request from a twenty-one-year-old, even for identical amounts.</p>
+          <div class="pull warn"><span class="lbl">Asked in both directions, annually</span><p>If this trust had to be distributed tomorrow, would the beneficiary be ready to receive it? And what will each of you do this year to make the answer yes? That is the trustee's highest duty stated as a question you can actually work on.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The way to stop being reactive is to start the analysis long before a request exists. A trustee who has met the beneficiary annually, knows what they are building, and has heard about the business idea twice already can understand the context when the request finally arrives — and can often anticipate it.</p>
+              <p>Insert a growth question even into routine budget reviews. Ask a young beneficiary what having the trust pay this particular cost is doing to their independence; ask an established one what a supported lifestyle might be costing them in options. The answer may not change the distribution. The conversation about what enhancement means will happen either way, and it is better to have it in a quiet year than during a contested request.</p>
+              <p class="sop"><a href="playbook.html">SOP 46 — Trustee–beneficiary relationship</a> · <a href="playbook.html">T23 — Distribution request and decision memo</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">7.3</span>
+      <h3 class="card-t">A distribution request gets a form and a four-stage analysis.</h3>
+      <p class="essence">Written request, then conversation, enhancement, document, prudence — in that order. Then the decision <em>and the reasoning</em> go back, and both are written down.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The form is a thinking aid, not a hurdle — in practice most of it is assembled together in conversation. It asks for the purpose, the amount, the trust language the beneficiary believes permits it, the timing, any follow-on requests, and what else they expect to ask for this year. Supporting material is scaled to the ask: invoices for small things, a budget, a business plan for a venture, a statement of the beneficiary's own resources. Requests go on a calendar — quarterly for routine, annually for significant — set at onboarding so nobody is guessing.</p>
+          <p>Then the order of analysis matters more than any single test. Conversation first, because it usually reveals a larger purpose underneath the number. Enhancement second. The document third. Prudence last.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <ol class="seq">
+                <li><strong>The conversation.</strong> What motivates this, and is there a bigger purpose beneath it? How does it square with the creator's intent? Is there a better route than trust funds? Will the beneficiary have their own resources in it? What is the best outcome if approved — and what changes if it is declined?</li>
+                <li><strong>The enhancement standard.</strong> Is making, or not making, this distribution more likely to advance this person's life than to subsidise it?</li>
+                <li><strong>The document.</strong> Would approval be a reasonable exercise of discretion under the language? If the language is narrower than the purpose, that is a finding for the structural review.</li>
+                <li><strong>Prudence.</strong> Size relative to the trust; consistency with past decisions; cumulative impact; effect on other beneficiaries; whether outside resources must be considered; and whether a loan, or part loan and part distribution, would serve better — financing a residence as a mortgage keeps the beneficiary's own stake in it.</li>
+              </ol>
+              <p>Communicate the decision with its reasoning, transparently, and if declined offer time to find another route to the underlying goal. Then write the memo: process, analysis, decision, alternatives offered, follow-up. It is a template for the next request, a record for the successor trustee, and evidence if the decision is ever questioned inside the family or outside it.</p>
+              <p class="sop"><a href="playbook.html">SOP 46 — Distribution requests</a> · <a href="playbook.html">T23 — Request form and decision memo</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">7.4</span>
+      <h3 class="card-t">The trustee–beneficiary meeting is a business meeting, in the morning, in private.</h3>
+      <p class="essence">Not lunch. Both sides prepare, both sides send questions in advance, and both sides assess each other's performance once a year.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The familiar version — an eleven-fifteen meeting with lunch at noon, an accounting nobody can read, a polite investment presentation, and a handshake — is structurally incapable of doing any work. Move it to the morning, hold it somewhere private, and keep the social time separate and afterwards.</p>
+          <p>The preparation is what makes it real, and it is symmetrical. The accounting goes to the beneficiary two weeks ahead <em>with the trustee's own questions attached</em>. The beneficiary reorders the agenda a week ahead to put their issues first and adds their questions. Both sides arrive having reviewed their own assumptions about the other. Neither side is improvising.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The standing agenda has five blocks. <strong>Opening</strong> — what each side hopes to accomplish and what success looks like; agenda confirmation; life changes since last time; status of prior to-dos. <strong>Annual review</strong> — the beneficiary's hopes, challenges and opportunities for the year, then the trustee's; what is working in the relationship and what could improve; the beneficiary's assessment of the trustee's performance and the trustee's of the beneficiary's; any dispute and its next step. <strong>Technical</strong> — the statement, tax, the quantitative items. <strong>Distributions</strong> — new, pending, anticipated. <strong>Close</strong> — to-dos, did we achieve what we hoped, what to change next time.</p>
+              <p>One preparation habit is worth naming because it changes outcomes measurably: before the meeting the trustee decides whether this is a situation calling for caution or for advancement, and shifts deliberately. The default posture in fiduciary work is protective, which is right for the accounting and wrong for the person. Plan in advance how you will respond to the beneficiary's good news — with real interest and open questions, rather than a pivot back to the statements.</p>
+              <p class="sop"><a href="playbook.html">SOP 46 — The meeting</a> · <a href="playbook.html">T22 — Trustee–beneficiary meeting pack</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">7.5</span>
+      <h3 class="card-t">Prepare the beneficiary as deliberately as you prepare the plan.</h3>
+      <p class="essence">Nobody should learn that they are a beneficiary from a statement in the post. And nobody should reach the end of a trust unable to hold what comes out of it.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Being a beneficiary is a job, and almost nobody is taught it. The responsibilities are concrete: understand each trust and its purpose; know what the trustee is obliged to do; understand the tension between preserving purchasing power and paying a reasonable distribution; be able to read a fiduciary accounting; meet the trustee annually and give them an assessment; know what everyone is paid. A beneficiary who can do those things is a different counterpart entirely.</p>
+          <p>Onboarding starts before the money does. The parents or creator tell the beneficiary that the trust exists and what it is for; the trustee and you explain how it works. Then both sides exchange introductory letters, and the first meeting is designed so anxieties come before mechanics — introductions, the trustee's account of the role, the beneficiary's questions and what they think they already know, and only then how to request funds and how requests get analysed.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Aim the beneficiary's literacy at the same three functions the trustee must master — administration, investment, and distribution — using your own reporting and investment policy statement as the teaching material. That is the standard: enough to receive the assets if the trust ended tomorrow.</p>
+              <p>Where a beneficiary wants more support, offer the <strong>Office of the Beneficiary</strong>: a small group they convene and <em>pay for themselves</em> — an accountant who can teach, an investment expert, later a mentor for the career and personal side. The trustee acknowledges it and supplies documents to it. It may draw on family-office and firm resources, but it must never be housed in the family office, or it stops being the beneficiary's own and becomes another thing done to them. It is transitory by design and dissolves when it is no longer needed.</p>
+              <p>Schedule the follow-up call one week after any first or heavy meeting, before leaving the room. The questions that matter usually surface on the drive home.</p>
+              <p class="sop"><a href="playbook.html">SOP 46 — Beneficiary development</a> · <a href="playbook.html">SOP 42 — Family member onboarding</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">7.6</span>
+      <h3 class="card-t">Where your trust company is trustee, give the other roles names.</h3>
+      <p class="essence">An institution is excellent at administration, investment process and continuity, and structurally poor at knowing a person. Design the roles that compensate, and review the whole system on a ten-year horizon.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Three named roles fill the gap. A <strong>Distribution Committee</strong> whose only job is to know each beneficiary before any request exists and to advise the trustee — it never approves or declines anything, which is precisely why thoughtful people who would refuse a trusteeship will serve on it. An <strong>Office of the Beneficiary</strong> on the other side of the table. And a <strong>protector</strong> with one narrow, mostly dormant power: get to know both parties, ask each of them separately once a year how it is going, and act only when asked.</p>
+          <p>Choose the protector <em>first</em>, before the trustee. The person with the judgment and standing you were about to name as trustee is usually better placed here, where the role is not fiduciary in most jurisdictions and the answer is therefore more often yes.</p>
+          <div class="pull"><span class="lbl">The escalation signal</span><p>If a trustee consistently ignores the Distribution Committee's advice, that is not a distribution problem — it is a relationship failure, and it is the moment to switch on the protector.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The full model suits trusts above roughly $10M; below that, a committee of one and an informal beneficiary's office. As family wealth approaches $100M, ask whether a private trust company should house these functions. Never combine the committee and the protector — the protector's usefulness depends on having no stake in any particular decision. Counsel drafts all of it.</p>
+              <p>Then review the system rather than the trusts one at a time. Every three years, and at every transition, run the whole trustscape: who serves, which trusts are funded and active, what each pays out now and over ten years, which terminate within ten years, the total fees across trustee, adviser, custody, tax and legal, what happens if a trustee dies or a whole beneficiary class does, and where the foreseeable problems sit. Say the fee stack in numbers — a quarter or half a point of trustee fee on top of management fees compounds across generations.</p>
+              <p>Bigger transitions justify a full <strong>Family Trust Review</strong>: a generational handover, a coming termination or large principal distribution, a decanting, or the creation of a private trust company. It produces the family's history and values alongside the architecture and costs of the system, plus recommendations for design and for education — and it is the right place to have the counterweight conversation before any perpetual structure is created.</p>
+              <p class="sop"><a href="playbook.html">SOP 48 — Trust system design and review</a> · <a href="playbook.html">T24 — Family trust review outline</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">7.7</span>
+      <h3 class="card-t">Two family-level practices sit on top of ordinary asset allocation.</h3>
+      <p class="essence">Investor allocation decides which member or entity holds each asset. The family bank lends to members on terms no commercial lender would offer, because the return wanted is independence.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Families allocate assets carefully and then decide <em>who holds what</em> by accident — usually whoever had cash, which is the oldest and most risk-averse member. The result is that the fastest-growing assets sit in the estate closest to being taxed, held by the person who wanted income in the first place. Investor allocation fixes the mismatch: the oldest generation takes the lower-growth, income-producing assets on a twenty-year horizon; the middle generation takes intermediate growth; the youngest members and the longest-term exempt trusts take the highest growth on a hundred-year horizon.</p>
+          <p>The family bank is the second practice. It makes loans a commercial lender would decline — for a venture, an education, a first home, a career change — because the family is underwriting a person rather than a cash flow, and counts repayment partly in the borrower's independence.</p>
+          <div class="pull warn"><span class="lbl">Not advice</span><p>Nothing here is tax or legal advice. Every allocation into a trust and every intrafamily loan is designed with counsel and the tax adviser before it is executed, and documented at arm's length so it is not recharacterised as a gift.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Investor allocation has four preconditions and stops without them: the family's mission commits to long-term growth; each member elects to take part after weighing their own goals; trustees and the managers of family vehicles participate in the same spirit; and the trusts grant broad enough investment discretion, since a trustee cannot surrender ultimate discretion to an allocator. Someone is named allocator — a member, a family-office professional, or you — and every allocation gets a short memo: the investment, its estimated growth, the recommended holder, the funding route, and the decision.</p>
+              <p>The family bank needs its own mission statement tied to the family's, informal structure but formal rules, and two loan types. <em>Investment loans</em> require a business plan and application equal to a commercial lender's, a feasibility discussion with the board, proper reporting afterwards, and repayment — the process is the education. <em>Enhancement loans</em> require the borrower to state how the loan increases their independence and adds to the family's capitals, and to explain that to peers.</p>
+              <p>One rule carries most of the value: every participating member sees the qualitative part of every application — purpose, what it will build — with personal financial detail redacted. Circulating that knowledge across the family is the bank's real return.</p>
+              <p class="sop"><a href="playbook.html">SOP 47 — Family bank and investor allocation</a> · <a href="playbook.html">T20 — Family bank charter and applications</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><a href="#ch-family">← Chapter 6 — When the client is a family</a><a href="#ch-grow">Chapter 8 — Growing without selling →</a></div>
+</section>
+
+<section class="chapter" id="ch-grow" data-nav="8 · Growing">
+  <header class="ch-head">
+    <p class="eyebrow">Chapter 8</p>
+    <h2>Growing without selling</h2>
+    <p class="lede">Finding new families is somebody else's job. Two asks still belong to you, because they happen inside the service relationship and cannot be delegated out of it: bringing the rest of a family's money under one plan, and being introduced to people they care about.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">8.1</span>
+      <h3 class="card-t">Two asks belong to the service relationship, not to marketing.</h3>
+      <p class="essence">They are made at fixed moments in the sequence, in the same words every time, and followed through and thanked whatever the answer.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Both asks are service acts. Asking about the accounts you do not manage is how you keep the whole picture, which is the job you were hired to do — a personal CFO who only sees two-thirds of the balance sheet is guessing. Asking for introductions is how you avoid spending the family's time on marketing instead of on them, and it is worth saying that out loud.</p>
+          <p>What makes them land is that they are structural, not opportunistic. They appear in the agenda at the same points every year, after the plan discussion and before you schedule the next meeting. The consistency is what makes them read as professional rather than as a pitch.</p>
+          <div class="pull"><span class="lbl">One precondition</span><p>If there is an open service failure with this client, both asks are deferred until it is resolved. Never ask for more while something is still broken.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The ask points are fixed by the sequence:</p>
+              <dl class="kv">
+                <dt>Held-away assets</dt><dd>every progress meeting; immediately after an advanced-planning win lands</dd>
+                <dt>Introductions</dt><dd>the commitment meeting, the 45-day follow-up, and every progress meeting after that</dd>
+                <dt>Never</dt><dd>in a Discovery meeting — that meeting qualifies, it does not sell</dd>
+              </dl>
+              <p>The Lead Advisor makes every ask personally; this is on the never-delegate list. The support around it is real work, though: the analyst refreshes the held-away asset map from the profile and the reporting before each meeting, and the client service associate confirms on the scoping worksheet that the asks are permitted for this engagement at all.</p>
+              <p class="sop"><a href="playbook.html">SOP 50 — Asks inside service meetings</a> · <a href="playbook.html">SOP 03 — Roles and RACI</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">8.2</span>
+      <h3 class="card-t">Assume the assets you do not manage exist, because at this level they do.</h3>
+      <p class="essence">Families of this size routinely use several advisors as a form of diversification. Your profile already tells you what sits where and with whom.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Spreading money across firms feels prudent to a wealthy family, and it is rarely a comment on you. It does, however, make the plan partly fictional: allocation, total cost, tax position, and risk are all wrong if a third of the money is invisible. That is the argument you make, and it is an argument about their plan rather than about your revenue.</p>
+          <p>You already have the map. The Discovery interview asks about assets fourth, deliberately, and it asks where they are held and who manages them — so by the time you are in a progress meeting you can name the specific account rather than fishing for it.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Five steps, run in this order:</p>
+              <ol class="seq">
+                <li><strong>Set the expectation at every progress meeting</strong> — your job is the whole picture, including what you do not manage.</li>
+                <li><strong>Review the relationship</strong> — what the client likes and does not like about working with you. The annual survey is the formal version. A strong relationship, not performance, is what earns additional assets.</li>
+                <li><strong>Identify the opportunity from the profile</strong> — name the account and why consolidating serves the plan: allocation, cost, tax, simplicity, one view for the family.</li>
+                <li><strong>Ask.</strong></li>
+                <li><strong>Thank them regardless</strong> for the trust already placed with you.</li>
+              </ol>
+              <p class="sop"><a href="playbook.html">SOP 50 — Part A, held-away assets</a> · <a href="playbook.html">SOP 11 — Total Client Profile</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">8.3</span>
+      <h3 class="card-t">Ask when satisfaction is highest, and ask about something specific.</h3>
+      <p class="essence">The best moments are a progress meeting and the weeks just after an advanced-planning solution has landed. The whole difficulty is that most advisors never ask at all.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Timing does most of the work. Right after you have solved something the family has been carrying for years — a trust that finally reads the way they meant it, a succession question answered — they are more aware than usual of what you are worth. That is when the conversation about the rest of the money is easiest and least awkward.</p>
+          <p>Specificity does the rest. "Let me know if you ever want us to look at anything else" is not an ask. Naming the account, saying what consolidating would do for the plan, and offering a complimentary second opinion on how it is currently managed gives the client something concrete to say yes or no to.</p>
+          <div class="pull warn"><span class="lbl">The second-opinion offer</span><p>It is also your answer to a prospect who declines a meeting because they already have an advisor — and it costs you nothing but the analysis.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Two failures account for nearly all of the missed opportunity, and both are habits rather than skills. The first is simply not asking — advisors who intend to ask, and never do, at scale. The second is looking too busy: a client who believes you are stretched will not add to your burden, so the impression of being at capacity quietly suppresses both asks.</p>
+              <p>In a family engagement, consolidating assets that sit in trusts goes through the trustee relationship — you ask the trustee and the beneficiaries together, never around the trustee. Where you serve an individual inside a larger family, the ask covers only what is within that person's own discretion and outside central management, and you never solicit what the family's own team or a sister company of your firm already manages.</p>
+              <p class="sop"><a href="playbook.html">SOP 50 — Asks inside service meetings</a> · <a href="playbook.html">SOP 25 — Annual satisfaction survey</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">8.4</span>
+      <h3 class="card-t">Introductions are asked for at three fixed points, and every one is reported back.</h3>
+      <p class="essence">Describe exactly who you serve, keep asking who else comes to mind until the names stop, ask for a personal introduction — and tell the client what happened.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The sequence matters more than the words. Set the stage once — introductions are what let you spend your time serving families rather than looking for them. Then ask using your one-paragraph description of the families you serve best, so the client is matching against a picture rather than searching their whole address book. Then keep asking "who else comes to mind?" until it goes dry; the second and third names are usually better than the first.</p>
+          <p>Collect background and contact details only after the names have stopped. Interrupting the flow to write down a phone number ends the flow.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>At this level a personal introduction — a call or note from the client so the person expects to hear from you — is expected, and a cold approach is not made. Then the follow-through, which is where most practices lose the value:</p>
+              <ol class="seq">
+                <li>Handwritten thank-you the same day. Print it if your handwriting is poor.</li>
+                <li>Contact each person within a week, aiming for a Discovery meeting. If they decline because they already have an advisor, offer a second opinion; if they hesitate over cost, Discovery has none and you only proceed where you can add real value.</li>
+                <li>Report back to the client, mindful of the other person's confidentiality. Silence devalues what they did for you — and they will see that person again before you do.</li>
+                <li>Thank them again, with any gift kept inside the limits compliance sets.</li>
+              </ol>
+              <p>Where you serve an individual inside a larger family, the ask is reframed: rather than seeking new families, ask to be introduced into the family's own team — the family office lead, the chief investment officer, the trustee, counsel — so that coordination can actually begin.</p>
+              <p class="sop"><a href="playbook.html">SOP 50 — Part B, introductions</a> · <a href="playbook.html">T13 — Scripts sheet</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><a href="#ch-trust">← Chapter 7 — When the money sits in trust</a><a href="#ch-team">Chapter 9 — Building the team →</a></div>
+</section>
+
+<section class="chapter" id="ch-team" data-nav="9 · Team">
+  <header class="ch-head">
+    <p class="eyebrow">Chapter 9</p>
+    <h2>Building the team</h2>
+    <p class="lede">You are one professional inside a firm full of specialists. The path from here is not a leap to a staffed practice — it is borrowing deliberately, hiring when specific numbers say so, and handing work over in a fixed order so the client never feels the change.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">9.1</span>
+      <h3 class="card-t">Borrow before you hire, and write the recipes before you borrow.</h3>
+      <p class="essence">The sister companies are a bench you can put in front of a family within days. Using them well is a written procedure, not a phone call.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Being solo inside a federated firm is an advantage the procedures are built around. The trust company, the employee-ownership team, sister advisory firms, tax, insurance and lending specialists are all reachable per matter, which means you can deliver advanced planning long before you could afford to employ any of it.</p>
+          <p>The risk is the reverse of the benefit. Borrowed people are not yours to manage, they may already serve this family in another capacity, and if they become the client's point of contact you have quietly given away the relationship. So every engagement is scoped in writing, walled where it must be, and delivered through you.</p>
+          <div class="pull warn"><span class="lbl">Own the process anyway</span><p>Keep the data, the templates and the relationship in your own systems, so the service survives a vendor change or a reorganization inside the firm.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The scope memo is the whole discipline, and five lines is enough for a small matter: the deliverable, the timeline, the data the specialist receives, whether they are client-facing at all, who signs off, and the credit or fee basis. Before it is written, two checks — does any sister company already serve this family, and does the engagement fall inside the mandate and the consent already recorded?</p>
+              <p>Where a sister company does serve the family elsewhere, the confidentiality wall goes on the memo: who may see what, and that nothing learned here flows to their other relationship. Then the introduction — by name, role, and what they will do for this family — with a plain statement that you remain the point of contact. Afterwards you sign off on the work before the client sees it, debrief within the week, score the specialist, and log the hours, because borrowed hours are part of the case for your next hire.</p>
+              <p class="sop"><a href="playbook.html">SOP 71 — Engaging borrowed expertise</a> · <a href="playbook.html">T25 — Specialist engagement scope memo</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">9.2</span>
+      <h3 class="card-t">The numbers say when to hire, not the feeling of being busy.</h3>
+      <p class="essence">Being overwhelmed is a lagging indicator. The triggers are revenue, relationships, and hours — and you start the search before they are breached.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>A new professional takes up to a year to become fully productive. If you begin hiring at the moment you are drowning, you have committed yourself to another year of drowning — and you will make a rushed choice at the point when a wrong first hire is most expensive. So the triggers are read as approaching, not breached.</p>
+          <p>The other half is affordability, and the honest version of it starts with your household. Work out the pre-tax income your household actually needs; whatever the practice earns above that, after overhead and tax, is the hiring budget. Hiring past that number creates a pressure that makes you fragile in a bad market — which is exactly when you would need to keep the person.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <div class="tw"><table>
+                <tr><th>Trigger</th><th>Reading</th></tr>
+                <tr><td>First professional affordable</td><td>~$500K revenue, with lean overhead around $120–150K; the surplus over your household number must cover the hire with margin for a bad year</td></tr>
+                <tr><td>Comfortable economics</td><td>~$700K revenue with professional compensation around 40% of revenue</td></tr>
+                <tr><td>Revenue per professional</td><td>~$500K is the working norm; add a third professional when two pass ~$1M</td></tr>
+                <tr><td>Revenue per head</td><td>below ~$200K suggests you hired too early; above ~$250K says hire</td></tr>
+                <tr><td>Relationships per professional</td><td>~40 when the families are $30M+. Count families, not accounts</td></tr>
+                <tr><td>Time per relationship</td><td>~20 professional hours a year, against ~1,600 client-facing hours per advisor</td></tr>
+              </table></div>
+              <p>The reason it works is arithmetic rather than ambition: delegating roughly half the professional time in each relationship to a service advisor doubles capacity at a fraction of your cost, and moves your own hours to the largest relationships, quality control, and the asks. That only holds if the new person is productive in the first quarter — which is why the written procedures come first.</p>
+              <p class="sop"><a href="playbook.html">SOP 70 — Team roadmap</a> · <a href="playbook.html">T28 — Team agendas and dashboard</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">9.3</span>
+      <h3 class="card-t">Hire the client service associate first, and a service advisor second.</h3>
+      <p class="essence">The first hire takes routine execution off you. The second must be someone who can serve existing relationships independently — not a back-office analyst.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The client service associate is the cheapest large gain available: scheduling, correspondence, paperwork, transfers, the notebook, the records, reporting assembly. That hire fires when administrative errors start recurring, or when you notice you are spending more than a quarter of your client-facing hours on work nobody needed you for.</p>
+          <p>The second hire is the one people get wrong. If you can only afford one professional, take someone who can carry client relationships from the first quarter rather than someone who produces analysis in the back room. You get far more capacity back, and the alternative leaves you as the only person a client can talk to — which is the constraint you were trying to remove. The third level, an associate or analyst, comes when the relationships are large enough to generate substantive work for it.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The unit you are building toward is one lead advisor, one service professional, and operations support. It is the building block that serves a family, and it stays the building block even inside a large firm — which is why every procedure in the library names those three roles.</p>
+              <p>Five readiness tests come before any of it. Can the role be given specific, consistent responsibilities on day one — because hiring someone to watch you work is a cost and a demoralizer. Is there a written service process another person can follow. Can you offer a career path, including eventually giving that person relationships of their own. Will you hold yourself accountable to the process and to the person. And can you afford it after your household number, with room for a bad year.</p>
+              <p class="sop"><a href="playbook.html">SOP 70 — The borrow-then-build sequence</a> · <a href="playbook.html">SOP 03 — Roles and RACI</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">9.4</span>
+      <h3 class="card-t">Hiring is a process with a written description and at least ten qualified candidates.</h3>
+      <p class="essence">A one-horse race with someone you already know is the most common first-hire mistake, and the most expensive.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Write the job description before the advertisement: responsibilities, reporting line, what success looks like, required knowledge and experience, the desirable extras — with the compensation range kept internal. Then score against three dimensions rather than an impression: technical knowledge, client-relationship skill, and business-development capacity, weighted for the role. A service advisor is scored heavily on the first two and lightly on the third; nobody here is hired for sales.</p>
+          <p>Source inside the firm first, then outward. Do not begin interviewing until there are at least ten qualified résumés; if there are fewer, widen the search rather than lowering the bar. Anyone referred to you submits a résumé and goes through the identical process.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>The sequence does not vary: résumé screen against the description, first interview, a work sample using the practice's own templates, a mandatory background check, an optional style-matching test to shape the second interview, then the second interview. Ask each reference for someone <em>else</em> who worked with the candidate and call them too — unselected references speak more freely.</p>
+              <p>Then the offer, in writing, with four rules that exist because each is a common failure: do not haggle — listen to a well-argued objection once and reissue if it is valid; pay the position, not the candidate's blended memory of their best year; never shorten the process because someone must decide by Monday; and answer the ownership question honestly, which means describing what would have to be true rather than implying a promise. If nobody clears the bar, reopen the search. A late hire costs less than a wrong one.</p>
+              <p class="sop"><a href="playbook.html">SOP 72 — Hiring a team member</a> · <a href="playbook.html">T26 — Job description, scorecard, interview guide</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">9.5</span>
+      <h3 class="card-t">Give a new professional a named role in every meeting, and never only the small clients.</h3>
+      <p class="essence">People are handed over by being seen doing real work in front of the client — not by an email announcing a new point of contact.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The instinct to keep a new person out of client meetings until they are ready is exactly backwards: meetings are how they become ready, and a client who has watched someone work for six months accepts them easily. So they attend every meeting with a named role — owning the notes and the follow-through, presenting one defined analysis, being the named specialist on one topic, or owning one project — and you introduce them by name, role, and what they will do today, promoting their skills without hedging. If you sound uncertain about them, the client will be.</p>
+          <p>Giving them only the small relationships is the other common error. It is demoralizing, impossible to disguise, teaches habits that fail on complex families, and wastes the opportunity — the large engagements are exactly the ones with room to teach. Give them a genuine mix: a few relationships to own outright, and second chair on the most complex.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Progression is gated by two tests rather than by time served. The <strong>relationship-manager test</strong>: they run most scheduled meetings independently; the client calls them first; the client brings new plans and life changes to them; the client gives them both praise and complaints; the client asks them for more resources. When all five hold, you move to quality control on that relationship.</p>
+              <p>The <strong>relationship-owner test</strong> comes later: they conduct all meetings including strategy; the client seeks no other senior professional's advice; they have brought new assets or services into the relationship; and they can delegate parts of the work with the client's acceptance. Ownership here means lead responsibility — every relationship belongs to the practice.</p>
+              <p>One constraint overrides all of it: a client who asked to hear only from you keeps that until they say otherwise. Introductions are offered, not imposed, and a few reluctant clients are not a reason to abandon the model.</p>
+              <p class="sop"><a href="playbook.html">SOP 73 — Onboarding and relationship transition</a> · <a href="playbook.html">T27 — Onboarding plan and client introduction</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">9.6</span>
+      <h3 class="card-t">The team runs on a rhythm, not on availability.</h3>
+      <p class="essence">Weekly, monthly, quarterly, annual — with decisions recorded, numbers read against bands, and quality controls that run whether or not anyone is worried.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Weekly, the team walks the next two weeks of client meetings — who attends with what role, packet status, anything a client must be told beforehand — then open service items and who has the ball, red flags, and tracker exceptions. Monthly, you read profitability and overhead against their bands and work the service-failure log, tracing every entry to a step in a procedure that was missing, unclear, or skipped. Quarterly, the full financial picture, a capacity check against the hiring triggers, a procedure review, and an honest state-of-the-team conversation that is never cancelled.</p>
+          <p>Annually, the budget is drafted by the people who spend it, performance reviews happen <em>before</em> compensation decisions, and the stalled decisions get a decision or a date.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Four quality controls run continuously rather than on suspicion: peer review and sign-off on every plan before it is presented; your sign-off on proposals and client documents; one meeting a year on every relationship attended by a second professional, so another set of eyes sees both the work and the client; and a random review of a sample of portfolios and files each quarter.</p>
+              <p>Per professional, six measures live in the system and feed the promotion tests: relationships owned, second-chair relationships, revenue managed, growth of those relationships, organic growth from existing clients, and new relationships served.</p>
+              <p>And the culture rules, which are enforced by example or not at all — the team owns the client experience; it is "our" clients, never "my"; no puck-passing; no exceptions for brilliance; critics are brought inside and given real roles; and small joint successes are engineered before hard problems are attempted.</p>
+              <p class="sop"><a href="playbook.html">SOP 74 — Team operating rhythm</a> · <a href="playbook.html">SOP 60 — SOP maintenance</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><a href="#ch-grow">← Chapter 8 — Growing without selling</a><a href="#ch-monday">Chapter 10 — Monday morning →</a></div>
+</section>
+
+<section class="chapter" id="ch-monday" data-nav="10 · Monday">
+  <header class="ch-head">
+    <p class="eyebrow">Chapter 10</p>
+    <h2>Monday morning</h2>
+    <p class="lede">Everything in this primer is worth less than the first three months of using any of it. This chapter is the order to do things in, what can safely wait, and the four ways it usually comes apart.</p>
+  </header>
+  <div class="cards">
+
+    <article class="card">
+      <span class="num">10.1</span>
+      <h3 class="card-t">The first move is not a new client. It is ten rediscovery meetings.</h3>
+      <p class="essence">Run the Discovery process on families who already trust you. It is where the practice's value is highest and its acquisition cost is zero.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Three things happen at once. You learn the sequence on people who will forgive you for being new at it, which means you are practised before you use it on a prospect. You discover what you did not know about clients you have served for years — because a values-first, assets-fourth interview surfaces things a review meeting never reaches. And each meeting produces work: assets held elsewhere, planning items nobody had raised, and a natural moment to ask for an introduction.</p>
+          <p>The rule is deliberate about order. With a reasonable base of existing families, complete about ten of these before spending anything on finding new ones.</p>
+          <div class="pull"><span class="lbl">What changes from a normal Discovery</span><p>No qualifying script — you are not deciding whether to work together. Bring the old profile, draw a fresh one, and mark what changed. Ask directly about assets held elsewhere, about advisors added or dropped, and about the rising generation.</p></div>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <p>Each meeting produces four outputs, and they are the raw material for everything in the next quarter: a refreshed profile; a list of held-away targets for the asks; planning hooks for the next expert-network case brief; and any change to the engagement mode or scope on the scoping worksheet.</p>
+              <p>The follow-on is not a second onboarding meeting. It is a refreshed investment plan presented at the next regular progress meeting — unless the scope has changed materially, in which case you rejoin the full sequence at the investment-plan meeting.</p>
+              <p>Choose the ten by size and by how long it has been since anyone asked them a real question. Book them across six to eight weeks rather than a fortnight; the point is to absorb what you hear.</p>
+              <p class="sop"><a href="playbook.html">SOP 10 — Discovery and the Rediscovery variant</a> · <a href="playbook.html">SOP 11 — Total Client Profile</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">10.2</span>
+      <h3 class="card-t">The first ninety days have a fixed order.</h3>
+      <p class="essence">Placeholders, then the meeting wrapper, then contact plans, then rediscovery, then the network, then the calendar. Nothing here waits on a hire.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>The order is not arbitrary. The meeting wrapper has to be in place before the rediscovery meetings, because it is what makes them feel different from a review. The contact plans have to exist before you start making promises about cadence. And the two core external members of the network have to be on terms before you describe advanced planning to a family as something you deliver rather than coordinate.</p>
+          <p>None of it requires a hire, a budget, or a decision from anyone else. It requires the calendar.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <ol class="seq">
+                <li><strong>Week 1 — resolve the placeholders.</strong> Replace every bracketed token in the library with the real system, sister company, and compliance contact. An hour's work that makes the whole thing usable.</li>
+                <li><strong>Weeks 1–2 — adopt the meeting wrapper.</strong> Pre-meeting letter, written agenda, the success question at the open, the next meeting scheduled in the room, written confirmation within a day. Apply it to whatever meeting is already in the diary this week.</li>
+                <li><strong>Weeks 2–3 — write the contact plan for the top relationships.</strong> Each client's stated preference, the cadence, and who to call for what. Send the year-ahead note.</li>
+                <li><strong>Weeks 3–10 — run the ten rediscovery meetings.</strong> Profile refreshed, held-away targets listed, planning hooks captured, an introduction asked for in each.</li>
+                <li><strong>Weeks 4–8 — stand up the minimum network.</strong> A private-client attorney at a boutique firm and a genuinely independent insurance specialist, both on written terms; plus a named contact at each sister company you expect to use.</li>
+                <li><strong>Week 10 — hold the first expert-network meeting.</strong> One to six families, case briefs from the profiles, scenario thinking, and a first advanced-planning tracker for each family reviewed.</li>
+                <li><strong>Weeks 11–12 — put the annual calendar in place.</strong> Tax documents and the fee conversation in the first quarter, the policy-statement review and the satisfaction survey in the second, the network cycle in the third, year-end planning in the fourth.</li>
+              </ol>
+              <p class="sop"><a href="playbook.html">SOP 05 — Client meeting protocol</a> · <a href="playbook.html">SOP 31 — Expert network</a> · <a href="playbook.html">T15 — Annual service calendar</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">10.3</span>
+      <h3 class="card-t">Three parts of the library can wait until something asks for them.</h3>
+      <p class="essence">The family layer, the hiring procedures, and the trust-system work are all trigger-driven. Reading them now is useful; building them now is not.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Each of these is real work with a real cost, and each has a moment that makes it obviously worth doing. Starting a family-governance conversation with a family that has not asked for one is the fastest way to look like you are selling something. Writing a job description before the numbers say hire is a distraction. Redesigning a trust system that nobody has complained about is unpaid consulting.</p>
+          <p>What you should do now is know the triggers well enough to recognize one when it walks in — because they usually arrive as a passing remark at the end of a meeting.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <dl class="kv">
+                <dt>Family layer</dt><dd>A family asks you to work with more than one household; a liquidity event or a death is coming; the senior generation raises what happens next; a rising-generation member is about to learn what exists. Then the family discovery process, and only then the meeting and governance material.</dd>
+                <dt>Hiring</dt><dd>Administrative errors recur, or more than a quarter of your client-facing hours go to work a service associate should do; revenue and relationships approach the thresholds. Start the search when the trigger is approaching, not after.</dd>
+                <dt>Trust-system work</dt><dd>A generational transition; a change in family or trust leadership; a termination or large principal distribution ahead; a decanting or reformation under discussion; a new trust or a private trust company being created; trustees or beneficiaries who need educating.</dd>
+              </dl>
+              <p>One thing that does not wait: if any client of yours is a beneficiary or a trustee today, the trustee–beneficiary relationship material applies now, because the annual meeting and the distribution process are already happening — well or badly.</p>
+              <p class="sop"><a href="playbook.html">SOP 41 — Family discovery</a> · <a href="playbook.html">SOP 46 — Trustee–beneficiary relationship</a> · <a href="playbook.html">SOP 48 — Trust system design and review</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <span class="num">10.4</span>
+      <h3 class="card-t">Four things will go wrong first, and each has a specific correction.</h3>
+      <p class="essence">The sequence slips, the asks get skipped, the tracker goes stale, and a borrowed specialist becomes the client's contact. None of them is a surprise.</p>
+      <details class="layer l2"><summary><span class="chev"></span><span>Why &amp; how</span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span></summary>
+        <div class="layer-body">
+          <p>Every one of these is a compression under time pressure — the procedure survives while things are calm and collapses in the week when three families need something at once. That is exactly when the written version earns its keep, so the corrections are all small and mechanical rather than matters of resolve.</p>
+          <p>The fifth failure is the one that ends the whole project: hiring before the procedures are written, which produces a person with nothing specific to do and a founder who has to invent their work each morning.</p>
+          <details class="layer l3"><summary><span class="chev"></span><span>Mechanics</span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span></summary>
+            <div class="layer-body">
+              <div class="tw"><table>
+                <tr><th>What happens</th><th>The correction</th></tr>
+                <tr><td>The meeting sequence slips — the confirmation goes out late, the next meeting is not booked in the room</td><td>These are the associate's steps, not yours. Until that hire exists, put them on the calendar as tasks rather than intentions; the shared services desk can send confirmations today</td></tr>
+                <tr><td>The asks get skipped for a quarter, then a year</td><td>They are agenda items, not moods. If they are on the written agenda after the plan discussion, they happen; if they live in your head, they do not</td></tr>
+                <tr><td>The advanced-planning tracker goes stale and stops being credible in the room</td><td>It is updated in the meeting, not after it. Bring it on screen, mark each item's decision as the client makes it, and let them watch you do it</td></tr>
+                <tr><td>A borrowed specialist becomes the client's first call</td><td>The scope memo says who is client-facing, and the introduction says you remain the point of contact. Where it has already happened, the correction is a three-way call rather than a quiet withdrawal</td></tr>
+                <tr><td>Hiring before the procedures are written</td><td>Borrow another quarter's worth of capacity instead, and finish the library. The order is not negotiable</td></tr>
+              </table></div>
+              <p>Every service failure that traces back to a missing or unclear step is logged against the procedure it came from and fixed there — which is what stops the same failure recurring with the next family.</p>
+              <p class="sop"><a href="playbook.html">SOP 23 — Service failure recovery</a> · <a href="playbook.html">SOP 60 — SOP maintenance</a> · <a href="playbook.html">SOP 70 — Failure modes by stage</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </article>
+
+  </div>
+  <div class="chapter-foot"><a href="#ch-team">← Chapter 9 — Building the team</a><a href="#start">Back to the top ↑</a></div>
+</section>
+
+</main>
+<footer class="end">Companion to <a href="playbook.html">The Family CFO Playbook</a> — the 38 procedures and 28 templates this primer walks you through. Sources: Bowen &amp; CEG Worldwide (the consultative process), James E. Hughes Jr. and co-authors (the family layer), Philip Palaveev (the team). All content is original writing informed by them.</footer>
+<script>
+(function(){
+  var body=document.body, btns=[].slice.call(document.querySelectorAll('.depth-btns button'));
+  function apply(d,persist){
+    document.querySelectorAll('details.l2').forEach(function(x){x.open=d>=2;});
+    document.querySelectorAll('details.l3').forEach(function(x){x.open=d>=3;});
+    btns.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.depth===String(d));});
+    if(persist){try{localStorage.setItem('primer-depth',d);}catch(e){}}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(+b.dataset.depth,true);});});
+  var saved=1; try{var v=localStorage.getItem('primer-depth'); if(v)saved=+v;}catch(e){}
+  apply(saved,false);
+
+  var links=[].slice.call(document.querySelectorAll('nav.chapters a')), map={};
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(a){a.classList.remove('on');}); var a=map[e.target.id]; if(a)a.classList.add('on'); } });
+    },{rootMargin:'-15% 0px -75% 0px'});
+    document.querySelectorAll('section.chapter').forEach(function(s){obs.observe(s);});
+  }
+})();
+</script>

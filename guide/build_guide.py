@@ -5,8 +5,8 @@ import re, sys
 
 ROOT = Path(__file__).resolve().parent.parent
 PARTS = ROOT / "guide" / "parts"
-OUT = ROOT / "dist" / "family-cfo-primer.html"
-PLAYBOOK = "https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7"
+DEFAULT_OUT = ROOT / "dist" / "family-cfo-primer.html"
+DEFAULT_PLAYBOOK = "https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7"
 
 CSS = """
 :root{
@@ -187,13 +187,13 @@ JS = """
 })();
 """
 
-def build():
+def build(playbook):
     parts = sorted(PARTS.glob("*.html"))
     if not parts:
         sys.exit("no parts found in guide/parts/")
     chapters, bodies = [], []
     for p in parts:
-        html = p.read_text(encoding="utf-8").replace("PLAYBOOK_URL", PLAYBOOK)
+        html = p.read_text(encoding="utf-8").replace("PLAYBOOK_URL", playbook)
         for m in re.finditer(r'<section class="chapter" id="([^"]+)"([^>]*)>.*?<h2>(.*?)</h2>', html, re.S):
             nav = re.search(r'data-nav="([^"]*)"', m.group(2))
             chapters.append((m.group(1), nav.group(1) if nav else re.sub(r"<[^>]+>", "", m.group(3)).strip()))
@@ -201,8 +201,15 @@ def build():
     return chapters, bodies
 
 
-def main():
-    chapters, body_parts = build()
+def main(argv=None):
+    import argparse
+    ap = argparse.ArgumentParser(description="Assemble The Family CFO Primer.")
+    ap.add_argument("--out", default=str(DEFAULT_OUT), help="output HTML path")
+    ap.add_argument("--playbook-url", default=DEFAULT_PLAYBOOK, help="URL the SOP pointers link to")
+    args = ap.parse_args(argv)
+    OUT = Path(args.out)
+    PLAYBOOK = args.playbook_url
+    chapters, body_parts = build(PLAYBOOK)
     nav = "".join(f'<a href="#{cid}">{title}</a>' for cid, title in chapters)
     def _g(cid, title):
         num, _, rest = title.partition(" · ")
@@ -241,7 +248,8 @@ def main():
     ]
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text("\n".join(doc), encoding="utf-8")
-    print(f"wrote {OUT.relative_to(ROOT)} ({OUT.stat().st_size//1024} KB, {len(chapters)} chapters, {len(body_parts)} parts)")
+    rel = OUT.relative_to(ROOT) if OUT.is_relative_to(ROOT) else OUT
+    print(f"wrote {rel} ({OUT.stat().st_size//1024} KB, {len(chapters)} chapters, {len(body_parts)} parts)")
 
 if __name__ == "__main__":
     main()
