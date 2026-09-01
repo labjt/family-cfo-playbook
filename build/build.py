@@ -53,7 +53,7 @@ H2_RE = re.compile(r"^## +(.+?)\s*$", re.M)
 LINK_RE = re.compile(r"\]\(([^)\s]+?\.md)(#[^)\s]*)?\)")
 PLACEHOLDER_RE = re.compile(r"\[([A-Z][A-Za-z0-9 .&'/-]{0,40})\](?![\(\[])")
 INDEX_START, INDEX_END = "<!-- index:start -->", "<!-- index:end -->"
-PAGE_TITLE = "UHNW Family Wealth Playbook"
+PAGE_TITLE = "The Family CFO Playbook"
 
 
 class Doc:
@@ -279,10 +279,11 @@ def build_page(docs: list[Doc]) -> str:
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
     readme_doc = Doc(ROOT / "README.md", {"id": "overview"}, readme_text)
     readme_html = render_body(readme_doc, path_to_id, "overview")
-    parts = [f"<title>{PAGE_TITLE}</title>", f"<style>{css}</style>",
+    parts = [f"<title>{PAGE_TITLE}</title>",
+             '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">',
+             f"<style>{css}</style>",
              '<header class="top"><div><h1>' + PAGE_TITLE + '</h1>'
-             '<p class="sub">Standard operating procedures for comprehensive wealth management of $30M+ families — '
-             'Bowen/CEG consultative process spine · Hughes family layer · Palaveev team building</p></div>'
+             '<p class="sub">Operating procedures for a practice that serves families with $30M to several hundred million as their personal chief financial officer — the consultative process, the family layer, and the team that delivers it.</p></div>'
              f'<div class="legend"><span class="badge type procedure">procedure</span><span class="badge type spec">spec</span>'
              f'<span class="badge type reference">reference</span><span class="badge type template">template</span>'
              f'<span class="badge mode">Mode A/B</span><span class="badge ext">beyond Bowen</span>'
