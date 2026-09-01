@@ -1,4 +1,15 @@
-# UHNW Family Wealth Playbook — SOP library
+# The Family CFO Practice
+
+**📖 Read it online → https://labjt.github.io/family-cfo-playbook/**
+
+| | |
+|---|---|
+| [**The Primer**](https://labjt.github.io/family-cfo-playbook/primer.html) 🧭 | The whole practice in ten chapters, at three depths — read this first |
+| [**The Playbook**](https://labjt.github.io/family-cfo-playbook/playbook.html) 🏛️ | The 38 procedures and 28 templates themselves |
+
+---
+
+## The library
 
 Standard operating procedures for a wealth-management practice serving families with $30M to several hundred million, delivered as the family's **personal chief financial officer**. The library is a Bowen/CEG consultative-process spine with a Hughes family-systems layer and a Palaveev team-building section. Everything here is original procedural writing informed by those sources; nothing is reproduced from them (see `SOURCES.md`).
 
