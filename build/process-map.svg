@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1180 470" role="img" aria-label="Process map: entry paths, the five consultative meetings, the expert-network loop, and the family layer" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+    <style>
+      .box{fill:var(--panel,#fff);stroke:var(--accent,#1f5f8b);stroke-width:1.6}
+      .box.fam{stroke:var(--ext,#7a4b00);stroke-dasharray:5 3}
+      .box.net{stroke:var(--script,#0b5d3b)}
+      .lbl{fill:currentColor;font-weight:600}
+      .sub{fill:var(--muted,#5d5d57);font-size:11px}
+      .ivl{fill:var(--muted,#5d5d57);font-size:11px;font-style:italic}
+      .lane{fill:var(--muted,#5d5d57);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+      .arrow{stroke:currentColor;stroke-width:1.4;fill:none;marker-end:url(#arr)}
+      .arrow.loop{stroke:var(--script,#0b5d3b)}
+      .arrow.fam{stroke:var(--ext,#7a4b00);stroke-dasharray:5 3}
+      a{cursor:pointer}
+    </style>
+  </defs>
+
+  <!-- lanes -->
+  <text x="20" y="42" class="lane">ENTRY</text>
+  <text x="20" y="182" class="lane">CONSULTATIVE SEQUENCE</text>
+  <text x="20" y="322" class="lane">ADVANCED PLANNING LOOP</text>
+  <text x="20" y="432" class="lane">FAMILY LAYER (MODE A)</text>
+
+  <!-- entry paths -->
+  <a xlink:href="#sop-10"><rect class="box" x="120" y="20" width="170" height="52" rx="8"/><text x="205" y="42" text-anchor="middle" class="lbl">New client</text><text x="205" y="60" text-anchor="middle" class="sub">handoff from business development</text></a>
+  <a xlink:href="#sop-10"><rect class="box" x="330" y="20" width="190" height="52" rx="8"/><text x="425" y="42" text-anchor="middle" class="lbl">Existing client</text><text x="425" y="60" text-anchor="middle" class="sub">Rediscovery = CCM1 variant</text></a>
+  <a xlink:href="#sop-02"><rect class="box" x="560" y="20" width="220" height="52" rx="8"/><text x="670" y="42" text-anchor="middle" class="lbl">Engagement scoping</text><text x="670" y="60" text-anchor="middle" class="sub">Mode A / Mode B · scope rung · consent (T05)</text></a>
+  <path class="arrow" d="M205 72 V150"/>
+  <path class="arrow" d="M425 72 V120 H905 V150"/>
+  <path class="arrow" d="M670 72 V100 H205"/>
+
+  <!-- CCM sequence -->
+  <a xlink:href="#sop-10"><rect class="box" x="120" y="150" width="170" height="60" rx="8"/><text x="205" y="173" text-anchor="middle" class="lbl">CCM1 Discovery</text><text x="205" y="192" text-anchor="middle" class="sub">Total Client Profile · ≤ 1.5 h</text></a>
+  <text x="312" y="168" class="ivl">+2 wk</text><path class="arrow" d="M290 180 H350"/>
+  <a xlink:href="#sop-12"><rect class="box" x="350" y="150" width="170" height="60" rx="8"/><text x="435" y="173" text-anchor="middle" class="lbl">CCM2 Investment Plan</text><text x="435" y="192" text-anchor="middle" class="sub">exec summary + IPS · no check</text></a>
+  <text x="542" y="168" class="ivl">+1 wk</text><path class="arrow" d="M520 180 H580"/>
+  <a xlink:href="#sop-14"><rect class="box" x="580" y="150" width="170" height="60" rx="8"/><text x="665" y="173" text-anchor="middle" class="lbl">CCM3 Commitment</text><text x="665" y="192" text-anchor="middle" class="sub">engagement letter · paperwork</text></a>
+  <text x="768" y="168" class="ivl">+45 d</text><path class="arrow" d="M750 180 H810"/>
+  <a xlink:href="#sop-16"><rect class="box" x="810" y="150" width="150" height="60" rx="8"/><text x="885" y="173" text-anchor="middle" class="lbl">CCM4 Follow-up</text><text x="885" y="192" text-anchor="middle" class="sub">notebook · reframe</text></a>
+  <text x="978" y="168" class="ivl">+90 d</text><path class="arrow" d="M960 180 H1020"/>
+  <a xlink:href="#sop-20"><rect class="box" x="1020" y="150" width="140" height="60" rx="8"/><text x="1090" y="173" text-anchor="middle" class="lbl">CCM5 Progress</text><text x="1090" y="192" text-anchor="middle" class="sub">recurring · client cadence</text></a>
+  <a xlink:href="#sop-15"><rect class="box" x="650" y="240" width="200" height="34" rx="8"/><text x="750" y="262" text-anchor="middle" class="sub">Implementation &amp; transfers (15) · CSA</text></a>
+  <path class="arrow" d="M665 210 V240"/>
+
+  <!-- advanced planning loop -->
+  <a xlink:href="#sop-32"><rect class="box net" x="350" y="300" width="200" height="56" rx="8"/><text x="450" y="322" text-anchor="middle" class="lbl">Expert network meeting</text><text x="450" y="340" text-anchor="middle" class="sub">quarterly · 1–6 families · scenarios</text></a>
+  <a xlink:href="#sop-30"><rect class="box net" x="600" y="300" width="200" height="56" rx="8"/><text x="700" y="322" text-anchor="middle" class="lbl">Wealth management plan</text><text x="700" y="340" text-anchor="middle" class="sub">WE · WT · WP · CP tracker (T10)</text></a>
+  <a xlink:href="#sop-31"><rect class="box net" x="120" y="300" width="190" height="56" rx="8"/><text x="215" y="322" text-anchor="middle" class="lbl">Expert network</text><text x="215" y="340" text-anchor="middle" class="sub">internal bench + external core</text></a>
+  <path class="arrow loop" d="M310 328 H350"/>
+  <path class="arrow loop" d="M550 328 H600"/>
+  <path class="arrow loop" d="M800 328 H1090 V210"/>
+  <path class="arrow loop" d="M1090 210 V270 H450 V300" style="marker-end:url(#arr)"/>
+  <text x="870" y="290" class="ivl">drop · defer · do at every progress meeting</text>
+
+  <!-- family layer -->
+  <a xlink:href="#sop-41"><rect class="box fam" x="120" y="400" width="200" height="56" rx="8"/><text x="220" y="422" text-anchor="middle" class="lbl">Family discovery (41)</text><text x="220" y="440" text-anchor="middle" class="sub">executive summary · balance sheet</text></a>
+  <a xlink:href="#sop-43"><rect class="box fam" x="370" y="400" width="200" height="56" rx="8"/><text x="470" y="422" text-anchor="middle" class="lbl">Family meetings (43)</text><text x="470" y="440" text-anchor="middle" class="sub">mission session · annual meeting</text></a>
+  <a xlink:href="#sop-46"><rect class="box fam" x="620" y="400" width="220" height="56" rx="8"/><text x="730" y="422" text-anchor="middle" class="lbl">Trusts &amp; governance (45–48)</text><text x="730" y="440" text-anchor="middle" class="sub">trustee–beneficiary · family bank</text></a>
+  <a xlink:href="#sop-70"><rect class="box fam" x="890" y="400" width="270" height="56" rx="8"/><text x="1025" y="422" text-anchor="middle" class="lbl">Team building (70–74)</text><text x="1025" y="440" text-anchor="middle" class="sub">borrow → hire → onboard · rhythm</text></a>
+  <path class="arrow fam" d="M205 210 V280 H80 V428 H120"/>
+  <path class="arrow fam" d="M320 428 H370"/>
+  <path class="arrow fam" d="M570 428 H620"/>
+</svg>

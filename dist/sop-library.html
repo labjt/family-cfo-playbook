@@ -1,0 +1,1114 @@
+<title>UHNW Family Wealth Playbook</title>
+<style>:root{--bg:#f7f7f4;--panel:#ffffff;--ink:#1c1c1a;--muted:#5d5d57;--line:#d9d9d2;--accent:#1f5f8b;--accent-ink:#ffffff;--soft:#eef3f7;--ext:#7a4b00;--ext-bg:#fff3dd;--modeb:#4a2a7a;--modeb-bg:#f1eaf9;--script:#0b5d3b;--script-bg:#e6f4ec;--warn:#8a1c1c;--warn-bg:#fbe9e9;--ph:#7a0e5c;--ph-bg:#fbe6f3;--code:#f0f0ea}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15161a;--panel:#1d1f25;--ink:#e8e8e3;--muted:#a3a39b;--line:#33363e;--accent:#7fb3dc;--accent-ink:#0f1a24;--soft:#232a33;--ext:#f0c070;--ext-bg:#3a2d12;--modeb:#c9b3ea;--modeb-bg:#2b2238;--script:#8fd3b0;--script-bg:#17301f;--warn:#f0a0a0;--warn-bg:#3a1a1a;--ph:#f2a3d6;--ph-bg:#3a1a30;--code:#23252c}}
+:root[data-theme="dark"]{--bg:#15161a;--panel:#1d1f25;--ink:#e8e8e3;--muted:#a3a39b;--line:#33363e;--accent:#7fb3dc;--accent-ink:#0f1a24;--soft:#232a33;--ext:#f0c070;--ext-bg:#3a2d12;--modeb:#c9b3ea;--modeb-bg:#2b2238;--script:#8fd3b0;--script-bg:#17301f;--warn:#f0a0a0;--warn-bg:#3a1a1a;--ph:#f2a3d6;--ph-bg:#3a1a30;--code:#23252c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}
+header.top{padding:22px 28px 14px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
+header.top h1{margin:0;font-size:1.5rem;letter-spacing:.01em}
+header.top .sub{margin:4px 0 0;color:var(--muted);max-width:70ch}
+.legend{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:0;min-height:100vh}
+nav.side{position:sticky;top:0;height:100vh;overflow:auto;padding:14px 10px 40px;border-right:1px solid var(--line);background:var(--panel);font-size:.86rem}
+nav.side .brand{display:block;font-weight:600;padding:6px 8px;margin:2px 0}
+nav.side details{margin:6px 0}
+nav.side summary{cursor:pointer;font-weight:600;padding:6px 8px;color:var(--muted);list-style:none}
+nav.side summary::-webkit-details-marker{display:none}
+nav.side ul{list-style:none;margin:0;padding:0 0 4px}
+nav.side li a{display:flex;gap:8px;padding:4px 8px;border-radius:6px;color:var(--ink);text-decoration:none}
+nav.side li a:hover{background:var(--soft)}
+nav.side li a.active{background:var(--accent);color:var(--accent-ink)}
+nav.side .num{font-variant-numeric:tabular-nums;color:var(--muted);min-width:2.2em}
+nav.side li a.active .num{color:inherit}
+main{padding:24px 40px 80px;max-width:1000px}
+h2.sec{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:48px 0 12px;padding-top:12px;border-top:1px solid var(--line)}
+article.doc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px 30px;margin:0 0 26px}
+article.doc>h1{font-size:1.35rem;margin:0 0 8px}
+article.doc>h1 .num{color:var(--muted);font-weight:500;margin-right:6px}
+article.doc h2{font-size:1.02rem;margin:26px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+article.doc h3{font-size:.95rem;margin:18px 0 6px}
+article.doc h4{font-size:.9rem;margin:14px 0 4px;color:var(--muted)}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 14px;font-size:.8rem}
+.meta .src{flex-basis:100%;color:var(--muted);margin-top:2px}
+.badge{display:inline-block;padding:1px 8px;border-radius:999px;border:1px solid var(--line);background:var(--soft);font-size:.75rem;color:var(--ink)}
+.badge.type.procedure{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.badge.type.spec{background:#3d6b3a;color:#fff;border-color:transparent}
+.badge.type.reference{background:#6b5a3a;color:#fff;border-color:transparent}
+.badge.type.template{background:#4a5a6b;color:#fff;border-color:transparent}
+.badge.mode{background:var(--modeb-bg);color:var(--modeb);border-color:transparent}
+.badge.ext{background:var(--ext-bg);color:var(--ext);border-color:transparent}
+.ph{background:var(--ph-bg);color:var(--ph);padding:0 4px;border-radius:4px;font-size:.92em;white-space:nowrap}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:.92rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;vertical-align:top;text-align:left}
+th{background:var(--soft)}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow-x:auto}
+blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid var(--line);color:var(--muted)}
+.admonition{border-radius:8px;padding:10px 14px;margin:12px 0;border:1px solid var(--line);background:var(--soft)}
+.admonition-title{font-weight:600;margin:0 0 4px;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.admonition p{margin:4px 0}
+.admonition.modeb{background:var(--modeb-bg);border-color:transparent}.admonition.modeb .admonition-title{color:var(--modeb)}
+.admonition.extension{background:var(--ext-bg);border-color:transparent}.admonition.extension .admonition-title{color:var(--ext)}
+.admonition.script{background:var(--script-bg);border-color:transparent}.admonition.script .admonition-title{color:var(--script)}
+.admonition.warning{background:var(--warn-bg);border-color:transparent}.admonition.warning .admonition-title{color:var(--warn)}
+figure.map{margin:0 0 20px;padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+figure.map svg{width:100%;height:auto;max-width:1100px;display:block;margin:0 auto}
+ul.task-list, li.task-list-item{list-style:none}
+input[type=checkbox]{margin-right:6px}
+footer{color:var(--muted);font-size:.8rem;margin-top:40px;border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:900px){.layout{grid-template-columns:1fr}nav.side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}main{padding:16px}}
+@media print{nav.side,header.top .legend,footer script{display:none}.layout{display:block}article.doc{break-inside:avoid-page;border:0;padding:0 0 20px}article.doc>h1{break-before:page}body{background:#fff;color:#000}}
+</style>
+<header class="top"><div><h1>UHNW Family Wealth Playbook</h1><p class="sub">Standard operating procedures for comprehensive wealth management of $30M+ families — Bowen/CEG consultative process spine · Hughes family layer · Palaveev team building</p></div><div class="legend"><span class="badge type procedure">procedure</span><span class="badge type spec">spec</span><span class="badge type reference">reference</span><span class="badge type template">template</span><span class="badge mode">Mode A/B</span><span class="badge ext">beyond Bowen</span><span class="ph">[Placeholder]</span></div></header>
+<div class="layout">
+<nav class="side" aria-label="Contents">
+<a class="brand" href="#overview">Overview</a>
+<details open><summary>Foundations</summary><ul>
+<li><a href="#sop-02"><span class="num">02</span>Engagement modes — Mode A / Mode B and the scoping rules</a></li>
+<li><a href="#sop-03"><span class="num">03</span>Roles and RACI</a></li>
+<li><a href="#sop-05"><span class="num">05</span>Client meeting protocol — the wrapper for every meeting</a></li>
+</ul></details>
+<details open><summary>Templates</summary><ul>
+<li><a href="#t-05"><span class="num">05</span>T05 — Engagement scoping worksheet</a></li>
+</ul></details>
+<a class="brand" href="#sources">Sources</a></nav>
+<main>
+<section id="overview" class="doc"><h2 class="sec">Overview</h2><figure class="map"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1180 470" role="img" aria-label="Process map: entry paths, the five consultative meetings, the expert-network loop, and the family layer" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+    <style>
+      .box{fill:var(--panel,#fff);stroke:var(--accent,#1f5f8b);stroke-width:1.6}
+      .box.fam{stroke:var(--ext,#7a4b00);stroke-dasharray:5 3}
+      .box.net{stroke:var(--script,#0b5d3b)}
+      .lbl{fill:currentColor;font-weight:600}
+      .sub{fill:var(--muted,#5d5d57);font-size:11px}
+      .ivl{fill:var(--muted,#5d5d57);font-size:11px;font-style:italic}
+      .lane{fill:var(--muted,#5d5d57);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+      .arrow{stroke:currentColor;stroke-width:1.4;fill:none;marker-end:url(#arr)}
+      .arrow.loop{stroke:var(--script,#0b5d3b)}
+      .arrow.fam{stroke:var(--ext,#7a4b00);stroke-dasharray:5 3}
+      a{cursor:pointer}
+    </style>
+  </defs>
+
+  <!-- lanes -->
+  <text x="20" y="42" class="lane">ENTRY</text>
+  <text x="20" y="182" class="lane">CONSULTATIVE SEQUENCE</text>
+  <text x="20" y="322" class="lane">ADVANCED PLANNING LOOP</text>
+  <text x="20" y="432" class="lane">FAMILY LAYER (MODE A)</text>
+
+  <!-- entry paths -->
+  <a xlink:href="#sop-10"><rect class="box" x="120" y="20" width="170" height="52" rx="8"/><text x="205" y="42" text-anchor="middle" class="lbl">New client</text><text x="205" y="60" text-anchor="middle" class="sub">handoff from business development</text></a>
+  <a xlink:href="#sop-10"><rect class="box" x="330" y="20" width="190" height="52" rx="8"/><text x="425" y="42" text-anchor="middle" class="lbl">Existing client</text><text x="425" y="60" text-anchor="middle" class="sub">Rediscovery = CCM1 variant</text></a>
+  <a xlink:href="#sop-02"><rect class="box" x="560" y="20" width="220" height="52" rx="8"/><text x="670" y="42" text-anchor="middle" class="lbl">Engagement scoping</text><text x="670" y="60" text-anchor="middle" class="sub">Mode A / Mode B · scope rung · consent (T05)</text></a>
+  <path class="arrow" d="M205 72 V150"/>
+  <path class="arrow" d="M425 72 V120 H905 V150"/>
+  <path class="arrow" d="M670 72 V100 H205"/>
+
+  <!-- CCM sequence -->
+  <a xlink:href="#sop-10"><rect class="box" x="120" y="150" width="170" height="60" rx="8"/><text x="205" y="173" text-anchor="middle" class="lbl">CCM1 Discovery</text><text x="205" y="192" text-anchor="middle" class="sub">Total Client Profile · ≤ 1.5 h</text></a>
+  <text x="312" y="168" class="ivl">+2 wk</text><path class="arrow" d="M290 180 H350"/>
+  <a xlink:href="#sop-12"><rect class="box" x="350" y="150" width="170" height="60" rx="8"/><text x="435" y="173" text-anchor="middle" class="lbl">CCM2 Investment Plan</text><text x="435" y="192" text-anchor="middle" class="sub">exec summary + IPS · no check</text></a>
+  <text x="542" y="168" class="ivl">+1 wk</text><path class="arrow" d="M520 180 H580"/>
+  <a xlink:href="#sop-14"><rect class="box" x="580" y="150" width="170" height="60" rx="8"/><text x="665" y="173" text-anchor="middle" class="lbl">CCM3 Commitment</text><text x="665" y="192" text-anchor="middle" class="sub">engagement letter · paperwork</text></a>
+  <text x="768" y="168" class="ivl">+45 d</text><path class="arrow" d="M750 180 H810"/>
+  <a xlink:href="#sop-16"><rect class="box" x="810" y="150" width="150" height="60" rx="8"/><text x="885" y="173" text-anchor="middle" class="lbl">CCM4 Follow-up</text><text x="885" y="192" text-anchor="middle" class="sub">notebook · reframe</text></a>
+  <text x="978" y="168" class="ivl">+90 d</text><path class="arrow" d="M960 180 H1020"/>
+  <a xlink:href="#sop-20"><rect class="box" x="1020" y="150" width="140" height="60" rx="8"/><text x="1090" y="173" text-anchor="middle" class="lbl">CCM5 Progress</text><text x="1090" y="192" text-anchor="middle" class="sub">recurring · client cadence</text></a>
+  <a xlink:href="#sop-15"><rect class="box" x="650" y="240" width="200" height="34" rx="8"/><text x="750" y="262" text-anchor="middle" class="sub">Implementation &amp; transfers (15) · CSA</text></a>
+  <path class="arrow" d="M665 210 V240"/>
+
+  <!-- advanced planning loop -->
+  <a xlink:href="#sop-32"><rect class="box net" x="350" y="300" width="200" height="56" rx="8"/><text x="450" y="322" text-anchor="middle" class="lbl">Expert network meeting</text><text x="450" y="340" text-anchor="middle" class="sub">quarterly · 1–6 families · scenarios</text></a>
+  <a xlink:href="#sop-30"><rect class="box net" x="600" y="300" width="200" height="56" rx="8"/><text x="700" y="322" text-anchor="middle" class="lbl">Wealth management plan</text><text x="700" y="340" text-anchor="middle" class="sub">WE · WT · WP · CP tracker (T10)</text></a>
+  <a xlink:href="#sop-31"><rect class="box net" x="120" y="300" width="190" height="56" rx="8"/><text x="215" y="322" text-anchor="middle" class="lbl">Expert network</text><text x="215" y="340" text-anchor="middle" class="sub">internal bench + external core</text></a>
+  <path class="arrow loop" d="M310 328 H350"/>
+  <path class="arrow loop" d="M550 328 H600"/>
+  <path class="arrow loop" d="M800 328 H1090 V210"/>
+  <path class="arrow loop" d="M1090 210 V270 H450 V300" style="marker-end:url(#arr)"/>
+  <text x="870" y="290" class="ivl">drop · defer · do at every progress meeting</text>
+
+  <!-- family layer -->
+  <a xlink:href="#sop-41"><rect class="box fam" x="120" y="400" width="200" height="56" rx="8"/><text x="220" y="422" text-anchor="middle" class="lbl">Family discovery (41)</text><text x="220" y="440" text-anchor="middle" class="sub">executive summary · balance sheet</text></a>
+  <a xlink:href="#sop-43"><rect class="box fam" x="370" y="400" width="200" height="56" rx="8"/><text x="470" y="422" text-anchor="middle" class="lbl">Family meetings (43)</text><text x="470" y="440" text-anchor="middle" class="sub">mission session · annual meeting</text></a>
+  <a xlink:href="#sop-46"><rect class="box fam" x="620" y="400" width="220" height="56" rx="8"/><text x="730" y="422" text-anchor="middle" class="lbl">Trusts &amp; governance (45–48)</text><text x="730" y="440" text-anchor="middle" class="sub">trustee–beneficiary · family bank</text></a>
+  <a xlink:href="#sop-70"><rect class="box fam" x="890" y="400" width="270" height="56" rx="8"/><text x="1025" y="422" text-anchor="middle" class="lbl">Team building (70–74)</text><text x="1025" y="440" text-anchor="middle" class="sub">borrow → hire → onboard · rhythm</text></a>
+  <path class="arrow fam" d="M205 210 V280 H80 V428 H120"/>
+  <path class="arrow fam" d="M320 428 H370"/>
+  <path class="arrow fam" d="M570 428 H620"/>
+</svg>
+</figure><p>Standard operating procedures for a wealth-management practice serving families with $30M to several hundred million, delivered as the family's <strong>personal chief financial officer</strong>. The library is a Bowen/CEG consultative-process spine with a Hughes family-systems layer and a Palaveev team-building section. Everything here is original procedural writing informed by those sources; nothing is reproduced from them (see <code>SOURCES.md</code>).</p>
+<h2 id="overview-how-to-use-this-library">How to use this library</h2>
+<ol>
+<li><strong>Start with Foundations.</strong> <code>01</code> gives the model and operating principles, <code>02</code> the two engagement modes, <code>03</code> who does what, <code>04</code> client psychology, <code>05</code> the protocol every client meeting follows.</li>
+<li><strong>Run the sequence.</strong> New client: <code>10 → 12 → 14 → 15 → 16 → 20</code>. Existing client: <code>10</code> (Rediscovery variant) <code>→ 20</code>. Whole family (Mode A): <code>10 → 41 → 12 … → 43</code>.</li>
+<li><strong>Use the templates.</strong> Every procedure names the template it consumes or produces (<code>T01</code>–<code>T28</code>).</li>
+<li><strong>Follow the callouts.</strong> <em>Mode B</em> boxes say what changes when the Advisor serves an individual inside a larger family team. <em>Beyond Bowen</em> boxes mark content from Hughes, Palaveev, Bonner, or our own extension.</li>
+<li><strong>Keep it alive.</strong> <code>60</code> explains how the library is reviewed; <code>build/build.py --check</code> validates it; <code>build/build.py</code> renders <code>dist/sop-library.html</code> for sharing.</li>
+</ol>
+<h2 id="overview-the-model-in-one-screen">The model in one screen</h2>
+<ul>
+<li><strong>Wealth management = investment consulting + advanced planning + relationship management</strong> (Bowen). Advanced planning = wealth enhancement + wealth transfer + wealth protection + charitable planning. Relationship management = client relationships + expert-network relationships.</li>
+<li><strong>Complete wealth = five capitals</strong> — human, intellectual, social, spiritual, financial — with financial capital as the tool that grows the other four (Hughes). Time is measured in generations: 20 / 50 / 100 years.</li>
+<li><strong>The consultative sequence:</strong> Discovery → +2 weeks Investment Plan → +1 week Mutual Commitment → +45 days Follow-up → +90 days first Regular Progress Meeting → recurring at the cadence the client chose in Discovery.</li>
+<li><strong>Two engagement modes.</strong> Mode A — the whole family is under the Advisor's umbrella. Mode B — the Advisor serves one or more individuals inside a family that has its own central team; the mandate is scoped at intake (B-full / B-partial / B-narrow) and every procedure branches on it.</li>
+<li><strong>Default confidentiality rule.</strong> An adult's personal information is never shared upward, sideways, or with a family's central team without that person's written consent recorded on T05 / T14.</li>
+</ul>
+<h2 id="overview-roles-at-a-glance">Roles at a glance</h2>
+<p><code>LA</code> Lead Advisor · <code>SA</code> Service Advisor · <code>AA</code> Associate Advisor / Analyst · <code>CSA</code> Client Service Associate · <code>ISB</code> Internal Specialist Bench (sister-company experts) · <code>EEN</code> External Expert Network · <code>COA</code> Client's Other Advisors (Mode A) · <code>FCT</code> Family Central Team (Mode B). <strong>Where a role is unfilled, the Lead Advisor performs it</strong> — see <code>03</code>.</p>
+<h2 id="overview-scope-boundary">Scope boundary</h2>
+<p>These SOPs cover client service delivery, advanced planning, the family layer, and team building. They do <strong>not</strong> cover business development (handled elsewhere), portfolio construction, trading, rebalancing, or manager selection (the firm's investment platform), or the firm's compliance manual. Where a step touches those, it says so and hands off.</p>
+<h2 id="overview-placeholder-key">Placeholder key</h2>
+<p><code>&lt;span class="ph"&gt;[Firm]&lt;/span&gt;</code> the Advisor's firm · <code>&lt;span class="ph"&gt;[Advisor]&lt;/span&gt;</code> the Lead Advisor by name · <code>&lt;span class="ph"&gt;[CRM]&lt;/span&gt;</code> client-relationship system · <code>&lt;span class="ph"&gt;[Custodian]&lt;/span&gt;</code> custodial platform · <code>&lt;span class="ph"&gt;[Planning software]&lt;/span&gt;</code> · <code>&lt;span class="ph"&gt;[Document vault]&lt;/span&gt;</code> secure client portal / binder · <code>&lt;span class="ph"&gt;[Trust Co.]&lt;/span&gt;</code> the firm's trust company · <code>&lt;span class="ph"&gt;[ESOP Co.]&lt;/span&gt;</code> the firm's ESOP advisory company · <code>&lt;span class="ph"&gt;[Firm Compliance]&lt;/span&gt;</code> · <code>&lt;span class="ph"&gt;[Firm shared services]&lt;/span&gt;</code> borrowed operations/admin capacity · <code>&lt;span class="ph"&gt;[Client]&lt;/span&gt;</code> / <code>&lt;span class="ph"&gt;[Family]&lt;/span&gt;</code> the client's name.</p>
+<h2 id="overview-index">Index</h2>
+<!-- index:start -->
+<p><strong>Foundations</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Document</th>
+<th>Type</th>
+<th>Modes</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>02</td>
+<td><a href="#sop-02">Engagement modes — Mode A / Mode B and the scoping rules</a></td>
+<td>reference ·  beyond Bowen</td>
+<td>A, B</td>
+<td>LA</td>
+</tr>
+<tr>
+<td>03</td>
+<td><a href="#sop-03">Roles and RACI</a></td>
+<td>reference ·  beyond Bowen</td>
+<td>A, B</td>
+<td>LA</td>
+</tr>
+<tr>
+<td>05</td>
+<td><a href="#sop-05">Client meeting protocol — the wrapper for every meeting</a></td>
+<td>procedure</td>
+<td>A, B</td>
+<td>LA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Templates</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Document</th>
+<th>Type</th>
+<th>Modes</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>05</td>
+<td><a href="#t-05">T05 — Engagement scoping worksheet</a></td>
+<td>template ·  beyond Bowen</td>
+<td>A, B</td>
+<td>LA</td>
+</tr>
+</tbody>
+</table>
+<!-- index:end -->
+
+<h2 id="overview-document-types">Document types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>What it is</th>
+<th>Required sections</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>procedure</td>
+<td>a repeatable process with an owner, trigger, steps, outputs</td>
+<td>Purpose · Trigger · Roles · Timing · Inputs · Prep checklist · Procedure · Follow-up · Outputs and records · Do / Don't · Mode A / Mode B · Metrics · Related · Source</td>
+</tr>
+<tr>
+<td>spec</td>
+<td>the standard for a document the practice produces</td>
+<td>Purpose · Contents · Standards · Refresh cadence · Owner · Mode A / Mode B · Related · Source</td>
+</tr>
+<tr>
+<td>reference</td>
+<td>tables, formulas, matrices the procedures point to</td>
+<td>Purpose · … · Related · Source</td>
+</tr>
+<tr>
+<td>template</td>
+<td>a fill-in artifact</td>
+<td>Purpose · How to use · body · Related · Source</td>
+</tr>
+</tbody>
+</table>
+<p>Authoring conventions: <code>build/_skeletons.md</code>.</p></section>
+<section id="sec-00-foundations"><h2 class="sec">Foundations</h2>
+<article id="sop-02" class="doc reference"><h1><span class="num">02</span> Engagement modes — Mode A / Mode B and the scoping rules</h1><div class="meta"><span class="badge type reference">reference</span><span class="badge">Owner: LA</span><span class="badge mode">Mode A</span><span class="badge mode">Mode B</span><span class="badge ext">beyond Bowen</span><span class="badge">Updated 2026-09-01</span><div class="src"><b>Bowen:</b> Ch. 4 — relationship management includes working with the professional advisors the client already has · <b>Hughes:</b> Compact — family council as the family&#x27;s voice to outside professionals; confidentiality for hyperagent families; Complete Family Wealth Ch. 9 — who pays / who is the client / who advocates for the rising generation · <b>Other:</b> Extension — the scope ladder, the default confidentiality rule and the master matrix are ours</div></div><h1 id="sop-02-02-engagement-modes">02 — Engagement modes</h1>
+<p>The practice serves families in two fundamentally different configurations. Every procedure in this library branches on which one applies, so the mode — and, for Mode B, the scope rung — is decided at intake, written on T05, confirmed in the engagement letter, and revisited whenever the family's situation changes.</p>
+<h2 id="sop-02-purpose">Purpose</h2>
+<ul>
+<li>Define Mode A and Mode B and the three Mode B scope rungs.</li>
+<li>Fix the rules for <strong>who the client is</strong> and <strong>what may be shared with whom</strong>.</li>
+<li>Hold the master matrix of what changes in each SOP under Mode B, so the Advisor can see every delta in one place.</li>
+</ul>
+<h2 id="sop-02-the-two-modes">The two modes</h2>
+<h3 id="sop-02-mode-a-whole-family-under-the-advisors-umbrella">Mode A — whole family under the Advisor's umbrella</h3>
+<p>The Advisor is the family's personal chief financial officer. The family (one or several households, their entities and trusts) has no other central advisory team; the Advisor's expert network, the firm's internal bench, and the family's incumbent CPA/attorney are coordinated by the Advisor. The family layer (SOPs 40–48) applies in full.</p>
+<h3 id="sop-02-mode-b-individuals-inside-a-family-that-has-its-own-central-team">Mode B — individuals inside a family that has its own central team</h3>
+<p>A large family ($100M+) has a family office, trust company, counsel, or lead advisor of its own — the <strong>Family Central Team (FCT)</strong>. The Advisor serves one or more individuals or branches of that family. The FCT quarterbacks family-level structures; the Advisor's role is scoped by mandate.</p>
+<table>
+<thead>
+<tr>
+<th>Scope rung</th>
+<th>What the Advisor owns</th>
+<th>What the FCT owns</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>B-full</strong></td>
+<td>Full wealth management for the individual/branch: investment consulting, advanced planning for that person's own assets, relationship management</td>
+<td>Family-level structures (dynasty trusts, family entities, family-wide investment policy, governance)</td>
+<td>A G2 sibling with her own household, business interest, and personal assets</td>
+</tr>
+<tr>
+<td><strong>B-partial</strong></td>
+<td>Investment consulting for the individual's assets plus liaison into the FCT's planning process; contributes into their advanced planning rather than running his own</td>
+<td>Advanced planning, tax, estate for the whole family including this individual</td>
+<td>A family member whose family office does all planning centrally</td>
+</tr>
+<tr>
+<td><strong>B-narrow</strong></td>
+<td>A defined mandate only — one trust's portfolio, one member's personal accounts</td>
+<td>Everything else</td>
+<td>A trustee appoints the Advisor to manage one trust</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sop-02-who-is-the-client-rules">Who is the client — rules</h2>
+<ol>
+<li><strong>Name the client(s) in writing</strong> on T05 and in the engagement letter: the individuals and, in Mode A, the households and entities. "The family" is never the client without a named decision-maker for each entity.</li>
+<li><strong>Answer the three questions</strong> at intake and annually: who pays the fee; who is the client; who advocates for the rising generation. Record the answers on T05.</li>
+<li><strong>Mode A with governance in place:</strong> when a family council or equivalent exists, it is the Advisor's institutional counterparty for family-level matters; individual households remain clients in their own right.</li>
+<li><strong>Mode B:</strong> the individual is the client. The FCT is a counterparty to coordinate with under SOP 33, never a party that can instruct the Advisor about that individual's affairs unless the individual has authorized it on T05.</li>
+<li><strong>A couple</strong> is one client unit with two people who may each speak directly with the Advisor (SOP 21); either spouse may hold information in confidence from the other only where the engagement letter says so and <span class="ph">[Firm Compliance]</span> has approved.</li>
+</ol>
+<h2 id="sop-02-default-confidentiality-rule-both-modes">Default confidentiality rule (both modes)</h2>
+<p>An adult's personal information is not shared upward (to parents), sideways (to siblings or spouses of siblings), or with a family's central team without that adult's written consent recorded on T05 (Mode B) or T14 (Mode A). Consent is specific — <em>what</em> may be shared, <em>with whom</em>, <em>for what purpose</em> — and is reviewed annually. Where a sister company of <span class="ph">[Firm]</span> also sits on the family's central team, the same wall applies inside the firm.</p>
+<h2 id="sop-02-engagement-scoping-the-procedure-in-brief">Engagement scoping — the procedure in brief</h2>
+<ol>
+<li><strong>At handoff from business development</strong> the CSA opens T05 with the known facts (source, relationship, family context, known advisors, conflicts check).</li>
+<li><strong>During and after CCM1</strong> the LA completes the mode determination and, for Mode B, proposes the scope rung and the information-sharing consent.</li>
+<li><strong>Before CCM2</strong> the LA confirms the mandate with the client (and, in Mode B, whether the FCT needs a courtesy notice) so the investment plan is scoped correctly.</li>
+<li><strong>At CCM3</strong> the engagement letter states the client, the mode, the scope, the fee basis, and the consent; T05 is signed alongside it.</li>
+<li><strong>Annually</strong> (at the first progress meeting of the year) and <strong>on any trigger</strong> in SOP 22, the LA reviews T05 and re-scopes.</li>
+</ol>
+<h2 id="sop-02-when-modes-change">When modes change</h2>
+<ul>
+<li>A Mode B individual's family later asks the Advisor to serve the whole family → re-scope to Mode A; run SOP 41 (family discovery) before expanding the plan.</li>
+<li>A Mode A family sets up its own family office or engages a central advisor → decide, family by family, whether the Advisor becomes the FCT or moves to Mode B for the households he continues to serve; update T05 for every affected client.</li>
+<li>A member of a Mode A family asks for confidential advice the rest of the family must not see → serve that member under the confidentiality rule; if the member's interests conflict with the family's, disclose the conflict and, if necessary, arrange a separate advisor for that member (SOP 40).</li>
+</ul>
+<h2 id="sop-02-master-mode-b-matrix">Master Mode B matrix</h2>
+<p>What changes under Mode B, SOP by SOP. Each SOP carries the detail in its own <code>## Mode A / Mode B</code> section; this table is the overview.</p>
+<table>
+<thead>
+<tr>
+<th>SOP</th>
+<th>Mode B delta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>05 Meeting protocol</td>
+<td>Recap distribution follows the consent on T05 (the individual only unless the FCT is authorized); recording consent covers privacy from the family, not only from third parties</td>
+</tr>
+<tr>
+<td>10 Discovery</td>
+<td>Qualification becomes "is the mandate workable?" (information access, authority to act, conflicts). Relationships and Advisors branches capture the family-tree position and the FCT by name and function. Mandate questions added (T03). Output adds the advisor map</td>
+</tr>
+<tr>
+<td>11 Total Client Profile</td>
+<td>Family-context node (position, entities with an interest but no control, information the individual cannot access) and an FCT table; per-node confidentiality flag</td>
+</tr>
+<tr>
+<td>12 / 13 Investment plan and IPS</td>
+<td>Obtain family-level IPS or trust-instrument constraints first; the IPS is consistent with or explicitly carved out from family policy; a scope banner states what is and is not covered; FCT review only if the mandate says so</td>
+</tr>
+<tr>
+<td>14 Mutual commitment</td>
+<td>Signatories may include a trustee; engagement letter = client + scope + consent; introductions ask #1 becomes "introduce me into your family team"</td>
+</tr>
+<tr>
+<td>15 Implementation</td>
+<td>Transfers may need FCT or trustee approval; status copied to the FCT per consent; the custodian may be the family's</td>
+</tr>
+<tr>
+<td>16 Follow-up</td>
+<td>Notebook covers mandated assets only; reporting format agreed with the FCT; introductions ask #2 reframed as above</td>
+</tr>
+<tr>
+<td>20 Progress meeting</td>
+<td>Agenda adds a coordination update; plan items touching family structures are drafted as recommendations to take to family counsel; fourth coaching outcome — <em>refer to family team</em>; asks limited to the individual's own held-away assets and to other members via the individual</td>
+</tr>
+<tr>
+<td>21 Service standards</td>
+<td>Response-time commitments extend to the FCT contact; a written communication protocol (who contacts whom, cc rules) sits beside the individual's process preference</td>
+</tr>
+<tr>
+<td>22 Event-driven contact</td>
+<td>Market-shock messaging aligned with the FCT — no contradictory communications; life events shared with the FCT only with consent; on a principal's death or incapacity the FCT leads and the Advisor supports his individuals</td>
+</tr>
+<tr>
+<td>23 Service failure</td>
+<td>If the failure is the FCT's or the family custodian's, the Advisor still owns recovery for his client, never assigns blame, and escalates through the agreed channel</td>
+</tr>
+<tr>
+<td>24 Reporting</td>
+<td>Format compatible with the family's consolidated reporting; data feeds supplied if mandated</td>
+</tr>
+<tr>
+<td>25 Satisfaction survey</td>
+<td>Survey the individual; optional three-question coordination check with the FCT contact</td>
+</tr>
+<tr>
+<td>30 Wealth management plan</td>
+<td>Scope banner; each advanced-planning section tagged in-scope / family-team-owned / coordination-only</td>
+</tr>
+<tr>
+<td>31 Expert network</td>
+<td>The family's counsel and trust company <em>are</em> the private-client attorney and fiduciary; the Advisor's network fills gaps only, with FCT knowledge; any fee sharing disclosed to the individual and, where the FCT gatekeeps, to the FCT</td>
+</tr>
+<tr>
+<td>32 Expert-network meeting</td>
+<td>B-full: run, scoped to the mandate, family-structure items become questions for family counsel. B-partial: only if the FCT invites input. B-narrow: not run</td>
+</tr>
+<tr>
+<td>33 Coordinating with outside advisors</td>
+<td>The Mode B backbone: advisor map, client-initiated introductions, consent letter, single-thread communication, quarterly coordination call, no surprises for the FCT, disagreements handled privately and the client decides</td>
+</tr>
+<tr>
+<td>40–48 Family layer</td>
+<td>Apply only when the family invites the Advisor in: attend their meeting when asked, contribute to their executive summary, support his individuals through their trustscape; he does not convene family governance for a family that has its own</td>
+</tr>
+<tr>
+<td>50 Asks</td>
+<td>Assets: only those within the individual's own discretion and outside central management, and only after confirming the mandate welcomes it; never solicit assets managed by the FCT or a sister company. Introductions: other members via the individual with the FCT informed as agreed; the capacity/scarcity framing is dropped</td>
+</tr>
+<tr>
+<td>71 Borrowed expertise</td>
+<td>Where a sister company already serves the family centrally, the confidentiality wall inside <span class="ph">[Firm]</span> is stated in the scope memo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sop-02-related">Related</h2>
+<ul>
+<li><a href="#sop-03">SOP 03 — Roles and RACI</a></li>
+<li><a href="../10-onboarding/10-ccm1-discovery-meeting.md">SOP 10 — CCM1 Discovery</a></li>
+<li><a href="../10-onboarding/14-ccm3-mutual-commitment-meeting.md">SOP 14 — CCM3 Mutual Commitment</a></li>
+<li><a href="../30-advanced-planning/33-coordinating-with-outside-advisors.md">SOP 33 — Coordinating with outside advisors</a></li>
+<li><a href="../40-family-layer/40-family-engagement-model.md">SOP 40 — Family engagement model</a></li>
+<li><a href="#t-05">T05 — Engagement scoping worksheet</a></li>
+</ul>
+<h2 id="sop-02-source">Source</h2>
+<ul>
+<li>Bowen, <em>Breaking Through</em>, Ch. 4 — relationship management's third task: working with the advisors the client already has (adapted).</li>
+<li>Hughes, <em>The Compact</em> — the family council as the family's voice to outside professionals; confidentiality obligations toward hyperagent families (paraphrased).</li>
+<li>Hughes, <em>Complete Family Wealth</em>, Ch. 9 — the advisor's three questions (paraphrased).</li>
+<li>Extension — the two-mode framing, scope ladder, default confidentiality rule, and master matrix are ours.</li>
+</ul></article>
+<article id="sop-03" class="doc reference"><h1><span class="num">03</span> Roles and RACI</h1><div class="meta"><span class="badge type reference">reference</span><span class="badge">Owner: LA</span><span class="badge mode">Mode A</span><span class="badge mode">Mode B</span><span class="badge ext">beyond Bowen</span><span class="badge">Updated 2026-09-01</span><div class="src"><b>Bowen:</b> Ch. 6 — blueprint every system; staff access and improvement loop · <b>Hughes:</b> Compact — personne de confiance / personne d&#x27;affaires; Complete Family Wealth Ch. 9 — who pays, who is the client, who advocates for the rising generation · <b>Other:</b> Palaveev — role definitions, support vs professional track, delegation order, canonical delivery unit, language rule</div></div><h1 id="sop-03-03-roles-and-raci">03 — Roles and RACI</h1>
+<p>Every procedure in this library names roles, never people. This reference defines the roles, records who covers each one today, states the trigger for filling it, and fixes the delegation rules that keep the client experience intact as the team grows.</p>
+<h2 id="sop-03-purpose">Purpose</h2>
+<ul>
+<li>Give every SOP a stable vocabulary for "who does this step."</li>
+<li>Let the practice run today (solo plus borrowed specialists) and tomorrow (a full team) <strong>without rewriting the client-facing procedures</strong> — only this table changes.</li>
+<li>Make the boundary between the Advisor's own team, borrowed sister-company experts, external experts, and the family's other advisors explicit.</li>
+</ul>
+<h2 id="sop-03-the-role-set">The role set</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Abbr.</th>
+<th>Owns</th>
+<th>Track</th>
+<th>Today</th>
+<th>Target / trigger to fill</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lead Advisor</td>
+<td>LA</td>
+<td>Every client relationship and every decision about what is best for the client; all consultative and family meetings; the asks; drop/defer/do coaching; quarterback of the expert network; the service-failure call; sign-off on plans and proposals</td>
+<td>Professional (owner)</td>
+<td><span class="ph">[Advisor]</span></td>
+<td><span class="ph">[Advisor]</span></td>
+</tr>
+<tr>
+<td>Client Service Associate</td>
+<td>CSA</td>
+<td>Scheduling, correspondence (T01), meeting logistics and packets, sign-here paperwork, the implementation tracker (T07), the client notebook / <span class="ph">[Document vault]</span>, <span class="ph">[CRM]</span> hygiene, reporting assembly, service-failure intake, red-flag monitoring</td>
+<td>Support</td>
+<td><span class="ph">[Advisor]</span> with <span class="ph">[Firm shared services]</span></td>
+<td><strong>First hire.</strong> Trigger: recurring administrative errors, or the LA spends &gt; 25% of client-facing hours on CSA work</td>
+</tr>
+<tr>
+<td>Service Advisor</td>
+<td>SA</td>
+<td>Can serve existing clients independently from day one: plan and portfolio production, periodic reviews, routine progress meetings (co-attended, then independent), watching for held-away assets and advanced-planning openings; attends every client meeting with a named role</td>
+<td>Professional</td>
+<td><span class="ph">[Advisor]</span>; borrowed from a sister RIA per engagement</td>
+<td><strong>Second hire, first professional.</strong> Trigger: ~$500–700K revenue in the profit center, or ~40 relationships, whichever first (see SOP 70)</td>
+</tr>
+<tr>
+<td>Associate Advisor / Analyst</td>
+<td>AA</td>
+<td>Investment plan and IPS drafts, reporting analysis, meeting packets, advanced-planning tracker (T10) upkeep, expert-meeting case briefs, executive-summary drafting support; second chair on large relationships</td>
+<td>Professional (entry)</td>
+<td><span class="ph">[Advisor]</span>; borrowed from a sister RIA</td>
+<td>Third hire, when relationship size justifies a third professional level</td>
+</tr>
+<tr>
+<td>Internal Specialist Bench</td>
+<td>ISB</td>
+<td>Sister-company specialists engaged per matter: <span class="ph">[Trust Co.]</span> (trust administration, fiduciary services), <span class="ph">[ESOP Co.]</span> (business succession and liquidity), tax, insurance, lending, sister RIAs</td>
+<td>Borrowed</td>
+<td>Named per engagement under SOP 71</td>
+<td>Standing roster maintained in SOP 31</td>
+</tr>
+<tr>
+<td>External Expert Network</td>
+<td>EEN</td>
+<td>Private-client attorney (the client hires directly), independent insurance specialist, and as needed valuation, corporate tax, credit, concentrated-stock, actuary, charitable-planning, family-governance facilitator, counselor</td>
+<td>External</td>
+<td>To be built</td>
+<td>Core two (attorney + insurance) in place before advanced planning is promised</td>
+</tr>
+<tr>
+<td>Client's Other Advisors</td>
+<td>COA</td>
+<td>The client's incumbent CPA, attorney, other managers (Mode A)</td>
+<td>Not ours to direct</td>
+<td>Mapped per client on T05</td>
+<td>Coordinated under SOP 33</td>
+</tr>
+<tr>
+<td>Family Central Team</td>
+<td>FCT</td>
+<td>The family office, trust company, counsel, and other advisors of a large family in which the Advisor serves individuals (Mode B)</td>
+<td>Not ours to direct</td>
+<td>Mapped per client on T05</td>
+<td>Coordinated under SOP 33</td>
+</tr>
+<tr>
+<td>Firm Compliance</td>
+<td>—</td>
+<td>Recording consent, fee-sharing and disclosure, engagement letters, gifts, licensing</td>
+<td>Firm</td>
+<td><span class="ph">[Firm Compliance]</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Family roles (Mode A)</td>
+<td>—</td>
+<td>Principal, household lead, decision-maker, trustee, beneficiary, elder, council member, rising-generation member</td>
+<td>Client side</td>
+<td>Defined per family on T14</td>
+<td>See SOP 40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule:</strong> where a role is unfilled, the LA performs it — the procedures do not change.</p>
+<h2 id="sop-03-support-track-vs-professional-track">Support track vs professional track</h2>
+<ul>
+<li>The <strong>support track</strong> (CSA, operations) makes administrative decisions and is not expected to pursue a professional career. The <strong>professional track</strong> (AA → SA → LA) makes professional judgments about a client's plan and portfolio.</li>
+<li>Moving from support to professional is a <strong>change of track</strong>, not a promotion; it requires the hiring process in SOP 72.</li>
+<li>Whoever owns operations today is named here: <code>&lt;span class="ph"&gt;[Advisor]&lt;/span&gt;</code> until the CSA is hired. The path from CSA to an operations lead is a stated career option, so operations does not become a second-class job as the team grows.</li>
+</ul>
+<h2 id="sop-03-delegation-ladder">Delegation ladder</h2>
+<p><strong>Never delegate (LA only):</strong> the Discovery and family-executive-summary interviews; presentation of the investment plan and the wealth management plan; the additional-assets and introductions asks; drop/defer/do coaching; the service-failure apology call; facilitation of the expert-network meeting; facilitation of family meetings unless an external facilitator is engaged.</p>
+<p><strong>Delegate first (in this order as hires arrive):</strong></p>
+<ol>
+<li>Routine execution — scheduling, confirmations, paperwork, notebook, <span class="ph">[CRM]</span> logging, reporting assembly → CSA.</li>
+<li>Plan and portfolio production, periodic reviews, supporting analysis → SA / AA.</li>
+<li>Routine progress meetings — first co-attended, then led by the SA with the LA present, then independent → SA.</li>
+<li>Relationship management (the client calls the SA first) → SA, when the relationship-manager test in SOP 73 is met.</li>
+<li>Relationship ownership (all meetings including strategy) → SA, when the relationship-owner test in SOP 73 is met.</li>
+<li>Business development — last; it needs a decade of experience and is out of scope here.</li>
+</ol>
+<h2 id="sop-03-lean-raci-convention">Lean RACI convention</h2>
+<p>Every procedure's <code>## Roles</code> line uses three verbs only:</p>
+<ul>
+<li><strong>Owner</strong> — accountable for the outcome; there is exactly one.</li>
+<li><strong>Does</strong> — performs named steps.</li>
+<li><strong>Consulted</strong> — supplies input or review before a step completes.</li>
+</ul>
+<p>"Informed" is deliberately omitted; who gets told what is governed by the contact plan (SOP 21) and the coordination protocol (SOP 33).</p>
+<h2 id="sop-03-operating-rules-that-protect-the-relationship">Operating rules that protect the relationship</h2>
+<ul>
+<li><strong>Whoever has the ball is the quarterback.</strong> The person who receives a client request owns it to completion. "Let me put you through to someone" is not an acceptable answer inside this practice.</li>
+<li><strong>The relationship stays with the LA.</strong> Borrowed and external experts are introduced by name, role, and what they will do for this client; they never become the client's primary contact unless the LA and the client agree (SOP 71).</li>
+<li><strong>Language.</strong> The team says "our clients" and "the family we serve," never "my clients." Possessive language is corrected on the spot.</li>
+<li><strong>Independent-action scope.</strong> The LA acts alone on anything within the profit center's authority. Matters with more than a stated materiality threshold of impact on the firm, on a sister company, or on a future partner (default: the equivalent of one quarter of a professional salary) are discussed with the relevant firm leader first.</li>
+<li><strong>Three questions the LA asks about every engagement:</strong> who pays the fee; who is the client; who is advocating for the rising generation. If the first two answers are "the senior generation" and the third is "no one," the engagement is at risk and SOP 40 applies.</li>
+</ul>
+<h2 id="sop-03-related">Related</h2>
+<ul>
+<li><a href="#sop-02">SOP 02 — Engagement modes</a></li>
+<li><a href="#sop-05">SOP 05 — Client meeting protocol</a></li>
+<li><a href="../30-advanced-planning/31-expert-network.md">SOP 31 — Expert network</a></li>
+<li><a href="../30-advanced-planning/33-coordinating-with-outside-advisors.md">SOP 33 — Coordinating with outside advisors</a></li>
+<li><a href="../40-family-layer/40-family-engagement-model.md">SOP 40 — Family engagement model</a></li>
+<li><a href="../70-team-building/70-team-roadmap.md">SOP 70 — Team roadmap</a> · <a href="../70-team-building/71-engaging-borrowed-expertise.md">SOP 71</a> · <a href="../70-team-building/72-hiring-a-team-member.md">SOP 72</a> · <a href="../70-team-building/73-onboarding-and-relationship-transition.md">SOP 73</a></li>
+<li><a href="#t-05">T05 — Engagement scoping worksheet</a></li>
+</ul>
+<h2 id="sop-03-source">Source</h2>
+<ul>
+<li>Bowen, <em>Breaking Through</em>, Ch. 6 — blueprint every system; staff have access to and improve the blueprints (adapted).</li>
+<li>Palaveev, <em>The Ensemble Practice</em> — lead / service / associate / client-service roles, support vs professional track, the delegation order, "whoever has the ball is the quarterback," the language rule (paraphrased).</li>
+<li>Hughes, <em>Complete Family Wealth</em>, Ch. 9 and <em>The Compact</em> — the advisor's three questions; the personne de confiance stance (paraphrased).</li>
+<li>Extension — the today/target table, the materiality threshold, and the borrowed-bench role are our own.</li>
+</ul></article>
+<article id="sop-05" class="doc procedure"><h1><span class="num">05</span> Client meeting protocol — the wrapper for every meeting</h1><div class="meta"><span class="badge type procedure">procedure</span><span class="badge">Owner: LA</span><span class="badge mode">Mode A</span><span class="badge mode">Mode B</span><span class="badge">Updated 2026-09-01</span><div class="src"><b>Bowen:</b> Ch. 4 — the recurring steps of every CCM meeting: greet by name, reinforce personality, agenda, schedule next meeting in the room, send confirmation; office-experience rules; recording consent · <b>Hughes:</b> Family Trusts Ch. 11 and 13 — define success at the top of the meeting; one-week follow-up call; Complete Family Wealth Ch. 16 — agenda in advance, listening time after weighty disclosures · <b>Other:</b> Palaveev — introduce every team member by name, role and what they will do; a named role for any junior in the room</div></div><h1 id="sop-05-05-client-meeting-protocol">05 — Client meeting protocol</h1>
+<p>Every client meeting in this practice — the five consultative meetings, family meetings, trustee meetings, and ad hoc reviews — runs inside this wrapper. The meeting-specific SOP supplies the body; this procedure supplies the preparation, the opening, the close, and the follow-up so that the client has the same experience every time, whoever is in the room.</p>
+<h2 id="sop-05-purpose">Purpose</h2>
+<ul>
+<li>Deliver a consistent, prepared, agenda-driven experience that signals the practice is a refined process, not an individual's improvisation.</li>
+<li>Make sure every meeting ends with the next one scheduled and every decision recorded within 24 hours.</li>
+<li>Let team members and borrowed specialists take part without the client ever feeling "passed down."</li>
+</ul>
+<h2 id="sop-05-trigger">Trigger</h2>
+<p>Any client-facing meeting is scheduled — in person, video, or phone — with a client, a prospective client, a family group, or a trustee/beneficiary.</p>
+<h2 id="sop-05-roles">Roles</h2>
+<p>Owner: LA · Does: CSA (letter, confirmation, logistics, packet assembly, <span class="ph">[CRM]</span> entries), AA (analysis in the packet; a named role in the room) · Consulted: ISB / EEN specialists when they attend.</p>
+<h2 id="sop-05-timing">Timing</h2>
+<table>
+<thead>
+<tr>
+<th>When</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T−10 business days</td>
+<td>Meeting scheduled in <span class="ph">[CRM]</span>; agenda drafted from T02</td>
+</tr>
+<tr>
+<td>T−7</td>
+<td>Pre-meeting letter or email sent (T01) with the agenda and anything the client should bring</td>
+</tr>
+<tr>
+<td>T−3</td>
+<td>Packet assembled; team briefing held; any change since the last meeting the client should hear <em>before</em> the meeting is communicated now</td>
+</tr>
+<tr>
+<td>T−1</td>
+<td>Confirmation call or message</td>
+</tr>
+<tr>
+<td>T+0</td>
+<td>Meeting</td>
+</tr>
+<tr>
+<td>T+1 (≤ 24 hours)</td>
+<td>Written recap, confirmation of the next meeting, <span class="ph">[CRM]</span> log, tasks assigned</td>
+</tr>
+<tr>
+<td>T+7</td>
+<td>One-week call after a first meeting or any meeting with heavy disclosures or decisions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sop-05-inputs">Inputs</h2>
+<ul>
+<li>The meeting-specific agenda (T02) and the SOP for that meeting.</li>
+<li>The client's Total Client Profile (SOP 11) and the recap of the last meeting.</li>
+<li>Open items: implementation tracker (T07), advanced-planning tracker (T10), service-failure log.</li>
+<li>The most recent quarter-end statements or reporting package (SOP 24).</li>
+<li>The client's stated process preference (how they want to be contacted and how often) and personality notes (SOP 04).</li>
+<li>T05 for who may attend and what may be discussed in front of whom.</li>
+</ul>
+<h2 id="sop-05-prep-checklist">Prep checklist</h2>
+<ul>
+<li>[ ] Agenda adapted from T02; client invited to add items in the pre-meeting letter.</li>
+<li>[ ] Packet: agenda, prior-quarter figures, tracker extracts, any documents to sign with "sign here" flags.</li>
+<li>[ ] Attendee list checked against T05 (consent) and the client's wishes; every team member or specialist attending has a <strong>named role</strong> for this meeting.</li>
+<li>[ ] Anything material that changed since the last contact has already been told to the client — no surprises in the room.</li>
+<li>[ ] Room or video link tested; beverages; no financial television or market commentary visible in the waiting area.</li>
+<li>[ ] Recording plan decided (Discovery and family-executive-summary interviews are recorded with consent; otherwise notes by the AA/CSA).</li>
+<li>[ ] Personality note reviewed: how this client likes to be greeted, paced, and presented to.</li>
+</ul>
+<h2 id="sop-05-procedure">Procedure</h2>
+<ol>
+<li><strong>Send the pre-meeting letter (T01).</strong> Confirm date, time, place, purpose, attendees, and what to bring. Attach the agenda and invite additions.</li>
+<li><strong>Brief the team.</strong> Two minutes per attendee: what they will do in the room, what they may and may not discuss, who takes notes.</li>
+<li><strong>Greet.</strong> Every team member greets the client by name, formally. The LA reinforces something the client values (a recent event, an interest) before any business.</li>
+<li><strong>Introduce anyone new</strong> — by name, role in the practice, and what they will do for this client today. Promote their skills; never sound uncertain about them.</li>
+<li>
+<p><strong>Open with purpose and success.</strong> State why we are meeting. Ask what needs to happen for the client to leave feeling this was time well spent. Walk the agenda and ask for additions.</p>
+<div class="admonition script">
+<p class="admonition-title">Say something like</p>
+<p>"Before we start: what would make this a genuinely useful hour for you? I'll make sure we get there."</p>
+</div>
+</li>
+<li>
+<p><strong>Ask what has changed.</strong> "What has happened since we last met?" — then, if needed, "Anything in your life or the family's that affects your finances and that I should know about?" Listen for marriages, births, deaths, health, job or business changes, sales, disputes.</p>
+</li>
+<li><strong>Run the body</strong> per the meeting-specific SOP. Present, then pause for questions; do not answer everything immediately if the packet will answer it in sequence.</li>
+<li><strong>Coach decisions, don't push.</strong> For each recommendation, the client chooses drop / defer / do (Mode B adds <em>refer to family team</em>). Record the choice.</li>
+<li><strong>Close.</strong> Summarize decisions and next steps by owner and date. Ask whether the meeting achieved what the client wanted and what to do differently next time.</li>
+<li><strong>Schedule the next meeting in the room</strong> according to the client's stated cadence. Never leave with "we'll be in touch."</li>
+<li><strong>Confirm in writing within 24 hours (T01).</strong> Date and time of the next meeting, decisions, tasks with owners, and any documents outstanding.</li>
+<li><strong>Log in <span class="ph">[CRM]</span> within 24 hours.</strong> Life changes, decisions, asks made and outcomes, the personality note, and the next-meeting date.</li>
+</ol>
+<h2 id="sop-05-follow-up">Follow-up</h2>
+<ul>
+<li>Within 24 hours: recap and confirmation sent; tasks created; documents filed to the <span class="ph">[Document vault]</span>; tracker(s) updated.</li>
+<li>Within one week: after a first meeting or any meeting with weighty disclosures, the LA calls to answer questions that surfaced on reflection.</li>
+<li>Any promise made in the room has a date and an owner before the day ends.</li>
+</ul>
+<h2 id="sop-05-outputs-and-records">Outputs and records</h2>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Where it lives</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agenda and pre-meeting letter</td>
+<td><span class="ph">[CRM]</span> activity; client's <span class="ph">[Document vault]</span></td>
+<td>CSA</td>
+</tr>
+<tr>
+<td>Meeting notes and recap</td>
+<td><span class="ph">[CRM]</span>; recap sent to the client</td>
+<td>AA / CSA</td>
+</tr>
+<tr>
+<td>Decisions and tasks</td>
+<td><span class="ph">[CRM]</span> tasks; T07 / T10 trackers</td>
+<td>CSA</td>
+</tr>
+<tr>
+<td>Next-meeting confirmation</td>
+<td><span class="ph">[CRM]</span> calendar; written confirmation</td>
+<td>CSA</td>
+</tr>
+<tr>
+<td>Updated personality and process notes</td>
+<td><span class="ph">[CRM]</span> client record</td>
+<td>LA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sop-05-do-dont">Do / Don't</h2>
+<p><strong>Do</strong></p>
+<ul>
+<li>Prepare an agenda for every meeting, including the "quick" ones.</li>
+<li>Tell the client bad news before the meeting, never in it.</li>
+<li>Keep Discovery to ninety minutes; keep every other meeting inside the time promised.</li>
+<li>Give every junior in the room something substantive to do — the notes and follow-through, one analysis to present, one project to own.</li>
+</ul>
+<p><strong>Don't</strong></p>
+<ul>
+<li>Don't take the check at the investment-plan meeting; commitment has its own meeting.</li>
+<li>Don't let a specialist become the client's point of contact by default.</li>
+<li>Don't answer the first question with a lecture; the packet and the sequence usually answer it.</li>
+<li>Don't "pass the puck" — whoever receives a request in the meeting owns it to completion.</li>
+</ul>
+<h2 id="sop-05-mode-a-mode-b">Mode A / Mode B</h2>
+<h3 id="sop-05-mode-a-whole-family">Mode A — whole family</h3>
+<ul>
+<li>Attendance follows the family map and communication map (T14); confidentiality between members is checked before anyone joins.</li>
+<li>Family meetings add the ground rules and facilitation protocol in SOP 43 on top of this wrapper.</li>
+</ul>
+<h3 id="sop-05-mode-b-individual-within-a-larger-team">Mode B — individual within a larger team</h3>
+<ul>
+<li>Recap distribution follows the consent on T05: the individual only, unless the FCT is authorized.</li>
+<li>Recording consent explicitly covers privacy from the family and the FCT, not only from third parties.</li>
+<li>If an FCT representative attends, the LA states at the opening what will and will not be covered in their presence.</li>
+</ul>
+<h2 id="sop-05-metrics">Metrics</h2>
+<ul>
+<li>Share of meetings with a written confirmation sent within 24 hours (target 100%).</li>
+<li>Share of meetings that ended with the next meeting scheduled (target 100%).</li>
+<li>Service-failure log entries traceable to a meeting promise (target zero).</li>
+</ul>
+<h2 id="sop-05-related">Related</h2>
+<ul>
+<li><a href="../templates/T01-client-correspondence.md">T01 — Client correspondence</a> · <a href="../templates/T02-meeting-agendas.md">T02 — Meeting agendas</a></li>
+<li><a href="04-hnw-psychology.md">SOP 04 — HNW psychology</a></li>
+<li><a href="../10-onboarding/10-ccm1-discovery-meeting.md">SOP 10 — CCM1 Discovery</a> · <a href="../20-ongoing-service/20-ccm5-regular-progress-meeting.md">SOP 20 — CCM5 Regular Progress Meeting</a></li>
+<li><a href="../20-ongoing-service/21-service-standards-and-contact-plan.md">SOP 21 — Service standards and contact plan</a></li>
+<li><a href="../40-family-layer/43-family-meetings.md">SOP 43 — Family meetings</a></li>
+<li><a href="../70-team-building/71-engaging-borrowed-expertise.md">SOP 71 — Engaging borrowed expertise</a></li>
+</ul>
+<h2 id="sop-05-source">Source</h2>
+<ul>
+<li>Bowen, <em>Breaking Through</em>, Ch. 4 — the steps repeated in every consultative meeting (greet by name, reinforce the client's personality, agenda, schedule the next meeting, send confirmation) and the office-experience rules (adapted).</li>
+<li>Goldstone, Hughes &amp; Whitaker, <em>Family Trusts</em>, Ch. 11 and 13 — define success at the top of a meeting; the one-week follow-up call (paraphrased).</li>
+<li>Hughes, Massenzio &amp; Whitaker, <em>Complete Family Wealth</em>, Ch. 16 — agenda in advance; listening and processing time after weighty disclosures (paraphrased).</li>
+<li>Palaveev, <em>The Ensemble Practice</em> — named roles for team members in every meeting; "whoever has the ball is the quarterback" (paraphrased).</li>
+</ul></article>
+</section>
+<section id="sec-templates"><h2 class="sec">Templates</h2>
+<article id="t-05" class="doc template"><h1><span class="num">05</span> T05 — Engagement scoping worksheet</h1><div class="meta"><span class="badge type template">template</span><span class="badge">Owner: LA</span><span class="badge mode">Mode A</span><span class="badge mode">Mode B</span><span class="badge ext">beyond Bowen</span><span class="badge">Updated 2026-09-01</span><div class="src"><b>Bowen:</b> Ch. 4 — Total Client Profile: Advisors and Process areas · <b>Hughes:</b> Complete Family Wealth Ch. 9 — who pays / who is the client / who advocates for the rising generation · <b>Other:</b> Extension — mode, scope rung and consent fields are ours</div></div><h1 id="t-05-t05-engagement-scoping-worksheet">T05 — Engagement scoping worksheet</h1>
+<h2 id="t-05-purpose">Purpose</h2>
+<p>One page per engagement that records who the client is, which mode and scope apply, who may instruct, and what information may be shared with whom. It is opened at handoff, completed after Discovery, signed at Mutual Commitment, and reviewed annually or on any trigger in SOP 22.</p>
+<h2 id="t-05-how-to-use">How to use</h2>
+<ul>
+<li>CSA opens the sheet in <span class="ph">[CRM]</span> at business-development handoff (Part 1). LA completes Parts 2–5 after CCM1 and confirms them with the client before CCM2. Signed with the engagement letter at CCM3. Filed in the client's <span class="ph">[Document vault]</span>.</li>
+<li>Every field must have an answer; "unknown" is an answer that creates a task.</li>
+</ul>
+<h2 id="t-05-part-1-handoff-csa">Part 1 — Handoff (CSA)</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Entry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client name(s)</td>
+<td><span class="ph">[Client]</span></td>
+</tr>
+<tr>
+<td>Source of the relationship</td>
+<td>______ (referring professional / existing client / firm channel)</td>
+</tr>
+<tr>
+<td>Referring party informed of outcome?</td>
+<td>yes / no / n/a — date ______</td>
+</tr>
+<tr>
+<td>Household(s) and members known so far</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Family position (G1 / G2 / G3; branch)</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Known advisors (CPA, attorney, other managers, trustees)</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Known family office / central team</td>
+<td>none / ______</td>
+</tr>
+<tr>
+<td>Conflicts check with <span class="ph">[Firm Compliance]</span></td>
+<td>cleared on <strong><em>_</em>_ / issues: </strong>____</td>
+</tr>
+<tr>
+<td>Assets in scope (estimate) and where held</td>
+<td>______</td>
+</tr>
+</tbody>
+</table>
+<h2 id="t-05-part-2-who-is-the-client-la">Part 2 — Who is the client (LA)</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The client(s), named</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Households and entities the client speaks for</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Who pays the fee</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Who may instruct the Advisor (per account/entity)</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Who is advocating for the rising generation</td>
+<td>______ (if "no one," open SOP 40)</td>
+</tr>
+<tr>
+<td>Decision-maker for each entity/trust</td>
+<td>______</td>
+</tr>
+</tbody>
+</table>
+<h2 id="t-05-part-3-mode-and-scope">Part 3 — Mode and scope</h2>
+<ul>
+<li>[ ] <strong>Mode A</strong> — whole family under the Advisor's umbrella</li>
+<li>[ ] <strong>Mode B</strong> — individual(s) inside a family with its own central team → scope rung: [ ] B-full [ ] B-partial [ ] B-narrow</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>In scope (Advisor owns)</th>
+<th>Family team owns</th>
+<th>Coordination only</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Investment consulting</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wealth enhancement (tax-aware investing, investor allocation)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wealth transfer (estate, trusts, gifting)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wealth protection (asset protection, insurance, prenuptial matters)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Charitable planning</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Family meetings / governance</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Trustee–beneficiary work</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="t-05-part-4-information-sharing-consent">Part 4 — Information-sharing consent</h2>
+<table>
+<thead>
+<tr>
+<th>May the Advisor share…</th>
+<th>With spouse</th>
+<th>With parents / senior generation</th>
+<th>With siblings / other members</th>
+<th>With the family central team</th>
+<th>With trustees</th>
+<th>With the client's other advisors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Existence of the relationship</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plan and recommendations</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Account values and holdings</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Meeting recaps</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Personal circumstances discussed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Consent is specific and revocable; entries are <em>yes</em> / <em>no</em> / <em>summary only</em>. Signed by the client: <strong><em>_</em>_ date </strong>____.</p>
+<h2 id="t-05-part-5-counterparties-and-protocol">Part 5 — Counterparties and protocol</h2>
+<table>
+<thead>
+<tr>
+<th>Party (COA / FCT / trustee)</th>
+<th>Name</th>
+<th>Function</th>
+<th>Contact protocol (who contacts whom; cc rules)</th>
+<th>Courtesy notice sent?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="t-05-part-6-asks-and-fee-basis">Part 6 — Asks and fee basis</h2>
+<ul>
+<li>Additional-assets ask permitted? yes / limited to ______ / no</li>
+<li>Introductions ask permitted? yes / via the client only / no</li>
+<li>Fee basis and schedule reference: <strong><em>_</em>_ · Fee conversation held on </strong>____ (repeat annually)</li>
+</ul>
+<h2 id="t-05-part-7-review">Part 7 — Review</h2>
+<table>
+<thead>
+<tr>
+<th>Signed (LA)</th>
+<th>Signed (client)</th>
+<th>Date</th>
+<th>Next review</th>
+<th>Trigger that caused this review</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="t-05-related">Related</h2>
+<ul>
+<li><a href="#sop-02">SOP 02 — Engagement modes</a></li>
+<li><a href="../10-onboarding/10-ccm1-discovery-meeting.md">SOP 10 — CCM1 Discovery</a></li>
+<li><a href="../10-onboarding/14-ccm3-mutual-commitment-meeting.md">SOP 14 — CCM3 Mutual Commitment</a></li>
+<li><a href="../30-advanced-planning/33-coordinating-with-outside-advisors.md">SOP 33 — Coordinating with outside advisors</a></li>
+<li><a href="T14-family-map-and-matrices.md">T14 — Family map and matrices</a></li>
+</ul>
+<h2 id="t-05-source">Source</h2>
+<ul>
+<li>Bowen, <em>Breaking Through</em>, Ch. 4 — the Advisors and Process areas of the Total Client Profile (adapted).</li>
+<li>Hughes, <em>Complete Family Wealth</em>, Ch. 9 — the three questions (paraphrased).</li>
+<li>Extension — mode, scope rung, and consent matrix are ours.</li>
+</ul></article>
+</section>
+<section id="sources"><h2 class="sec">Sources — traceability</h2><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Document</th>
+<th>Type</th>
+<th>Beyond Bowen</th>
+<th>Bowen</th>
+<th>Hughes</th>
+<th>Other</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sop-02</td>
+<td><a href="#sop-02">Engagement modes — Mode A / Mode B and the scoping rules</a></td>
+<td>reference</td>
+<td>yes</td>
+<td>Ch. 4 — relationship management includes working with the professional advisors the client already has</td>
+<td>Compact — family council as the family&#x27;s voice to outside professionals; confidentiality for hyperagent families<br>Complete Family Wealth Ch. 9 — who pays / who is the client / who advocates for the rising generation</td>
+<td>Extension — the scope ladder, the default confidentiality rule and the master matrix are ours</td>
+</tr>
+<tr>
+<td>sop-03</td>
+<td><a href="#sop-03">Roles and RACI</a></td>
+<td>reference</td>
+<td>yes</td>
+<td>Ch. 6 — blueprint every system; staff access and improvement loop</td>
+<td>Compact — personne de confiance / personne d&#x27;affaires<br>Complete Family Wealth Ch. 9 — who pays, who is the client, who advocates for the rising generation</td>
+<td>Palaveev — role definitions, support vs professional track, delegation order, canonical delivery unit, language rule</td>
+</tr>
+<tr>
+<td>sop-05</td>
+<td><a href="#sop-05">Client meeting protocol — the wrapper for every meeting</a></td>
+<td>procedure</td>
+<td></td>
+<td>Ch. 4 — the recurring steps of every CCM meeting: greet by name, reinforce personality, agenda, schedule next meeting in the room, send confirmation; office-experience rules; recording consent</td>
+<td>Family Trusts Ch. 11 and 13 — define success at the top of the meeting; one-week follow-up call<br>Complete Family Wealth Ch. 16 — agenda in advance, listening time after weighty disclosures</td>
+<td>Palaveev — introduce every team member by name, role and what they will do; a named role for any junior in the room</td>
+</tr>
+<tr>
+<td>t-05</td>
+<td><a href="#t-05">T05 — Engagement scoping worksheet</a></td>
+<td>template</td>
+<td>yes</td>
+<td>Ch. 4 — Total Client Profile: Advisors and Process areas</td>
+<td>Complete Family Wealth Ch. 9 — who pays / who is the client / who advocates for the rising generation</td>
+<td>Extension — mode, scope rung and consent fields are ours</td>
+</tr>
+</tbody>
+</table></section>
+<footer>Built 2026-09-01 · 4 documents · all source material paraphrased and adapted</footer>
+</main></div>
+<script>
+(function(){var links=[].slice.call(document.querySelectorAll('nav.side a[href^="#"]'));var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+if(!('IntersectionObserver' in window))return;var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.remove('active')});var a=map[e.target.id];if(a){a.classList.add('active');}}});},{rootMargin:'-10% 0px -80% 0px'});
+document.querySelectorAll('article.doc, section#overview, section#sources').forEach(function(el){obs.observe(el);});})();
+</script>
