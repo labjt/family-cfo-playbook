@@ -47,6 +47,7 @@ nav.side .num{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);m
 nav.side li a.active .num{color:inherit}
 main{padding:28px 44px 90px;max-width:1040px}
 h2.sec{font:600 .78rem/1 var(--font-body);text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:54px 0 14px;padding-top:14px;border-top:1px solid var(--line)}
+section#overview h2.sec{margin-top:4px;padding-top:0;border-top:0}
 article.doc{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:28px 34px;margin:0 0 28px}
 article.doc>h1{font:600 1.5rem/1.2 var(--font-display);margin:0 0 10px;letter-spacing:-.005em;text-wrap:balance}
 article.doc>h1 .num{font:500 .95rem var(--font-mono);color:var(--muted);margin-right:8px;vertical-align:middle}
