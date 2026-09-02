@@ -5,7 +5,8 @@
 
 | | |
 |---|---|
-| [**The Primer**](https://labjt.github.io/family-cfo-playbook/primer.html) 🧭 | The whole practice in ten chapters, at three depths — read this first |
+| [**Set Up the Practice**](https://labjt.github.io/family-cfo-playbook/setup.html) 🔧 | Twenty click-and-paste steps that install the method into Hazel — start here |
+| [**The Primer**](https://labjt.github.io/family-cfo-playbook/primer.html) 🧭 | The whole practice in ten chapters, at three depths |
 | [**The Playbook**](https://labjt.github.io/family-cfo-playbook/playbook.html) 🏛️ | The 38 procedures and 28 templates themselves |
 
 ---
