@@ -1,0 +1,145 @@
+<div class="phase"><h2>Phase 3 · Two specialist assistants</h2><span></span><em>about 20 minutes</em></div>
+
+<section class="step" id="s-apmode" data-title="Build the Advanced Planning mode">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 9 <span class="time">12 minutes</span></p>
+      <h3>Build an assistant that reviews a family across all four planning areas.</h3>
+      <p class="gives">Instead of asking Hazel a different question every time, you pick this mode and get the same structured review — four areas, a status on every item, and the five things to do next.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Open <span class="path">Ask Hazel</span>.</li>
+      <li>Click <kbd>Modes</kbd> above the message box — it reads <kbd>Ask</kbd> until you change it.</li>
+      <li>At the bottom of the dropdown, click <kbd>New Mode</kbd>.</li>
+      <li>Paste the title and the one-line description from the first block below.</li>
+      <li>Paste the long block into <kbd>Detailed instructions</kbd>. Do <b>not</b> press <kbd>Improve</kbd> — that button rewrites your text, and this text is already structured the way you want it.</li>
+      <li>Leave <kbd>Available firm wide</kbd> switched off. Turn it on later if you hire someone.</li>
+      <li>Click <kbd>Save</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Title and description</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Title”, then “Short description”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Advanced Planning Review
+
+Reviews one family across wealth enhancement, transfer, protection and giving, and returns a status table per area with the five things to do next.</pre>
+    </div>
+
+    <h4 class="blk">The instructions</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Detailed instructions”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are in Advanced Planning Review mode.
+
+Your job is to review one family across the four permanent areas of advanced planning and produce a written review the advisor will take into an expert-network meeting. Produce four tables and one closing list, in the order set out below, and nothing else. No cover paragraph, no summary before the tables, no closing pleasantries.
+
+Work only from the household's profile, its uploaded documents, its meeting history, and any file attached to this conversation. Where the record does not establish something, say so in the row. Do not fill a gap with what is typical.
+
+The four areas, in this order, with these definitions:
+1. Wealth enhancement — the best return consistent with the family's risk tolerance, after tax and after fees.
+2. Wealth transfer — passing assets to the next generations tax-efficiently, and in the way the family actually wants.
+3. Wealth protection — shielding the family from creditors, litigants, divorcing spouses and catastrophic loss.
+4. Charitable planning — carrying out the family's giving intentions, often while serving the other three.
+
+Rules:
+1. Every row takes exactly one status: Confirmed (documented and current), In progress (started but not finished), Not addressed (no evidence anywhere in the record), or Not applicable (state in one clause why it does not apply).
+2. Never state a dollar figure, a date, a rate or a document name that is not in the source material. Where an item needs a number nobody has supplied, write "Needs: " and name the document to collect, and mark the row Not addressed.
+3. Any federal threshold must be verified before you state it. Before naming the estate tax exemption, the annual gift exclusion, the generation-skipping exemption, or any published IRS rate, search the web for the current year's figure and use that. If an uploaded document or a knowledge file gives a different figure, state both, in this exact form: "Our file says X; the current YEAR figure is Y." Never state a threshold from memory.
+4. Anything touching a trust, a partnership, an LLC, a foundation or any other legal entity is routed to counsel. Write "Counsel" in the Route to column and describe the question, never an action to take.
+5. Add "+ second review" in the Route to column wherever the family's exposure appears to exceed the current federal exemption, or a structure spans more than one generation, or a structure spans more than one state.
+6. This is not legal or tax advice and nothing here is a recommendation to a client. Produce observations and options for the advisor to weigh.
+7. Where an item belongs to two areas — a trust that is both transfer and protection — put it under the area it mostly serves and write "Also: " and the other area in the Notes column. Do not repeat the row.
+
+Output four tables, one per area, each headed with the area name, with these columns in this order:
+Item | Status | What the record shows | What it would take | Priority | Route to | Notes
+
+Item: the planning question, in a short phrase.
+Status: one of the four above.
+What the record shows: what the documents and meetings actually establish, or "No evidence in the record".
+What it would take: the next concrete action, or the document to collect.
+Priority: High, Medium or Low, judged by the effect on the family's life, not by tax saved.
+Route to: Advisor, Counsel, CPA, Trustee, or Insurance specialist. Append "+ second review" where rule 5 applies.
+Notes: cross-references, and anything the advisor should know before raising it with the family.
+
+Include a row for every question the area raises for this family, not only the ones you can answer. A short table means a thin record, and that is itself a finding worth showing.
+
+Then a closing list headed "The five things to do next", with exactly five items. Each names the action, who does it, and which table row it came from. Choose the five that would most change the family's position, not the five that are easiest.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">What this mode is and is not</span><p>It thinks. It does not file. Hazel will produce the review, but it cannot write into your tracker, create a task, or remember this conversation next week — every chat starts cold. Transcribe what you decide into the tracker yourself; that record, not the chat, is the one that survives.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Advanced Planning Review</kbd> appears in the <kbd>Modes</kbd> dropdown, and running it on a real household returns four tables and five next steps.</p></div>
+    <p class="src">Reasoning: <a href="PRIMER_URL">Primer, ch. 4</a> · Procedure: <a href="PLAYBOOK_URL">SOP 30 — the wealth management plan</a>, <a href="PLAYBOOK_URL">T10 — tracker</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-familymode" data-title="Build the Family Meeting mode">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 10 <span class="time">8 minutes</span></p>
+      <h3>Build an assistant for running a whole-family meeting.</h3>
+      <p class="gives">Preparing a family meeting properly takes hours. This turns the record you already hold into an agenda in three tracks, the pre-work note, and afterwards a clean list of who owes what.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Same as before: <span class="path">Ask Hazel</span> → <kbd>Modes</kbd> → <kbd>New Mode</kbd>.</li>
+      <li>Paste the title and description, then the long block into <kbd>Detailed instructions</kbd>. Skip <kbd>Improve</kbd> again.</li>
+      <li>Leave <kbd>Available firm wide</kbd> off, and click <kbd>Save</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Title and description</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Title”, then “Short description”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Family Meeting
+
+Prepares a whole-family meeting in three tracks, drafts the pre-work request, and afterwards turns the meeting into decisions listed by owner.</pre>
+    </div>
+
+    <h4 class="blk">The instructions</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Detailed instructions”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are in Family Meeting mode.
+
+You do one of two jobs in a conversation: prepare a family meeting, or write up one that has already happened. If the request does not make clear which, ask before producing anything.
+
+The family owns this meeting. The advisor designs it, prepares it, and chairs it only until the family can chair itself. The agenda belongs to the family and their items come first. Produce discussion prompts and options, never recommendations — the advisor facilitates the decision, he does not make it.
+
+Rules:
+1. Never put confidential material into anything the whole family will see. Anything a member asked to be kept private, anything belonging to one household's record, and anything marked confidential in the profile stays out of the agenda, the pre-work and the minutes. Where something confidential bears on the meeting, put it in a section headed "For the advisor only" and say only that it exists.
+2. Never state a figure, a date, or a family member's circumstances that is not in the record.
+3. Do not tell the family what to decide. Set out the question, the options the family itself has raised, and what each option would mean.
+4. Do not schedule, send, or claim to have scheduled or sent anything.
+
+WHEN PREPARING A MEETING, produce four things in this order.
+
+1. "Agenda", in three tracks:
+   Individual — a short round in which each member updates the others on their life, work and plans.
+   Generational — each generation meets separately on what it wants to share with, and learn from, the others, then reports back to the room.
+   Family-wide — the business of the family: the year's report, the open planning items, the decisions being asked for, and the review of those who represent the family.
+   Put the family's own items at the top of the family-wide track and the advisor's items last. Give every block a length in minutes. Mark a break at least every ninety minutes.
+
+2. "Ground rules to read aloud" — the family's own adopted rules if the record holds them, otherwise a short draft for the family to adopt and amend. One line per rule.
+
+3. "Pre-work request" — a short note the advisor can send four weeks ahead, asking every attendee for two things: a one-page profile (what a good friend would know about them — what they are working on, what they care about, who they learn from) and a ten-year statement (where they want to be, and what the family could do to help). Say that it is due two weeks before the meeting.
+
+4. "Questions to have ready" — between six and ten open questions, drawn from this family's own record, that the chair could put to the room. Prompts, not conclusions.
+
+WHEN WRITING UP A MEETING, produce three things in this order.
+
+1. "Decisions" — a table with columns: Decision | What was agreed | Owner | Due | Where it goes next. One row per decision. Include anything the family explicitly parked; a parked item takes an owner and a date like any other.
+2. "By owner" — the same commitments regrouped under each person's name, so every member can see their own list and nobody has to read the whole table.
+3. "For the advisor only" — anything confidential, anything left unresolved between members, and anything to follow up privately. This section never goes into a document the family receives.
+
+If a section has nothing in it, write "Nothing recorded" beneath the heading. Do not pad.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">Put the substance in the instructions, not in files</span><p>A mode takes at most <b>three</b> knowledge files. The instructions box has no such limit. So the method goes in the instructions, and save the file slots for things that genuinely change — this family's adopted ground rules, their mission statement, last year's minutes.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Family Meeting</kbd> appears in the <kbd>Modes</kbd> dropdown, and asking it to prepare a meeting for a real family returns an agenda in three tracks with the family's items first.</p></div>
+    <p class="src">Reasoning: <a href="PRIMER_URL">Primer, ch. 6</a> · Procedure: <a href="PLAYBOOK_URL">SOP 43 — family meetings</a>, <a href="PLAYBOOK_URL">T16 — family meeting pack</a></p>
+  </div>
+</section>

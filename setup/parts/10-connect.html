@@ -1,0 +1,101 @@
+<div class="phase"><h2>Phase 0 · Before you touch anything</h2><span></span><em>about 40 minutes</em></div>
+
+<section class="step" id="s-blockers" data-title="Check what could stop you">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 1 <span class="time">15 minutes</span></p>
+      <h3>Check the seven things that can stop you cold.</h3>
+      <p class="gives">Every one of these has wasted somebody a week. Four of them are decisions you cannot take back. Do this before you create an account, not after.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Work down this list</h4>
+    <div class="tw"><table>
+      <tr><th style="width:34%">Check</th><th>Why it matters</th></tr>
+      <tr><td><b>Has anyone else at the firm already tried Hazel?</b></td><td>There is <b>one free trial per firm</b>, not per person. If the trust company or another RIA arm has already trialled it, yours may be gone. Ask before you sign up.</td></tr>
+      <tr><td><b>Agree who signs up first, and who is the Owner.</b></td><td>Two people signing up separately create <b>two firms that cannot be merged</b>. Undoing it needs Hazel support to deactivate an account. This is the most expensive mistake available on day one.</td></tr>
+      <tr><td><b>Is your email Microsoft 365 / Enterprise, or Google?</b></td><td>On-premise Microsoft Exchange <b>is not supported</b>. Email and calendar drive meeting prep, agendas and daily priorities — without them there is not much product left.</td></tr>
+      <tr><td><b>Will IT allow the Hazel app in your tenant?</b></td><td>Large firms usually block third-party sign-in apps by default. Get it allow-listed before you try to connect anything.</td></tr>
+      <tr><td><b>Will your meeting platform let an outside participant join?</b></td><td>The notetaker joins as an external guest. Teams and Google Meet both have tenant policies that block this. IT may say no — find out now.</td></tr>
+      <tr><td><b>Which single CRM will you connect?</b></td><td>Hazel connects <b>one CRM only</b>. Connecting one disables the rest. If the trust company, the RIA and the ESOP arm each run their own, you have to choose, and the choice decides which clients exist inside Hazel at all.</td></tr>
+      <tr><td><b>Has compliance seen this?</b></td><td>Three things they will ask about, so bring them first: the email connection requests a <em>send</em> permission (Hazel drafts but never sends); client meetings get recorded; and the security attestation is <b>SOC 2 Type I</b>, not Type II. Give them the trust centre link below.</td></tr>
+    </table></div>
+    <div class="note stop"><span class="lbl">Say this accurately</span><p>If anyone asks, Hazel is <b>SOC 2 Type I</b> audited, with an annual independent penetration test. Type I attests that the controls are well designed; Type II attests that they work over time. A firm that owns trust companies will very likely ask for Type II, and it does not exist yet. Do not let anyone summarise this as "SOC 2 certified".</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>All seven have an answer, and you know who is signing up. If any of the middle three came back "no", stop — the rest of this guide will not work until IT changes something.</p></div>
+    <p class="src">Hazel's own security detail: <a href="https://trust.hazel.ai/">trust.hazel.ai</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-signup" data-title="Sign up as the Owner">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 2 <span class="time">8 minutes</span></p>
+      <h3>Sign up as the Owner, and say yes to the calendar.</h3>
+      <p class="gives">You become the person who can manage billing, roles and firm settings. Everyone you add later inherits the structure you set now.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Go to <span class="path">auth.hazel.altruist.com</span> and sign in with your work email or Altruist single sign-on.</li>
+      <li><b>When it asks to connect your calendar, say yes immediately.</b> See the warning below.</li>
+      <li>Click <kbd>Get started</kbd>, then choose the base plan. You can add the tax and planning agents later.</li>
+      <li>Pick monthly or annual, add a payment method, and start the <kbd>14-day free trial</kbd>.</li>
+      <li>When it offers to invite your team, click <kbd>Skip</kbd>. Do not invite anyone yet.</li>
+    </ol>
+    <div class="note stop"><span class="lbl">The one-shot prompt</span><p>The calendar consent screen appears <b>once</b>, on your first sign-in. If you dismiss it, Hazel never asks again — you have to go and find it in settings, and until you do, meeting prep and agendas barely work. Say yes the first time.</p></div>
+    <div class="note"><span class="lbl">Why not invite the team yet</span><p>New members get access to everything imported from your CRM by default, and your CRM's permissions do <b>not</b> carry across. For a book of $30M families that is a confidentiality problem waiting to happen. Set up client access properly first — that is a later step.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>You are inside Hazel, your trial has started, and your calendar shows as connected.</p></div>
+  </div>
+</section>
+
+<section class="step" id="s-connect" data-title="Connect your systems">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 3 <span class="time">12 minutes</span></p>
+      <h3>Connect the CRM first. Everything else depends on it.</h3>
+      <p class="gives">The CRM is what creates your client list inside Hazel. Without it you have an empty product — the custodian does not supply contacts, and email history will not backfill.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this, in this order</h4>
+    <ol class="do">
+      <li>Go to <span class="path">Settings → Integrations</span>.</li>
+      <li><b>Connect your CRM.</b> Expect a message saying the sync may take ten to fifteen minutes. Wealthbox, Salesforce, Redtail, HubSpot and Quivr are supported.</li>
+      <li><b>Connect email and calendar</b> if the sign-in prompt did not already do it. Hazel pulls three years of past email, but only for people who exist as contacts in your CRM — which is why the CRM goes first.</li>
+      <li><b>Connect Altruist</b> if that is where you custody. Review the <kbd>Data Access Consent</kbd> screen and click <kbd>Agree &amp; Connect</kbd>. Access is read-only: Hazel can never trade or move money.</li>
+      <li>Check each row shows a green dot.</li>
+    </ol>
+    <div class="note"><span class="lbl">Before you connect the CRM</span><p>Hazel only imports records that pass its filters. In Wealthbox that means active people and households marked as client or prospect; other systems have their own rules. If a family is filed oddly in your CRM, it will simply not appear in Hazel. Ten minutes tidying the records of your top twenty households now saves a lot of confusion later.</p></div>
+    <div class="note"><span class="lbl">If you do not custody at Altruist</span><p>Everything else still works — meetings, notes, profiles, planning, chat over your CRM and email. You lose live balances, holdings, transactions and beneficiary lookups. Altruist is currently the only custodian Hazel connects to; Schwab and Fidelity are listed as coming, with no date.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>Your households appear under <span class="path">Contacts</span>, and you can open one and see its details.</p></div>
+  </div>
+</section>
+
+<section class="step" id="s-defaults" data-title="Set your defaults">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 4 <span class="time">6 minutes</span></p>
+      <h3>Set the four defaults that touch compliance.</h3>
+      <p class="gives">These decide what gets recorded, what gets kept, who can see it, and what appears at the bottom of anything a client reads. Set them once, deliberately, before the first real meeting.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Go to <span class="path">Settings → Meeting Settings</span>.</li>
+      <li>Confirm <kbd>Auto-schedule Notetakers</kbd> is on, and set <kbd>Bot Join Minutes Ahead</kbd> to <kbd>5</kbd> so the notetaker is waiting before you are.</li>
+      <li>Leave <kbd>Bot Name</kbd> as <kbd>Hazel Notetaker</kbd>. Renaming it to something less obvious undercuts the fact that clients can see a recorder in the room — do not do it.</li>
+      <li>Review <kbd>Save Videos</kbd> and <kbd>Save Transcripts</kbd> against what compliance told you. Both are on by default and changes only apply to future meetings.</li>
+      <li>Check the default meeting visibility. It ships as <kbd>Contact access</kbd> — anyone who can see the client can see the meeting.</li>
+      <li>Find the client disclaimer setting and write one. It is <b>empty until somebody fills it in</b>, and an empty one means client-facing documents go out with no footer at all.</li>
+    </ol>
+    <div class="note stop"><span class="lbl">Phone calls record silently</span><p>If you turn on phone recording, understand what it does: the announcement plays only to the phone that dialled in. <b>A client merged into the call afterwards hears nothing.</b> Nobody is told the call is being recorded unless you say so out loud. If you use this at all, make the disclosure a spoken habit at the start of every call.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>All six are set, and you can state from memory what gets recorded, what gets stored, and who can see it.</p></div>
+    <p class="src">Related: <a href="PLAYBOOK_URL">SOP 21 — service standards</a>, <a href="PLAYBOOK_URL">SOP 40 — confidentiality</a></p>
+  </div>
+</section>

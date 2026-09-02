@@ -90,6 +90,8 @@ def main():
     subprocess.run([py, "build/build.py", "--out", str(DOCS / "playbook.html")], cwd=ROOT, check=True)
     subprocess.run([py, "guide/build_guide.py", "--out", str(DOCS / "primer.html"),
                     "--playbook-url", "playbook.html"], cwd=ROOT, check=True)
+    subprocess.run([py, "setup/build_setup.py", "--out", str(DOCS / "setup.html"),
+                    "--playbook-url", "playbook.html", "--primer-url", "primer.html"], cwd=ROOT, check=True)
     (DOCS / "index.html").write_text(LANDING, encoding="utf-8")
     (DOCS / ".nojekyll").write_text("", encoding="utf-8")
     for f in sorted(DOCS.iterdir()):

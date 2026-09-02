@@ -1,0 +1,1604 @@
+<title>Set Up the Practice</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#eef0ec;--card:#fbfbf9;--sunk:#e4e8e3;--ink:#1a1f1d;--muted:#5a635f;--faint:#88918c;
+  --line:#d3d8d2;--line-soft:#e2e6e1;
+  --accent:#0f6b5c;--accent-ink:#fff;--accent-soft:#dbeee8;--accent-line:#9fcfc2;
+  --done:#2f7d32;--done-soft:#e2f0e2;
+  --mark:#9a5a24;--mark-soft:#f7e9dc;
+  --warn:#8c2f2f;--warn-soft:#f8e6e6;
+  --f-body:"Newsreader","Iowan Old Style",Georgia,serif;
+  --f-ui:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --shadow:0 1px 2px rgba(26,31,29,.05),0 8px 22px rgba(26,31,29,.05);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#131715;--card:#1a1f1c;--sunk:#222825;--ink:#e8eae6;--muted:#a3aca7;--faint:#7b847f;
+  --line:#2f3733;--line-soft:#262d29;
+  --accent:#5fbfa8;--accent-ink:#08201b;--accent-soft:#16302a;--accent-line:#2c5a50;
+  --done:#7dc47f;--done-soft:#172c18;
+  --mark:#d99a5e;--mark-soft:#31220f;
+  --warn:#e89a9a;--warn-soft:#341a1a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 22px rgba(0,0,0,.25);
+}}
+:root[data-theme="dark"]{
+  --ground:#131715;--card:#1a1f1c;--sunk:#222825;--ink:#e8eae6;--muted:#a3aca7;--faint:#7b847f;
+  --line:#2f3733;--line-soft:#262d29;
+  --accent:#5fbfa8;--accent-ink:#08201b;--accent-soft:#16302a;--accent-line:#2c5a50;
+  --done:#7dc47f;--done-soft:#172c18;
+  --mark:#d99a5e;--mark-soft:#31220f;
+  --warn:#e89a9a;--warn-soft:#341a1a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 22px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.6 var(--f-ui);-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* masthead */
+.mast{background:var(--card);border-bottom:1px solid var(--line);padding:clamp(30px,5vw,54px) clamp(18px,4vw,44px) 26px}
+.mast-in{max-width:820px;margin:0 auto}
+.eyebrow{font:600 .7rem/1 var(--f-ui);letter-spacing:.18em;text-transform:uppercase;color:var(--mark);margin:0 0 14px}
+.mast h1{font:600 clamp(2rem,5vw,2.9rem)/1.05 var(--f-ui);margin:0;letter-spacing:-.02em;text-wrap:balance}
+.mast .sub{font:400 clamp(1.02rem,2vw,1.16rem)/1.55 var(--f-body);color:var(--muted);margin:14px 0 0;max-width:58ch}
+.mast .sub b{color:var(--ink);font-weight:600}
+
+/* progress rail */
+.rail{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.rail-in{max-width:820px;margin:0 auto;padding:11px clamp(18px,4vw,44px);display:flex;align-items:center;gap:16px}
+.bar{flex:1;height:7px;border-radius:99px;background:var(--sunk);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .3s ease}
+.count{font:600 .8rem/1 var(--f-ui);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.reset{appearance:none;border:0;background:none;color:var(--faint);font:500 .76rem/1 var(--f-ui);cursor:pointer;padding:6px;white-space:nowrap}
+.reset:hover{color:var(--ink);text-decoration:underline}
+
+main{max-width:820px;margin:0 auto;padding:8px clamp(18px,4vw,44px) 120px}
+
+/* phase divider */
+.phase{margin:46px 0 18px;display:flex;align-items:baseline;gap:12px}
+.phase h2{font:600 .76rem/1 var(--f-ui);letter-spacing:.16em;text-transform:uppercase;color:var(--mark);margin:0}
+.phase span{flex:1;height:1px;background:var(--line)}
+.phase em{font:400 .84rem/1 var(--f-body);color:var(--faint);font-style:italic}
+
+/* step card */
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 16px;box-shadow:var(--shadow);overflow:hidden;transition:opacity .2s ease}
+.step-head{display:flex;gap:16px;align-items:flex-start;padding:22px 24px 0}
+.tick{flex:none;width:34px;height:34px;border-radius:50%;border:2px solid var(--accent-line);background:var(--card);color:transparent;
+  font:700 1rem/1 var(--f-ui);cursor:pointer;display:grid;place-items:center;transition:all .18s ease;margin-top:2px}
+.tick:hover{border-color:var(--accent);background:var(--accent-soft)}
+.step-t{flex:1;min-width:0}
+.step-n{font:600 .72rem/1 var(--f-ui);letter-spacing:.13em;text-transform:uppercase;color:var(--faint);display:flex;gap:10px;align-items:center;margin:0 0 5px;flex-wrap:wrap}
+.time{background:var(--sunk);color:var(--muted);border-radius:99px;padding:3px 9px;letter-spacing:.04em;text-transform:none;font-weight:500}
+.step h3{font:600 1.28rem/1.3 var(--f-ui);margin:0;letter-spacing:-.012em;text-wrap:balance}
+.gives{font:400 1.02rem/1.55 var(--f-body);color:var(--muted);margin:8px 0 0;max-width:62ch}
+.step-body{padding:16px 24px 24px 74px}
+@media (max-width:640px){.step-body{padding:14px 18px 20px}.step-head{padding:18px 18px 0}}
+
+/* done state */
+.step.done{opacity:.55}
+.step.done .tick{background:var(--done);border-color:var(--done);color:#fff}
+.step.done .tick::after{content:"✓"}
+.step.done .step-body{display:none}
+.step.done .gives{display:none}
+
+/* blocks */
+h4.blk{font:600 .72rem/1 var(--f-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:22px 0 10px}
+h4.blk:first-child{margin-top:0}
+ol.do{margin:0;padding:0;list-style:none;counter-reset:d}
+ol.do li{counter-increment:d;position:relative;padding:0 0 0 30px;margin:0 0 9px;max-width:62ch}
+ol.do li::before{content:counter(d);position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:6px;background:var(--sunk);color:var(--muted);
+  font:600 .72rem/20px var(--f-ui);text-align:center}
+ul.plain{margin:0;padding-left:1.1em;max-width:62ch}
+ul.plain li{margin:0 0 7px}
+kbd{font:500 .84em var(--f-mono);background:var(--sunk);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px;white-space:nowrap}
+.path{font:500 .86em var(--f-mono);background:var(--sunk);border-radius:5px;padding:1px 7px;white-space:nowrap}
+
+/* paste block */
+.paste{border:1px solid var(--accent-line);border-radius:10px;background:var(--accent-soft);overflow:hidden;margin:0 0 14px}
+.paste-top{display:flex;align-items:center;gap:10px;padding:8px 10px 8px 14px;border-bottom:1px solid var(--accent-line)}
+.paste-lbl{font:600 .7rem/1 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);flex:1}
+.copy{appearance:none;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:7px;
+  font:600 .74rem/1 var(--f-ui);padding:7px 13px;cursor:pointer;white-space:nowrap;transition:opacity .15s ease}
+.copy:hover{opacity:.86}
+.copy.ok{background:var(--done);border-color:var(--done)}
+.paste pre{margin:0;padding:14px 16px;overflow-x:auto;background:var(--card);
+  font:400 .93rem/1.55 var(--f-body);white-space:pre-wrap;word-wrap:break-word;color:var(--ink)}
+
+/* check + notes */
+.check{border-left:3px solid var(--done);background:var(--done-soft);border-radius:0 9px 9px 0;padding:11px 16px;margin:16px 0 0;max-width:66ch}
+.check p{margin:0;font:400 .98rem/1.5 var(--f-body)}
+.check .lbl{font:600 .68rem/1 var(--f-ui);letter-spacing:.13em;text-transform:uppercase;color:var(--done);display:block;margin:0 0 5px}
+.note{border-left:3px solid var(--mark);background:var(--mark-soft);border-radius:0 9px 9px 0;padding:11px 16px;margin:14px 0;max-width:66ch}
+.note p{margin:0;font:400 .96rem/1.5 var(--f-body)}
+.note .lbl{font:600 .68rem/1 var(--f-ui);letter-spacing:.13em;text-transform:uppercase;color:var(--mark);display:block;margin:0 0 5px}
+.note.stop{border-left-color:var(--warn);background:var(--warn-soft)}
+.note.stop .lbl{color:var(--warn)}
+.src{font:400 .8rem/1.5 var(--f-ui);color:var(--faint);margin:14px 0 0}
+.src a{color:var(--muted)}
+.tw{overflow-x:auto;margin:12px 0}
+table{border-collapse:collapse;width:100%;font:400 .9rem/1.45 var(--f-ui)}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--sunk);font-weight:600}
+
+footer{max-width:820px;margin:0 auto;padding:34px clamp(18px,4vw,44px) 90px;border-top:1px solid var(--line);
+  color:var(--faint);font:400 .87rem/1.65 var(--f-ui)}
+footer a{color:var(--muted)}
+@media print{.rail,.tick,.copy,.reset{display:none}.step{break-inside:avoid;box-shadow:none}.step.done{opacity:1}
+  .step.done .step-body,.step.done .gives{display:block}body{background:#fff;color:#000}}
+</style>
+<header class="mast"><div class="mast-in">
+<p class="eyebrow">Version 2 · with Hazel</p>
+<h1>Set Up the Practice</h1>
+<p class="sub">Do these steps in order and the practice runs itself. Each one is a few minutes of clicking and pasting. <b>You do not need to read anything else first.</b></p>
+</div></header>
+<div class="rail"><div class="rail-in">
+<div class="bar"><i></i></div><span class="count"></span><button class="reset" type="button">Reset</button>
+</div></div>
+<main>
+<div class="phase"><h2>Read this first</h2><span></span><em>2 minutes</em></div>
+
+<section class="step" id="s-what" data-title="What you are about to do">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Start here <span class="time">2 minutes</span></p>
+      <h3>You are not learning a system. You are installing one.</h3>
+      <p class="gives">The written playbook has 38 procedures. You are not going to memorise them. You are going to paste most of them into Hazel, and Hazel will run them for you.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">How this works</h4>
+    <ul class="plain">
+      <li>Every step below is a few minutes of clicking and pasting. Nothing needs to be written by you.</li>
+      <li>Tick a step when it is done. Your progress is saved in this browser.</li>
+      <li>Do them in order. Each phase ends with something that actually works.</li>
+      <li>You can stop after any phase and come back. Phase 1 alone is worth doing.</li>
+    </ul>
+    <h4 class="blk">What you will have at the end</h4>
+    <ul class="plain">
+      <li>Hazel prepares an agenda before every client meeting, sitting on your calendar.</li>
+      <li>Hazel joins the meeting, takes the notes in your format, and drafts the follow-up email.</li>
+      <li>The seven-area client profile fills itself in from meetings, email and your CRM.</li>
+      <li>Your planning method, written down once, applied to every plan Hazel drafts.</li>
+      <li>You review and approve. Hazel never sends anything to a client on its own.</li>
+    </ul>
+    <div class="note"><span class="lbl">The honest limit</span><p>Hazel has no idea that a Discovery meeting comes before an Investment Plan meeting. It has no concept of a sequence and it will not stop you skipping a step. The order lives in your head and in the Playbook — Hazel carries the <em>execution</em>, not the discipline.</p></div>
+    <div class="note stop"><span class="lbl">Before you paste anything</span><p>Hazel's screens change often and their own documentation currently contradicts itself in a few places. If a button is not where a step says it is, look for the nearest thing with a similar name — the sequence is right even when a label has moved.</p></div>
+    <p class="src">Reasoning behind all of it: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">the Primer</a> · Full procedures: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">the Playbook</a></p>
+  </div>
+</section>
+
+<div class="phase"><h2>Phase 0 · Before you touch anything</h2><span></span><em>about 40 minutes</em></div>
+
+<section class="step" id="s-blockers" data-title="Check what could stop you">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 1 <span class="time">15 minutes</span></p>
+      <h3>Check the seven things that can stop you cold.</h3>
+      <p class="gives">Every one of these has wasted somebody a week. Four of them are decisions you cannot take back. Do this before you create an account, not after.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Work down this list</h4>
+    <div class="tw"><table>
+      <tr><th style="width:34%">Check</th><th>Why it matters</th></tr>
+      <tr><td><b>Has anyone else at the firm already tried Hazel?</b></td><td>There is <b>one free trial per firm</b>, not per person. If the trust company or another RIA arm has already trialled it, yours may be gone. Ask before you sign up.</td></tr>
+      <tr><td><b>Agree who signs up first, and who is the Owner.</b></td><td>Two people signing up separately create <b>two firms that cannot be merged</b>. Undoing it needs Hazel support to deactivate an account. This is the most expensive mistake available on day one.</td></tr>
+      <tr><td><b>Is your email Microsoft 365 / Enterprise, or Google?</b></td><td>On-premise Microsoft Exchange <b>is not supported</b>. Email and calendar drive meeting prep, agendas and daily priorities — without them there is not much product left.</td></tr>
+      <tr><td><b>Will IT allow the Hazel app in your tenant?</b></td><td>Large firms usually block third-party sign-in apps by default. Get it allow-listed before you try to connect anything.</td></tr>
+      <tr><td><b>Will your meeting platform let an outside participant join?</b></td><td>The notetaker joins as an external guest. Teams and Google Meet both have tenant policies that block this. IT may say no — find out now.</td></tr>
+      <tr><td><b>Which single CRM will you connect?</b></td><td>Hazel connects <b>one CRM only</b>. Connecting one disables the rest. If the trust company, the RIA and the ESOP arm each run their own, you have to choose, and the choice decides which clients exist inside Hazel at all.</td></tr>
+      <tr><td><b>Has compliance seen this?</b></td><td>Three things they will ask about, so bring them first: the email connection requests a <em>send</em> permission (Hazel drafts but never sends); client meetings get recorded; and the security attestation is <b>SOC 2 Type I</b>, not Type II. Give them the trust centre link below.</td></tr>
+    </table></div>
+    <div class="note stop"><span class="lbl">Say this accurately</span><p>If anyone asks, Hazel is <b>SOC 2 Type I</b> audited, with an annual independent penetration test. Type I attests that the controls are well designed; Type II attests that they work over time. A firm that owns trust companies will very likely ask for Type II, and it does not exist yet. Do not let anyone summarise this as "SOC 2 certified".</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>All seven have an answer, and you know who is signing up. If any of the middle three came back "no", stop — the rest of this guide will not work until IT changes something.</p></div>
+    <p class="src">Hazel's own security detail: <a href="https://trust.hazel.ai/">trust.hazel.ai</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-signup" data-title="Sign up as the Owner">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 2 <span class="time">8 minutes</span></p>
+      <h3>Sign up as the Owner, and say yes to the calendar.</h3>
+      <p class="gives">You become the person who can manage billing, roles and firm settings. Everyone you add later inherits the structure you set now.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Go to <span class="path">auth.hazel.altruist.com</span> and sign in with your work email or Altruist single sign-on.</li>
+      <li><b>When it asks to connect your calendar, say yes immediately.</b> See the warning below.</li>
+      <li>Click <kbd>Get started</kbd>, then choose the base plan. You can add the tax and planning agents later.</li>
+      <li>Pick monthly or annual, add a payment method, and start the <kbd>14-day free trial</kbd>.</li>
+      <li>When it offers to invite your team, click <kbd>Skip</kbd>. Do not invite anyone yet.</li>
+    </ol>
+    <div class="note stop"><span class="lbl">The one-shot prompt</span><p>The calendar consent screen appears <b>once</b>, on your first sign-in. If you dismiss it, Hazel never asks again — you have to go and find it in settings, and until you do, meeting prep and agendas barely work. Say yes the first time.</p></div>
+    <div class="note"><span class="lbl">Why not invite the team yet</span><p>New members get access to everything imported from your CRM by default, and your CRM's permissions do <b>not</b> carry across. For a book of $30M families that is a confidentiality problem waiting to happen. Set up client access properly first — that is a later step.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>You are inside Hazel, your trial has started, and your calendar shows as connected.</p></div>
+  </div>
+</section>
+
+<section class="step" id="s-connect" data-title="Connect your systems">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 3 <span class="time">12 minutes</span></p>
+      <h3>Connect the CRM first. Everything else depends on it.</h3>
+      <p class="gives">The CRM is what creates your client list inside Hazel. Without it you have an empty product — the custodian does not supply contacts, and email history will not backfill.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this, in this order</h4>
+    <ol class="do">
+      <li>Go to <span class="path">Settings → Integrations</span>.</li>
+      <li><b>Connect your CRM.</b> Expect a message saying the sync may take ten to fifteen minutes. Wealthbox, Salesforce, Redtail, HubSpot and Quivr are supported.</li>
+      <li><b>Connect email and calendar</b> if the sign-in prompt did not already do it. Hazel pulls three years of past email, but only for people who exist as contacts in your CRM — which is why the CRM goes first.</li>
+      <li><b>Connect Altruist</b> if that is where you custody. Review the <kbd>Data Access Consent</kbd> screen and click <kbd>Agree &amp; Connect</kbd>. Access is read-only: Hazel can never trade or move money.</li>
+      <li>Check each row shows a green dot.</li>
+    </ol>
+    <div class="note"><span class="lbl">Before you connect the CRM</span><p>Hazel only imports records that pass its filters. In Wealthbox that means active people and households marked as client or prospect; other systems have their own rules. If a family is filed oddly in your CRM, it will simply not appear in Hazel. Ten minutes tidying the records of your top twenty households now saves a lot of confusion later.</p></div>
+    <div class="note"><span class="lbl">If you do not custody at Altruist</span><p>Everything else still works — meetings, notes, profiles, planning, chat over your CRM and email. You lose live balances, holdings, transactions and beneficiary lookups. Altruist is currently the only custodian Hazel connects to; Schwab and Fidelity are listed as coming, with no date.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>Your households appear under <span class="path">Contacts</span>, and you can open one and see its details.</p></div>
+  </div>
+</section>
+
+<section class="step" id="s-defaults" data-title="Set your defaults">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 4 <span class="time">6 minutes</span></p>
+      <h3>Set the four defaults that touch compliance.</h3>
+      <p class="gives">These decide what gets recorded, what gets kept, who can see it, and what appears at the bottom of anything a client reads. Set them once, deliberately, before the first real meeting.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Go to <span class="path">Settings → Meeting Settings</span>.</li>
+      <li>Confirm <kbd>Auto-schedule Notetakers</kbd> is on, and set <kbd>Bot Join Minutes Ahead</kbd> to <kbd>5</kbd> so the notetaker is waiting before you are.</li>
+      <li>Leave <kbd>Bot Name</kbd> as <kbd>Hazel Notetaker</kbd>. Renaming it to something less obvious undercuts the fact that clients can see a recorder in the room — do not do it.</li>
+      <li>Review <kbd>Save Videos</kbd> and <kbd>Save Transcripts</kbd> against what compliance told you. Both are on by default and changes only apply to future meetings.</li>
+      <li>Check the default meeting visibility. It ships as <kbd>Contact access</kbd> — anyone who can see the client can see the meeting.</li>
+      <li>Find the client disclaimer setting and write one. It is <b>empty until somebody fills it in</b>, and an empty one means client-facing documents go out with no footer at all.</li>
+    </ol>
+    <div class="note stop"><span class="lbl">Phone calls record silently</span><p>If you turn on phone recording, understand what it does: the announcement plays only to the phone that dialled in. <b>A client merged into the call afterwards hears nothing.</b> Nobody is told the call is being recorded unless you say so out loud. If you use this at all, make the disclosure a spoken habit at the start of every call.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>All six are set, and you can state from memory what gets recorded, what gets stored, and who can see it.</p></div>
+    <p class="src">Related: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 21 — service standards</a>, <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 40 — confidentiality</a></p>
+  </div>
+</section>
+
+<div class="phase"><h2>Phase 1 · The two meetings you actually run</h2><span></span><em>about 30 minutes</em></div>
+
+<section class="step" id="s-discovery" data-title="Build the Discovery meeting type">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 5 <span class="time">12 minutes</span></p>
+      <h3>Build the Discovery meeting type</h3>
+      <p class="gives">From now on, every first meeting gets the same agenda, the same seven-area notes, and the same follow-up email — whether you remember the method that day or not.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Go to <span class="path">Settings → Meeting Settings</span>.</li>
+      <li>Click <kbd>Add Meeting Type</kbd>, type the name <kbd>Discovery</kbd>, and click <kbd>Save</kbd>.</li>
+      <li>Find <kbd>Discovery</kbd> in the list and click <kbd>Edit</kbd>. It arrives pre-filled with the generic prompts — you are going to replace all four.</li>
+      <li>Copy each block below into the field with the matching name, replacing what is there.</li>
+      <li>Under <kbd>Match on Key Phrases</kbd>, add: <kbd>discovery</kbd>, <kbd>first meeting</kbd>, <kbd>intro call</kbd>.</li>
+      <li>Click <kbd>Save and Regenerate</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Agenda</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Agenda”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are preparing a financial advisor for a first meeting with a prospective family with substantial wealth. This is meeting one of a five-meeting process. Its only purposes are to understand what matters to this family and to decide whether the firm is a fit. Nothing is being sold at this meeting.
+
+Prepare a one-page agenda for 90 minutes, covering these seven areas in this exact order:
+1. Values — what is genuinely important to them about their money
+2. Goals — what they want to achieve, and by when
+3. Relationships — who matters to them, including people outside the family
+4. Assets — what they hold, where it sits, and who manages it
+5. Advisors — every professional they use, and what has and has not worked
+6. Process — how and how often they want to be contacted
+7. Interests — what they care about outside of money
+
+Key Instructions:
+1. Do not reorder these areas. Assets appear fourth on purpose; opening with money signals selling rather than listening.
+2. Include no product, performance, market or portfolio discussion. This meeting has none.
+3. Using the CRM, email history and any connected custodial data, list what is already known about this household under each of the seven headings, and mark clearly what is still unknown. The unknowns are the real agenda.
+4. Name every professional already on record — attorney, accountant, trustee, insurance — so the advisor can ask what has and has not worked with each.
+5. If anything suggests this household belongs to a larger family that has its own family office, trust company or lead advisor, add three questions about what that team already handles and what this client wants from this advisor instead.
+6. End with two items: agree next steps, and schedule the second meeting two weeks out.
+7. Short headings and bullets. No paragraphs. One page.</pre>
+    </div>
+
+    <h4 class="blk">Reminder email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Reminder Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Write a short reminder email to a prospective family before a first meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 50 and 100 words. Warm, direct, unhurried. Professional but human.
+2. Say what the meeting is for in one sentence: to understand what matters to them, and to work out together whether this firm is the right fit for their family.
+3. Ask them to bring recent account statements, their most recent tax return, and any trust or entity documents that affect the family's money. Say these help but are not required.
+4. Say the meeting will take about ninety minutes.
+5. Say the advisor would like to record the conversation so he can listen properly rather than take notes, that they are free to decline, and that the recording stays confidential either way.
+6. Mention no products, performance, markets or fees.
+7. Plain paragraphs only. No bold, no italics, no bullet points.</pre>
+    </div>
+
+    <h4 class="blk">Meeting notes</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Meeting Notes”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are recording the first meeting of a five-meeting advisory process for a family with substantial wealth. Capture a complete client profile from the conversation.
+
+Key Instructions:
+1. Use these exact headings, in this order: Values, Goals, Relationships, Assets, Advisors, Process, Interests.
+2. Write what the client actually said, in their own words wherever the phrasing carries meaning. Do not summarise away specifics — names, ages, amounts, dates and places all matter.
+3. Values: what they said matters to them about money, and the deeper answer they gave when asked what specifically about that matters.
+4. Goals: what they want to achieve, with timing where stated.
+5. Relationships: everyone who matters — children, parents, siblings, in-laws, and people outside the family. Include ages and locations if mentioned.
+6. Assets: everything held anywhere, where it is held, who manages it, and anything held away from this advisor. Add an html table of any numeric financial data discussed.
+7. Advisors: every professional named, with what has worked and what has not.
+8. Process: exactly how and how often they said they want to be contacted, and through which channel. Quote this precisely — it is a commitment the firm keeps for the life of the relationship.
+9. Interests: what they care about outside money.
+10. If a heading was not discussed, write "Not discussed" under it. Never invent or infer content.
+
+---
+
+Now add a section headed "Family and structure".
+
+Key Instructions:
+1. Note where this family sits generationally — founder generation, siblings, or cousins — if the conversation makes it clear.
+2. List every trust, legal entity, foundation or operating business mentioned, with the role of anyone named alongside it: trustee, beneficiary, director, protector.
+3. Note whether this household belongs to a larger family that already has a family office, trust company or lead advisor. If so, name that team, record what the client said it does for them, and record what they want from this advisor instead.
+4. Note anything said about how the family makes decisions together, how the rising generation is being prepared, or any transition under way — a sale, a succession, a marriage, an illness, a death.
+5. Record anything the client asked to be kept confidential from other family members, in their own words.
+6. Leave any item out if it was not discussed. Do not infer a family structure that was not described.
+
+---
+
+Now add two closing sections.
+
+Key Instructions:
+1. "Next steps" — a markdown table with columns Task, Owner, Due date. Include every commitment either party made, and the second meeting date if one was agreed.
+2. "Fit assessment" — three to five bullets for the advisor only: the complexity of the situation, whether this advisor can make a substantial difference, how the client prefers to be worked with, and anything that would make the engagement difficult. Note if the client declined recording.
+3. Keep both sections under 200 words in total.
+4. The fit assessment is internal. Never include it in anything client-facing.</pre>
+    </div>
+
+    <h4 class="blk">Follow-up email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Follow-Up Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are an expert financial communication assistant. Write a follow-up email to a prospective family after a first meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 150 and 250 words. Professional but warm, unhurried, and entirely free of sales language.
+2. Open by thanking them for their openness and naming one specific thing they said that mattered — a goal, a person, a value. Never a generic opener.
+3. In one short paragraph, play back the two or three things the advisor heard matter most to them. This proves you listened and is the whole point of the email.
+4. Say what happens next and when: the advisor will bring a written plan in two weeks, on the date agreed in the meeting.
+5. List anything they agreed to send as a short plain list under the line "To send when you get a chance:".
+6. Discuss no products, performance, markets or fees.
+7. Use no bold and no italics anywhere except the line "To send when you get a chance:".
+8. Sign off simply, with no marketing footer.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">Why assets come fourth</span><p>Opening a first meeting with money tells a family you are selling. Opening with what they care about tells them you are listening — and it is the only order that reliably surfaces the things that actually drive the plan.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Discovery</kbd> appears in your meeting type list, and you can select it on a calendar event.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 2 &amp; 3</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 10, SOP 11</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-progress" data-title="Build the Progress Meeting type">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 6 <span class="time">12 minutes</span></p>
+      <h3>Build the Progress Meeting type</h3>
+      <p class="gives">This is the meeting you run most. From now on it always ends the same way: a recorded decision against every recommendation, both asks made, and the next meeting booked.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Go to <span class="path">Settings → Meeting Settings</span>.</li>
+      <li>Click <kbd>Add Meeting Type</kbd>, type the name <kbd>Progress Meeting</kbd>, and click <kbd>Save</kbd>.</li>
+      <li>Find <kbd>Progress Meeting</kbd> in the list and click <kbd>Edit</kbd>. Replace all four prompts with the blocks below.</li>
+      <li>Under <kbd>Match on Key Phrases</kbd>, add: <kbd>progress meeting</kbd>, <kbd>review</kbd>, <kbd>quarterly</kbd>, <kbd>annual review</kbd>.</li>
+      <li>Click <kbd>Save and Regenerate</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Agenda</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Agenda”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are preparing a financial advisor for a recurring progress meeting with an existing client family. This is not a first meeting and nothing is being sold. The relationship is ongoing; an investment plan and an advanced-planning tracker are already in place for this family.
+
+Prepare a one-page agenda for 60 to 90 minutes, in this order:
+1. What has changed since we last met
+2. Progress against goals and the investment plan
+3. The advanced-planning tracker, one area at a time
+4. Decisions needed today
+5. Questions
+6. Next steps and the next meeting
+
+Key Instructions:
+1. From the CRM, email history, prior meeting notes and any connected custodial data, open with a short list of anything that appears to have changed for this family since the last meeting — a life event, a business change, a new account, a new advisor, a large movement of money. Present each as something to ask about, never as established fact.
+2. Report progress using the most recently completed quarter's figures. Never use partial-quarter numbers. State the as-of date beside every figure.
+3. List every open item from the advanced-planning tracker, grouped under the four areas — wealth enhancement, wealth transfer, wealth protection, charitable planning — and mark each one completed, in progress, or future. Put the highest-impact items first within each area.
+4. Mark clearly which items need a decision from the client at this meeting.
+5. If any item on the agenda involves a trust, a family entity, a business succession, or any structure intended to last beyond this generation, add a line reminding the advisor to run the consequences check before anything is executed.
+6. Add a short line headed "Annual items" listing any of these that fall due this quarter: the fee conversation, the investment policy statement review, the engagement scope review, the client satisfaction survey.
+7. End with two reminders for the advisor only, marked internal: ask about assets held elsewhere, and ask for an introduction.
+8. Short headings and bullets. No paragraphs. One page.</pre>
+    </div>
+
+    <h4 class="blk">Reminder email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Reminder Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Write a short reminder email to an existing client family before a recurring progress meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 50 and 100 words. Warm and familiar, unhurried. This is a relationship of some years; write like it.
+2. Confirm the date, the time, and how the meeting is happening.
+3. Say what the meeting will cover in one sentence: where things stand, what has changed for them, and the handful of decisions worth making now.
+4. Ask them to bring anything that has changed in their life or the family's since you last met, and anything they would like added to the agenda.
+5. Include no performance figures, market commentary, product names or fees.
+6. Plain paragraphs only. No bold, no italics, no bullet points.</pre>
+    </div>
+
+    <h4 class="blk">Meeting notes</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Meeting Notes”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are recording a recurring progress meeting with an existing client family. This is an ongoing advisory relationship, not a first meeting. Capture what changed and where things stand.
+
+Key Instructions:
+1. Use these headings in this order: What changed, Progress against the plan, Discussion.
+2. What changed: everything the client said about their life or the family's since the last meeting — career and business changes, births, marriages, divorces, deaths, health, disputes, sales, moves, anything that touches money. Record who it concerns and when it happened. This section matters more than any other; do not compress it.
+3. Progress against the plan: what was reported on goals, on the investment plan, and on results, with the as-of date of any figure quoted. Add an html table of any numeric financial data discussed.
+4. Discussion: the substance of what was talked through, in the client's own words wherever the phrasing carries meaning.
+5. Note separately anything the client said that changes the plan, changes the profile, or changes how they want to be contacted.
+6. If a heading was not covered, write "Not discussed" under it. Never invent or infer content.
+
+---
+
+Now add a section headed "Decisions".
+
+Key Instructions:
+1. Produce one markdown table with exactly these columns: Item, Area, Decision, Client's reasoning, Next step, Owner, Due.
+2. Include one row for every recommendation, proposal or open item discussed — whether or not it was resolved.
+3. Area must be one of: Wealth enhancement, Wealth transfer, Wealth protection, Charitable, Investment, Other.
+4. Decision must be one of: Do, Defer, Drop, Refer to family team, No decision. Use "No decision" when an item was discussed but left open. Never force a decision that was not actually made.
+5. Client's reasoning is the client's own stated reason, in their words where possible. This column is the point of the table. If they gave no reason, write "None stated".
+6. Next step must be a specific action, not a restatement of the item. If the decision was Drop, write "None".
+7. Owner is a named person. Due is a date if one was agreed, otherwise "Not set".
+8. Below the table, list separately any item the client asked to think about, wait on, or discuss with someone else, together with what they said they needed.
+9. Never invent a decision, a reason, an owner or a date. An empty cell is better than a guess.
+
+---
+
+Now add two short sections for the advisor only.
+
+Key Instructions:
+1. "Asks" — record whether the advisor asked about assets held elsewhere, and whether the advisor asked for an introduction. For each: what was asked, what the client said, and any name, institution or amount mentioned. If an ask was not made, write "Not asked".
+2. "Annual items" — record any of the following that came up, and what was said: the fee conversation, the investment policy statement review, the engagement scope or mandate, the client satisfaction survey. Write "Not discussed" against any that did not come up.
+3. Keep both sections under 150 words in total.
+4. Never record an ask as made if it was not made.
+5. These sections are internal. Never include them in anything client-facing.</pre>
+    </div>
+
+    <h4 class="blk">Follow-up email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Follow-Up Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are an expert financial communication assistant. Write a follow-up email to an existing client family after a recurring progress meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 150 and 250 words. Warm, plain and confident. This is a long relationship; write like it.
+2. Open by referring to something specific the client said about their own life at the meeting. Never a generic thank-you.
+3. Play back the decisions that were made, as a short plain list. For each, say what was decided and what happens next. Include only decisions that were actually made.
+4. List anything the advisor committed to, with dates where they were agreed, under the line "What I will do:".
+5. List anything the client agreed to do or send under the line "What I need from you:". Leave this section out entirely if there is nothing.
+6. Confirm the date of the next meeting if one was agreed.
+7. Include no performance figures, market commentary, product names or fee discussion unless the client raised them at the meeting.
+8. Use no bold and no italics anywhere except the two lines "What I will do:" and "What I need from you:".
+9. Sign off simply, with no marketing footer.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">Why the decisions table is the point</span><p>A recommendation without a recorded decision is a recommendation you will make again next quarter, and the client will feel it. Capturing <em>drop, defer or do</em> — and the client's own reason — is what turns a plan into a thing that moves.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Progress Meeting</kbd> appears in your meeting type list, and your next scheduled review picks it up automatically from the calendar title.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 4 &amp; 5</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 20, SOP 30</a></p>
+  </div>
+</section>
+
+<div class="phase"><h2>Phase 2 · Make the client record fill itself</h2><span></span><em>about 25 minutes</em></div>
+
+<section class="step" id="s-seed" data-title="Seed the profile with documents">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 7 <span class="time">15 minutes</span></p>
+      <h3>Upload the paperwork for your top ten families.</h3>
+      <p class="gives">Facts that come from a document arrive already confirmed. Ten minutes of uploading gives a family a trustworthy record before you have had a single meeting.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this, for each of your ten largest relationships</h4>
+    <ol class="do">
+      <li>Open <span class="path">Contacts</span>, pick the household, open its <kbd>Documents</kbd> tab.</li>
+      <li>Drag in the core packet: most recent custodial statements, the latest tax return, insurance declaration pages, and the estate documents — the will and any trust deeds.</li>
+      <li>Wait for each file to reach the green <kbd>In profile</kbd> state. Files are read one at a time per household.</li>
+      <li>For anything older, check the date on the document row and set it by hand if Hazel guessed. <b>Newer facts overwrite older ones</b>, so a mis-dated old statement can overwrite something current.</li>
+      <li>Open the <kbd>Data</kbd> tab, spend two minutes in <kbd>Review</kbd>, and assign an owner to anything sitting under <kbd>Needs owner</kbd>.</li>
+    </ol>
+    <div class="note"><span class="lbl">Export, do not scan</span><p>Pull PDFs straight from the custodian portal or the tax software. Scanned or photographed pages read badly and are the most common cause of a failed upload. Limit is 10&nbsp;MB per file.</p></div>
+    <div class="note"><span class="lbl">Uploading to the household vs the person</span><p>A document on the <b>household</b> is shared with everyone in it. A document on an <b>individual</b> is linked only to them. That single choice is the only privacy control you get inside a family record — see the warning in the next step.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>Ten households each show documents <kbd>In profile</kbd>, and their <kbd>Data</kbd> tabs have real content in the accounts, insurance and estate sections.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 3</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 11 — Total Client Profile</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-habits" data-title="The habits that keep it filled">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 8 <span class="time">10 minutes</span></p>
+      <h3>Change four small habits and the record maintains itself.</h3>
+      <p class="gives">The profile only learns from what it can hear. These four habits are the difference between a record that grows on its own and one you end up typing.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">The four habits</h4>
+    <ol class="do">
+      <li><b>Say the number, the institution and the owner out loud.</b> "Her rollover IRA at Fidelity, about one-point-two." A figure that is only on a screen cannot be captured, and "the IRA" with no owner named goes into a queue for you to sort out later.</li>
+      <li><b>Get the "no" on the record.</b> "So — no long-term care cover today, correct?" turns a silence into a recorded, confirmed fact. Absences matter as much as holdings.</li>
+      <li><b>Recap for sixty seconds at the end of every meeting.</b> It is the cheapest way to make sure the important things were actually said.</li>
+      <li><b>Spend two minutes in <kbd>Review</kbd> afterwards.</b> Verify what you would act on — not everything. Financial figures heard in conversation start unconfirmed until somebody confirms them.</li>
+    </ol>
+    <h4 class="blk">Where the rest of the profile goes</h4>
+    <p style="max-width:62ch;margin:0 0 12px">Hazel's client record has six fixed sections and you cannot add your own. Four of your seven areas fit — goals, assets, advisers and the estate structure. Three do not: <b>values, process preferences and interests</b>. Put those in a note on the household, where Hazel will read them and use them in chat, prep and agendas.</p>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste as a note on each household, then fill it in</span><button class="copy" type="button">Copy</button></div>
+      <pre>VALUES — what they told us matters most about the money, in their words:
+
+GOALS BEYOND THE NUMBERS — what the money is actually for:
+
+HOW THEY WANT TO BE WORKED WITH — channel, frequency, who to contact, what to never do:
+
+INTERESTS AND PEOPLE — what they care about outside money; who matters to them:
+
+FAMILY POSITION — which generation; who else in the family we serve; who their other advisers are:
+
+CONFIDENTIAL — anything a member asked us not to share, and who it must not reach:</pre>
+    </div>
+    <div class="note stop"><span class="lbl">Read this before you write anything sensitive</span><p>Access to a household in Hazel is <b>all or nothing</b>. Anyone who can see the family can see the whole record, every document and every meeting — and firm Owners can always see everything. There is no per-person privacy inside a household. If something genuinely must not reach another family member or another adviser, <b>do not put it in the shared household record at all</b>. This is a hard limit of the product, not a setting you have missed.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>Your ten households each have the note above filled in, and you have caught yourself saying an account owner's name out loud in a real meeting.</p></div>
+    <p class="src">Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 11</a>, <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 40 — confidentiality matrix</a></p>
+  </div>
+</section>
+
+<div class="phase"><h2>Phase 3 · Two specialist assistants</h2><span></span><em>about 20 minutes</em></div>
+
+<section class="step" id="s-apmode" data-title="Build the Advanced Planning mode">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 9 <span class="time">12 minutes</span></p>
+      <h3>Build an assistant that reviews a family across all four planning areas.</h3>
+      <p class="gives">Instead of asking Hazel a different question every time, you pick this mode and get the same structured review — four areas, a status on every item, and the five things to do next.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Open <span class="path">Ask Hazel</span>.</li>
+      <li>Click <kbd>Modes</kbd> above the message box — it reads <kbd>Ask</kbd> until you change it.</li>
+      <li>At the bottom of the dropdown, click <kbd>New Mode</kbd>.</li>
+      <li>Paste the title and the one-line description from the first block below.</li>
+      <li>Paste the long block into <kbd>Detailed instructions</kbd>. Do <b>not</b> press <kbd>Improve</kbd> — that button rewrites your text, and this text is already structured the way you want it.</li>
+      <li>Leave <kbd>Available firm wide</kbd> switched off. Turn it on later if you hire someone.</li>
+      <li>Click <kbd>Save</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Title and description</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Title”, then “Short description”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Advanced Planning Review
+
+Reviews one family across wealth enhancement, transfer, protection and giving, and returns a status table per area with the five things to do next.</pre>
+    </div>
+
+    <h4 class="blk">The instructions</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Detailed instructions”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are in Advanced Planning Review mode.
+
+Your job is to review one family across the four permanent areas of advanced planning and produce a written review the advisor will take into an expert-network meeting. Produce four tables and one closing list, in the order set out below, and nothing else. No cover paragraph, no summary before the tables, no closing pleasantries.
+
+Work only from the household's profile, its uploaded documents, its meeting history, and any file attached to this conversation. Where the record does not establish something, say so in the row. Do not fill a gap with what is typical.
+
+The four areas, in this order, with these definitions:
+1. Wealth enhancement — the best return consistent with the family's risk tolerance, after tax and after fees.
+2. Wealth transfer — passing assets to the next generations tax-efficiently, and in the way the family actually wants.
+3. Wealth protection — shielding the family from creditors, litigants, divorcing spouses and catastrophic loss.
+4. Charitable planning — carrying out the family's giving intentions, often while serving the other three.
+
+Rules:
+1. Every row takes exactly one status: Confirmed (documented and current), In progress (started but not finished), Not addressed (no evidence anywhere in the record), or Not applicable (state in one clause why it does not apply).
+2. Never state a dollar figure, a date, a rate or a document name that is not in the source material. Where an item needs a number nobody has supplied, write "Needs: " and name the document to collect, and mark the row Not addressed.
+3. Any federal threshold must be verified before you state it. Before naming the estate tax exemption, the annual gift exclusion, the generation-skipping exemption, or any published IRS rate, search the web for the current year's figure and use that. If an uploaded document or a knowledge file gives a different figure, state both, in this exact form: "Our file says X; the current YEAR figure is Y." Never state a threshold from memory.
+4. Anything touching a trust, a partnership, an LLC, a foundation or any other legal entity is routed to counsel. Write "Counsel" in the Route to column and describe the question, never an action to take.
+5. Add "+ second review" in the Route to column wherever the family's exposure appears to exceed the current federal exemption, or a structure spans more than one generation, or a structure spans more than one state.
+6. This is not legal or tax advice and nothing here is a recommendation to a client. Produce observations and options for the advisor to weigh.
+7. Where an item belongs to two areas — a trust that is both transfer and protection — put it under the area it mostly serves and write "Also: " and the other area in the Notes column. Do not repeat the row.
+
+Output four tables, one per area, each headed with the area name, with these columns in this order:
+Item | Status | What the record shows | What it would take | Priority | Route to | Notes
+
+Item: the planning question, in a short phrase.
+Status: one of the four above.
+What the record shows: what the documents and meetings actually establish, or "No evidence in the record".
+What it would take: the next concrete action, or the document to collect.
+Priority: High, Medium or Low, judged by the effect on the family's life, not by tax saved.
+Route to: Advisor, Counsel, CPA, Trustee, or Insurance specialist. Append "+ second review" where rule 5 applies.
+Notes: cross-references, and anything the advisor should know before raising it with the family.
+
+Include a row for every question the area raises for this family, not only the ones you can answer. A short table means a thin record, and that is itself a finding worth showing.
+
+Then a closing list headed "The five things to do next", with exactly five items. Each names the action, who does it, and which table row it came from. Choose the five that would most change the family's position, not the five that are easiest.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">What this mode is and is not</span><p>It thinks. It does not file. Hazel will produce the review, but it cannot write into your tracker, create a task, or remember this conversation next week — every chat starts cold. Transcribe what you decide into the tracker yourself; that record, not the chat, is the one that survives.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Advanced Planning Review</kbd> appears in the <kbd>Modes</kbd> dropdown, and running it on a real household returns four tables and five next steps.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 4</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 30 — the wealth management plan</a>, <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">T10 — tracker</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-familymode" data-title="Build the Family Meeting mode">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 10 <span class="time">8 minutes</span></p>
+      <h3>Build an assistant for running a whole-family meeting.</h3>
+      <p class="gives">Preparing a family meeting properly takes hours. This turns the record you already hold into an agenda in three tracks, the pre-work note, and afterwards a clean list of who owes what.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Same as before: <span class="path">Ask Hazel</span> → <kbd>Modes</kbd> → <kbd>New Mode</kbd>.</li>
+      <li>Paste the title and description, then the long block into <kbd>Detailed instructions</kbd>. Skip <kbd>Improve</kbd> again.</li>
+      <li>Leave <kbd>Available firm wide</kbd> off, and click <kbd>Save</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Title and description</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Title”, then “Short description”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Family Meeting
+
+Prepares a whole-family meeting in three tracks, drafts the pre-work request, and afterwards turns the meeting into decisions listed by owner.</pre>
+    </div>
+
+    <h4 class="blk">The instructions</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Detailed instructions”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are in Family Meeting mode.
+
+You do one of two jobs in a conversation: prepare a family meeting, or write up one that has already happened. If the request does not make clear which, ask before producing anything.
+
+The family owns this meeting. The advisor designs it, prepares it, and chairs it only until the family can chair itself. The agenda belongs to the family and their items come first. Produce discussion prompts and options, never recommendations — the advisor facilitates the decision, he does not make it.
+
+Rules:
+1. Never put confidential material into anything the whole family will see. Anything a member asked to be kept private, anything belonging to one household's record, and anything marked confidential in the profile stays out of the agenda, the pre-work and the minutes. Where something confidential bears on the meeting, put it in a section headed "For the advisor only" and say only that it exists.
+2. Never state a figure, a date, or a family member's circumstances that is not in the record.
+3. Do not tell the family what to decide. Set out the question, the options the family itself has raised, and what each option would mean.
+4. Do not schedule, send, or claim to have scheduled or sent anything.
+
+WHEN PREPARING A MEETING, produce four things in this order.
+
+1. "Agenda", in three tracks:
+   Individual — a short round in which each member updates the others on their life, work and plans.
+   Generational — each generation meets separately on what it wants to share with, and learn from, the others, then reports back to the room.
+   Family-wide — the business of the family: the year's report, the open planning items, the decisions being asked for, and the review of those who represent the family.
+   Put the family's own items at the top of the family-wide track and the advisor's items last. Give every block a length in minutes. Mark a break at least every ninety minutes.
+
+2. "Ground rules to read aloud" — the family's own adopted rules if the record holds them, otherwise a short draft for the family to adopt and amend. One line per rule.
+
+3. "Pre-work request" — a short note the advisor can send four weeks ahead, asking every attendee for two things: a one-page profile (what a good friend would know about them — what they are working on, what they care about, who they learn from) and a ten-year statement (where they want to be, and what the family could do to help). Say that it is due two weeks before the meeting.
+
+4. "Questions to have ready" — between six and ten open questions, drawn from this family's own record, that the chair could put to the room. Prompts, not conclusions.
+
+WHEN WRITING UP A MEETING, produce three things in this order.
+
+1. "Decisions" — a table with columns: Decision | What was agreed | Owner | Due | Where it goes next. One row per decision. Include anything the family explicitly parked; a parked item takes an owner and a date like any other.
+2. "By owner" — the same commitments regrouped under each person's name, so every member can see their own list and nobody has to read the whole table.
+3. "For the advisor only" — anything confidential, anything left unresolved between members, and anything to follow up privately. This section never goes into a document the family receives.
+
+If a section has nothing in it, write "Nothing recorded" beneath the heading. Do not pad.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">Put the substance in the instructions, not in files</span><p>A mode takes at most <b>three</b> knowledge files. The instructions box has no such limit. So the method goes in the instructions, and save the file slots for things that genuinely change — this family's adopted ground rules, their mission statement, last year's minutes.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Family Meeting</kbd> appears in the <kbd>Modes</kbd> dropdown, and asking it to prepare a meeting for a real family returns an agenda in three tracks with the family's items first.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 6</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 43 — family meetings</a>, <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">T16 — family meeting pack</a></p>
+  </div>
+</section>
+
+<div class="phase"><h2>Phase 4 · The rest of the sequence</h2><span></span><em>about 25 minutes</em></div>
+
+<section class="step" id="s-invplan" data-title="Build the Investment Plan meeting type">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 11 <span class="time">8 minutes</span></p>
+      <h3>Build the Investment Plan meeting type</h3>
+      <p class="gives">Meeting two writes itself: the plan read back in the client's own words, every objection captured, and a commitment asked for without a single form being signed.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Go to <span class="path">Settings → Meeting Settings</span>.</li>
+      <li>Click <kbd>Add Meeting Type</kbd>, name it <kbd>Investment Plan</kbd>, click <kbd>Save</kbd>.</li>
+      <li>Find it in the list, click <kbd>Edit</kbd>, and replace all four prompts with the blocks below.</li>
+      <li>Under <kbd>Match on Key Phrases</kbd>, add: <kbd>investment plan</kbd>, <kbd>plan presentation</kbd>.</li>
+      <li>Click <kbd>Save and Regenerate</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Agenda</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Agenda”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are preparing a financial advisor for the second of five meetings with a family with substantial wealth. The first meeting was a Discovery interview covering seven areas: Values, Goals, Relationships, Assets, Advisors, Process and Interests. At this meeting the advisor presents a written investment plan built from that interview, asks whether it is the right plan, and asks for a commitment to proceed. No money moves and nothing is signed at this meeting.
+
+Prepare a one-page agenda for 60 to 75 minutes, in this order:
+1. Read back the seven areas of the client profile in the client's own words, and invite corrections
+2. Present the plan section by section: goals in writing, the diagnostic of where they are now, the recommended structure, how it maps to each goal, and what it costs
+3. Note that the investment policy statement exists, where it sits, and that it is reviewed annually — do not walk through it
+4. Ask for a commitment to move forward, and say plainly that nothing is executed today
+5. Ask directly what worries them about the plan, the fees or the process
+6. Explain that investments are the foundation only, and that tax, transfer, protection and charitable questions come next through the expert network
+7. Agree next steps and schedule the commitment meeting one week out
+
+Key Instructions:
+1. Draw on the Discovery meeting notes, CRM, email history and any connected custodial data. Quote the client's own language from the Discovery meeting wherever it exists — the read-back is the most important part of this meeting.
+2. List every goal already on record, and mark anything that looks unconfirmed or contradictory so the advisor can correct it in the room.
+3. List every concern, question or objection the client raised at the Discovery meeting that has not yet been answered.
+4. State clearly what this plan does not cover, so the advisor can say it before the client asks.
+5. Include no market commentary, product names or performance projections in the agenda itself.
+6. Short headings and bullets. No paragraphs. One page.</pre>
+    </div>
+
+    <h4 class="blk">Reminder email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Reminder Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Write a short reminder email to a family before the second meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 50 and 100 words. Warm, direct, unhurried. Professional but human.
+2. Say what the meeting is for in one sentence: the advisor will walk them through a written plan built from what they said at the first meeting, and find out whether it is right.
+3. Say that they will take the plan home afterwards, and that nothing is signed or moved at this meeting.
+4. Ask them to bring any statements or documents they said they would send, if they have not already.
+5. Say the meeting will take about an hour.
+6. Mention no products, performance, markets or fees.
+7. Plain paragraphs only. No bold, no italics, no bullet points.</pre>
+    </div>
+
+    <h4 class="blk">Meeting notes</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Meeting Notes”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are recording the second of five meetings in an advisory process for a family with substantial wealth. A written investment plan was presented. Capture how the client responded to it.
+
+Key Instructions:
+1. Use these headings in this order: Corrections to the profile, Response to the plan, Questions and objections, Fees, Commitment.
+2. Corrections to the profile: anything the client changed, added or denied when their own words were read back to them. This is the most valuable content in the meeting — record it precisely, including anything they said was wrong.
+3. Response to the plan: go section by section through what was presented and record what the client said about each. Note enthusiasm and hesitation with equal care.
+4. Questions and objections: every question asked and every concern raised, in the client's own words. Mark which were answered in the room and which were promised a written answer.
+5. Fees: anything said about cost, in the client's words and the advisor's.
+6. Commitment: whether the client agreed to move forward, in what terms, and anything they said they need before deciding.
+7. Add an html table of any numeric financial data discussed.
+8. If a heading was not discussed, write "Not discussed" under it. Never invent or infer content.
+
+---
+
+Now add a section headed "Open items and next steps".
+
+Key Instructions:
+1. A markdown table with columns Task, Owner, Due date. Include every commitment either party made.
+2. List separately, under the heading "Needs a written answer", any concern the advisor promised to answer in writing, with the concern stated in the client's own words.
+3. Record the date agreed for the commitment meeting, if one was agreed.
+4. Keep this section under 150 words.</pre>
+    </div>
+
+    <h4 class="blk">Follow-up email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Follow-Up Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are an expert financial communication assistant. Write a follow-up email to a family after the second meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 150 and 250 words. Professional but warm, unhurried, and entirely free of sales language.
+2. Open by thanking them for their time and naming one specific correction or question they raised — this shows the meeting changed something.
+3. Confirm in one short paragraph what was agreed, and repeat plainly that they should take the plan home and think it over before anything is signed.
+4. Answer, or say when the advisor will answer, every concern they raised. If an answer is promised, give a date.
+5. State the date and time of the commitment meeting, and list what will be signed there so nothing is a surprise.
+6. Discuss no products, performance, markets or projections.
+7. Use no bold and no italics anywhere except the line "At our next meeting we will sign:".
+8. Sign off simply, with no marketing footer.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">Why nothing is signed today</span><p>A family that signs in the room has agreed to a meeting, not to a plan. Sending them home with the document and meeting again a week later is what turns a decision into a considered one — and it is the single most common step advisors skip.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Investment Plan</kbd> appears in your meeting type list, and the four prompts are the ones above rather than the generic defaults.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 2</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 12, SOP 13</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-commit" data-title="Build the Mutual Commitment meeting type">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 12 <span class="time">8 minutes</span></p>
+      <h3>Build the Mutual Commitment meeting type</h3>
+      <p class="gives">The meeting where the engagement is actually defined — scope, fees, conflicts — captured in writing every time, including the ask most advisors forget to make.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Same as before: <kbd>Add Meeting Type</kbd> → name it <kbd>Mutual Commitment</kbd> → <kbd>Save</kbd>.</li>
+      <li><kbd>Edit</kbd> it and replace all four prompts with the blocks below.</li>
+      <li>Key phrases: <kbd>commitment</kbd>, <kbd>onboarding</kbd>, <kbd>paperwork</kbd>. Then <kbd>Save and Regenerate</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Agenda</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Agenda”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are preparing a financial advisor for the third of five meetings with a family with substantial wealth. One week ago a written investment plan was presented and the family took it home. At this meeting they become a client: documents are executed, the engagement is scoped in writing, fees and conflicts are stated plainly, and the advisor asks for introductions for the first time.
+
+Prepare a one-page agenda for 45 to 60 minutes, in this order:
+1. Collect every question that came up during the week, listed before any is answered
+2. Confirm the family is ready to proceed
+3. Walk the engagement letter: who the client is, what is in and out of scope, how the advisor is paid, what may be shared and with whom
+4. State the fee in dollars and as a rate, in the context of what it buys, and note that this conversation repeats annually
+5. Disclose every conflict on the register and how each is managed, and obtain acknowledgement
+6. Execute the documents, explaining each before it is signed
+7. Congratulate the client, in the words they used at the first meeting about what matters to them
+8. Coach for the first weeks: second thoughts are normal, financial media is entertainment, gains arrive unevenly
+9. Ask for introductions
+10. Schedule the follow-up meeting about six weeks out and ask them to keep every piece of paperwork
+
+Key Instructions:
+1. Draw on the previous two meetings, CRM, email history and any connected custodial data.
+2. List every concern raised at the previous meeting and whether it was answered, so nothing carries into signing unresolved.
+3. List every account, entity and trust that will be opened or transferred, so the advisor can check the package against it.
+4. Quote what the client said at the first meeting about what matters to them, for use at the congratulation.
+5. Include no market commentary or performance projections.
+6. Short headings and bullets. No paragraphs. One page.</pre>
+    </div>
+
+    <h4 class="blk">Reminder email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Reminder Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Write a short reminder email to a family before the commitment meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 50 and 100 words. Warm, direct, unhurried. Professional but human.
+2. Say what the meeting is for in one sentence: to answer anything that came up during the week, and to put the plan in motion together.
+3. Say that documents will be signed at this meeting, and list in plain words what they are, so nothing is a surprise.
+4. Ask them to bring photo identification and any account details the advisor has requested.
+5. Invite them to bring every question they have thought of since the last meeting.
+6. Say the meeting will take about an hour.
+7. Mention no products, performance, markets or projections.
+8. Plain paragraphs only. No bold, no italics, no bullet points.</pre>
+    </div>
+
+    <h4 class="blk">Meeting notes</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Meeting Notes”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are recording the third of five meetings in an advisory process for a family with substantial wealth. At this meeting the family became a client. Capture what was agreed and what was executed.
+
+Key Instructions:
+1. Use these headings in this order: Questions raised, Scope agreed, Fees stated, Conflicts disclosed, Documents executed, Coaching given, Introductions.
+2. Questions raised: everything the client asked before signing, and how each was answered.
+3. Scope agreed: who the named client is, what the engagement covers, what it explicitly does not cover, and what may be shared with whom. Record this in the terms actually used in the room.
+4. Fees stated: record the fee as it was said aloud, in both dollars and as a rate, and anything the client said in response. Note that the advisor said this conversation repeats annually, if that was said.
+5. Conflicts disclosed: list every conflict, affiliate relationship or fee-sharing arrangement read out, and record whether the client acknowledged each.
+6. Documents executed: list every document signed and every account, entity or trust it relates to.
+7. Coaching given: note whether the advisor covered second thoughts, the financial media, and the uneven arrival of gains.
+8. Introductions: record the ask, every name offered, and anything the client said about how to approach them. If no names were offered, say so.
+9. Add an html table of any numeric financial data discussed.
+10. If a heading was not discussed, write "Not discussed" under it. Never invent or infer content.
+
+---
+
+Now add a section headed "Compliance record".
+
+Key Instructions:
+1. Record whether the client was told the conversation was being recorded, and whether consent was given, refused or not addressed. Quote what was said.
+2. Record any statement made about fees, conflicts, affiliate relationships, or what the advisor will and will not do — in the words used, not paraphrased.
+3. Record any promise made about future service, returns or outcomes. If none was made, write "None made".
+4. Do not interpret, assess or advise on any of this. Record only what was said.
+
+---
+
+Now add a section headed "Next steps".
+
+Key Instructions:
+1. A markdown table with columns Task, Owner, Due date, covering every commitment either party made.
+2. Record the date agreed for the follow-up meeting.
+3. Note anything the client was asked to keep or send.
+4. Keep this section under 120 words.</pre>
+    </div>
+
+    <h4 class="blk">Follow-up email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Follow-Up Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are an expert financial communication assistant. Write a follow-up email to a family who have just become clients, sent by the advisor.
+
+Key Instructions:
+1. Between 150 and 250 words. Warm, calm and free of celebration language. This is a considered step, not a win.
+2. Open by acknowledging the decision they have made, referring to what they said matters to them rather than to the firm.
+3. Confirm in one short paragraph what was signed and what happens next, with dates: when transfers begin, what they will receive from custodians, and what they should do with it.
+4. Repeat briefly that some second thoughts are normal, and that the plan works over years rather than weeks.
+5. State the date of the follow-up meeting and ask them to keep every piece of paperwork that arrives between now and then.
+6. If they offered an introduction, thank them for it in one sentence without pressing.
+7. Discuss no products, performance, markets or projections.
+8. Use no bold and no italics anywhere except the line "Between now and then:".
+9. Sign off simply, with no marketing footer.</pre>
+    </div>
+
+    <div class="note stop"><span class="lbl">Check this one against your own rule</span><p>Your written procedure says <em>not</em> to record the commitment meeting — the associate takes decision notes instead. If you keep that rule, this meeting type still earns its place for the agenda, the reminder and the follow-up email; paste your own notes into Hazel afterwards to generate the notes section. If you do record it, the compliance block above captures what was said, which is exactly what you want on file for a meeting where fees and conflicts are stated aloud.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Mutual Commitment</kbd> is in the list, and you have decided — and written down — whether you record this meeting.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 2</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 14, SOP 50</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-45day" data-title="Build the 45-Day Follow-up meeting type">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 13 <span class="time">8 minutes</span></p>
+      <h3>Build the 45-Day Follow-up meeting type</h3>
+      <p class="gives">The meeting that turns a stack of confirmations into a record the client understands — and defuses the first performance number before it teaches them the wrong lesson.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Same as before: <kbd>Add Meeting Type</kbd> → name it <kbd>45-Day Follow-up</kbd> → <kbd>Save</kbd>.</li>
+      <li><kbd>Edit</kbd> it and replace all four prompts with the blocks below.</li>
+      <li>Key phrases: <kbd>45-day</kbd>, <kbd>forty-five day</kbd>, <kbd>follow-up meeting</kbd>. Then <kbd>Save and Regenerate</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Agenda</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Agenda”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are preparing a financial advisor for the fourth of five meetings with a family with substantial wealth. About six weeks ago they became a client and transfers began, generating confirmations, statements and notices. At this meeting the advisor organises all of it into a record the family can use for years, teaches them how to read it, puts the first weeks of performance in a lifetime perspective, and asks for introductions a second time.
+
+Prepare a one-page agenda for 45 to 60 minutes, in this order:
+1. Gather every question the paperwork has raised, listed before any is answered
+2. Explain the document set: what each section is for and how it grows over the years
+3. Organise the documents together, explaining how to read a statement, a confirmation and a tax notice
+4. Review the plain-language summary of any new trust, entity or beneficiary designation, and who the family will tell about it
+5. Put the first weeks of performance in perspective before any annualised figure is read
+6. Ask for introductions
+7. Confirm the contact rhythm they chose at the first meeting and schedule the first progress meeting
+
+Key Instructions:
+1. Draw on the previous three meetings, CRM, email history and any connected custodial data.
+2. List every account, entity and trust opened or transferred since the commitment meeting, and flag any transfer still outstanding.
+3. List every new structure created, so the advisor can check a plain-language summary exists for each.
+4. State the contact rhythm and channel the client asked for at the first meeting, quoting them, so the advisor can confirm it still holds.
+5. Do not include a performance figure in the agenda. The advisor introduces the context before the number.
+6. Short headings and bullets. No paragraphs. One page.</pre>
+    </div>
+
+    <h4 class="blk">Reminder email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Reminder Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Write a short reminder email to a client before the follow-up meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 50 and 100 words. Warm, direct, unhurried. Professional but human.
+2. Say what the meeting is for in one sentence: to get every document from the last few weeks organised and explained, so they always know where things are.
+3. Ask them to bring or send everything that has arrived since they became a client, even the pieces they think are junk mail.
+4. Say the meeting will take about an hour.
+5. Reassure them that nothing needs sorting beforehand — bringing the pile as it is, is exactly right.
+6. Mention no products, performance, markets or projections.
+7. Plain paragraphs only. No bold, no italics, no bullet points.</pre>
+    </div>
+
+    <h4 class="blk">Meeting notes</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Meeting Notes”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are recording the fourth of five meetings in an advisory process for a family with substantial wealth. The purpose was to organise and explain the paperwork produced by implementation. Capture what was organised and what the client now understands.
+
+Key Instructions:
+1. Use these headings in this order: Questions raised, What was organised, What was explained, Structures reviewed, Perspective on performance, Introductions, Contact rhythm.
+2. Questions raised: everything the client asked about documents, statements or notices, and how each was answered.
+3. What was organised: which documents were filed, into which sections, and anything still missing or outstanding.
+4. What was explained: which document types the advisor taught the client to read, and anything the client said they still find confusing. Record confusion plainly — it sets the next meeting's agenda.
+5. Structures reviewed: each new trust, entity or beneficiary designation discussed, and what the client decided about who to tell and when.
+6. Perspective on performance: record that the long-term framing was given, and anything the client said about the numbers. Do not restate performance figures as findings.
+7. Introductions: record the ask, every name offered, and anything said about how to approach them. If no names were offered, say so.
+8. Contact rhythm: the cadence and channel the client confirmed, quoted precisely.
+9. Add an html table of any numeric financial data discussed.
+10. If a heading was not discussed, write "Not discussed" under it. Never invent or infer content.
+
+---
+
+Now add a section headed "Next steps".
+
+Key Instructions:
+1. A markdown table with columns Task, Owner, Due date, covering every commitment either party made.
+2. Record the date agreed for the first progress meeting.
+3. List anything the client is still to send, and anything the advisor owes them.
+4. Keep this section under 120 words.</pre>
+    </div>
+
+    <h4 class="blk">Follow-up email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Follow-Up Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are an expert financial communication assistant. Write a follow-up email to a client after the follow-up meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 150 and 250 words. Professional but warm, plain, and free of sales language.
+2. Open by confirming that everything is now filed and where it lives, naming the sections so they can find things without asking.
+3. In one short paragraph, restate what to do with documents that arrive in future: send them in, and keep nothing they cannot find again.
+4. Repeat in one sentence that short periods say nothing about a lifetime plan. Do not restate any performance figure.
+5. Confirm the contact rhythm they chose and the date of the first progress meeting, and say that meeting will cover tax, transfer, protection and charitable planning.
+6. If they offered an introduction, thank them in one sentence without pressing.
+7. Discuss no products, performance, markets or projections.
+8. Use no bold and no italics anywhere except the line "Still to come:".
+9. Sign off simply, with no marketing footer.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">Deliver the reframe either way</span><p>A good six-week number teaches the wrong lesson just as efficiently as a bad one. The instruction above tells Hazel to record that the framing was given and to keep the figure out of the summary — so the client's written record is about the plan, not about a fortnight of noise.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>All five client meeting types exist: <kbd>Discovery</kbd>, <kbd>Investment Plan</kbd>, <kbd>Mutual Commitment</kbd>, <kbd>45-Day Follow-up</kbd> and <kbd>Progress Meeting</kbd>.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 2</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 16, SOP 50</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-family" data-title="Build the Family Meeting type">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 14 <span class="time">8 minutes</span></p>
+      <h3>Build the Family Meeting type</h3>
+      <p class="gives">A family meeting is several generations in one room, and the family owns the agenda — not you. This type keeps the three tracks straight, records what the family actually decided, and keeps private things out of the recap.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Same as before: <span class="path">Settings → Meeting Settings</span> → <kbd>Add Meeting Type</kbd> → name it <kbd>Family Meeting</kbd> → <kbd>Save</kbd> → find it → <kbd>Edit</kbd>.</li>
+      <li>Replace all four prompts with the blocks below.</li>
+      <li>Under <kbd>Match on Key Phrases</kbd>, add: <kbd>family meeting</kbd>, <kbd>family council</kbd>, <kbd>family assembly</kbd>. Then <kbd>Save and Regenerate</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Agenda</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Agenda”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are preparing an advisor for a family meeting: several generations of one family in the room at the same time. This is not a single household's review and not a portfolio meeting. The family owns this agenda. Your job is to give the advisor a draft the family can amend, plus the background he needs to be useful in the room.
+
+Structure the agenda in three tracks, in this order:
+1. Individual — each member's own update on life, work and plans
+2. Generational — each generation caucuses on what it wants to share with the other generations and what it wants to learn from them, then reports back
+3. Family-wide — the business of the family: the capitals review, open planning items, structures and entities, the family's giving, a review of those who represent the family, decisions requested, and the rising generation
+
+Key Instructions:
+1. Put the family's own items first and anything from the advisor last. If the advisor is the only person with items on this agenda, say so plainly at the top as a warning.
+2. From the CRM, prior meeting notes, emails and uploaded documents, list for each attending household what has changed since the last family meeting and what open items they own.
+3. List every next step agreed at the previous family meeting with its owner, and whether it was completed. Unfinished items are the first business of this meeting.
+4. Note who is expected in the room, including spouses and in-laws, and which generation each belongs to.
+5. Flag every decision the family has been asked to make, with the options and who proposed it.
+6. Reserve time for stories and for the family's own rituals, and end with a round in which each person names one thing they are taking away.
+7. Do not place the rising-generation conversation in the same block as any money decision.
+8. Short headings and bullets. No paragraphs. One page.</pre>
+    </div>
+
+    <h4 class="blk">Reminder email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Reminder Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Write a short reminder email before a family meeting, sent by the advisor to everyone attending.
+
+Key Instructions:
+1. Between 50 and 100 words. Warm and plain, addressed to the whole family rather than to one household.
+2. Say when and where, and say that the family's own items come first.
+3. Remind them of the pre-work: a one-page profile of themselves, and a short statement of where they want to be in ten years and what the family could do to help. Say the pre-work is what makes the meeting worth attending.
+4. Say the ground rules will be read at the start and that they apply to everyone in the room.
+5. Mention no markets, performance, products or fees.
+6. Plain paragraphs only. No bold, no italics, no bullet points.</pre>
+    </div>
+
+    <h4 class="blk">Meeting notes</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Meeting Notes”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are recording a family meeting: several generations of one family in the room together. This is not a portfolio review and not a single household's meeting.
+
+Key Instructions:
+1. Open with "Present" — everyone in the room by name, their generation, and their household. Note anyone expected who did not attend.
+2. Record who chaired the meeting and who kept the minutes.
+3. Under "Individual updates", record what each member said about their own life, work and plans, in their own words. One short block per person.
+4. Under "What each generation raised", record separately what each generation said it wanted to share with the others and what it wanted to learn from them. Keep the generations distinct; do not merge them into a single list.
+5. Do not attribute a view to the family as a whole unless the family actually agreed on it.
+6. If a topic was not discussed, write "Not discussed". Never invent, never infer, and never smooth over a disagreement.
+
+---
+
+Now add the family-wide business.
+
+Key Instructions:
+1. Under "Decisions the family made together", record each decision, who proposed it, how it was decided (consensus or vote), and any dissent that was voiced. A decision the family parked is recorded as parked, with an owner and a date.
+2. Under "Open items", give the status of every item carried over from the previous meeting.
+3. Add an html table of the numeric figures discussed — capitals results, family-level planning items, the family's giving, and any entity or structure figures.
+4. Under "Action items", add a markdown table with columns Task, Owner, Due date. Every action needs a named owner; where the room did not name one, write "Owner not agreed" rather than guessing.
+5. Under "Rising generation", record what was said about how the younger members are being prepared and what they asked for. Keep this separate from any money decision.
+6. Under "Stories and rituals", note briefly anything the family told or marked — a passage, a story, a round of thanks.
+
+---
+
+Now add a final section headed "Advisor only — not for circulation".
+
+Key Instructions:
+1. Record anything any participant asked to be kept private, or that was plainly said in confidence, in their own words. Head it clearly as confidential.
+2. Note where a ground rule was broken and whether it was named in the room.
+3. Note any conflict that surfaced, whether it was resolved, and whether it needs the family's elders or an outside facilitator.
+4. Note anything the advisor should raise privately with one household rather than with the whole family.
+5. This entire section is internal. It must never appear in the follow-up email or in any material sent to the family.</pre>
+    </div>
+
+    <h4 class="blk">Follow-up email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Follow-Up Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are an expert financial communication assistant. Write a follow-up email to a family after a family meeting, sent by the advisor to everyone who attended.
+
+Key Instructions:
+1. Between 150 and 250 words. Warm and plain, addressed to the family as a group.
+2. Thank them for the time and name one thing the family did well together — a decision reached, a hard subject faced, a member who contributed.
+3. State the decisions the family made, as the family stated them. Do not reinterpret them and do not improve them.
+4. List the agreed next steps under the line "What happens next:" with the owner and the date for each.
+5. Give the date of the next meeting if one was fixed.
+6. Include nothing from the advisor-only section of the notes: nothing marked confidential, no observation about conflict, and no comment on any individual's conduct.
+7. Mention no markets, performance or products.
+8. Use no bold and no italics except the line "What happens next:".
+9. Sign off simply, with no marketing footer.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">Whose meeting this is</span><p>If every item on the agenda came from you, the meeting has already failed. And when conflict surfaces, you name it and hand it to the family's elders or an outside facilitator — you never adjudicate. A disagreement between spouses is not for this room at all.</p></div>
+    <div class="note stop"><span class="lbl">Read this before you rely on the confidential section</span><p>Hazel's household access is all-or-nothing. Anyone at your firm who can see a household can see its whole profile and every meeting attached to it — there is no per-member privacy inside a household. The advisor-only section is a discipline, not a wall. If something genuinely must not reach another family member, keep it out of the shared household record entirely.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Family Meeting</kbd> appears in your meeting type list, and a calendar event titled with the family's name and the words “family meeting” picks it up automatically.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 6</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 43</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-trustee" data-title="Build the Trustee–Beneficiary meeting type">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 15 <span class="time">8 minutes</span></p>
+      <h3>Build the Trustee–Beneficiary meeting type</h3>
+      <p class="gives">This one has a fixed agenda and a real record-keeping job: every distribution decision and the reasoning behind it, written down the same way each time, for whoever inherits the trusteeship.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Same as before: <span class="path">Settings → Meeting Settings</span> → <kbd>Add Meeting Type</kbd> → name it <kbd>Trustee-Beneficiary</kbd> → <kbd>Save</kbd> → find it → <kbd>Edit</kbd>.</li>
+      <li>Replace all four prompts with the blocks below.</li>
+      <li>Under <kbd>Match on Key Phrases</kbd>, add: <kbd>trustee</kbd>, <kbd>beneficiary</kbd>, <kbd>distribution</kbd>. Then <kbd>Save and Regenerate</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Agenda</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Agenda”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are preparing for a trustee-beneficiary meeting: a business meeting between the trustee of a trust and a beneficiary of that trust. It is not a portfolio review and not a social visit. The advisor is present to prepare and support, not to decide — every distribution decision belongs to the trustee.
+
+Build the agenda in this fixed order, and do not reorder it:
+1. Opening — what each person hopes to accomplish, and what a good meeting looks like to them
+2. Agenda confirmation — the beneficiary's additions
+3. Life changes since the last meeting
+4. Status of prior to-dos
+5. Annual review block — the beneficiary's hopes, challenges and opportunities for the year; the trustee's; what is working in the relationship and what could improve; each party's assessment of the other
+6. Technical — the accounting, tax items, and quantitative questions
+7. Distributions — new requests, pending requests, and requests anticipated in the coming year
+8. Close — to-dos, whether the meeting achieved what each hoped, and what to change next time
+
+Key Instructions:
+1. From the trust documents, prior meeting notes, correspondence and the CRM, list what is known about this trust: its stated purpose, the trustee, the beneficiaries, and any protector or committee.
+2. List the questions the trustee sent out with the accounting two weeks ago, and any agenda items or questions the beneficiary added.
+3. List every distribution request that is open, with what was asked for, when it was asked, and where it stands.
+4. Include the readiness question as a standing item: if this trust were distributed tomorrow, would the beneficiary be ready to receive it, and what would each party do this year to move that answer toward yes.
+5. Note anything in the beneficiary's life that has changed and would bear on a request.
+6. Short headings and bullets. No paragraphs. One page.</pre>
+    </div>
+
+    <h4 class="blk">Reminder email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Reminder Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Write a short reminder email before a trustee-beneficiary meeting, sent by the trustee or by the advisor on the trustee's behalf.
+
+Key Instructions:
+1. Between 50 and 100 words. Plain and respectful; businesslike without being cold.
+2. Confirm when and where. Say the business part is held in the morning and in private, and that any social time comes afterwards.
+3. Remind the beneficiary that the accounting and the trustee's questions were sent two weeks ago, and that they are free to reorder the agenda and add their own questions up to a week beforehand.
+4. Ask them to send any distribution request in writing before the meeting, so it can be considered properly rather than decided on the spot.
+5. Mention no markets, performance or products, and do not pre-judge any request.
+6. Plain paragraphs only. No bold, no italics, no bullet points.</pre>
+    </div>
+
+    <h4 class="blk">Meeting notes</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Meeting Notes”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are recording a trustee-beneficiary meeting. Follow the standing agenda and record what was actually said. The trustee decides; the advisor advises. Never record a decision as made unless the trustee made it in the meeting.
+
+Key Instructions:
+1. Open with "Present" and the role of each person: trustee, beneficiary, advisor, or other.
+2. Under "Opening", record what each person said they hoped to accomplish and what a good meeting looked like to them.
+3. Under "Life changes", record what has changed for the beneficiary since the last meeting — work, family, health, plans — in their own words.
+4. Under "Prior to-dos", give the status of each item from the last meeting.
+5. Under "Technical", record the accounting discussion, tax items and quantitative questions. Add an html table of the figures discussed.
+6. If a section was not discussed, write "Not discussed". Never invent a figure, a date, or a decision.
+
+---
+
+Now add the annual review block, in both directions.
+
+Key Instructions:
+1. Under "The beneficiary's year", record their hopes, challenges and opportunities for the coming year, as they described them.
+2. Under "The trustee's year", record the same from the trustee's side of the relationship.
+3. Under "How the relationship is working", record what each said is working and what could improve.
+4. Under "Mutual assessment", record two separate entries: the beneficiary's assessment of how the trustee is performing toward the trust and toward them, and the trustee's assessment of how the beneficiary is meeting their own responsibilities. Record both in the speaker's own words. Do not soften either one.
+5. Under "Readiness", record the answer from both sides to whether the beneficiary would be ready to receive the trust if it were distributed tomorrow, and what each said they would do this year to move it toward yes.
+6. Under "Disputes", record any disagreement and the agreed next step. If it was not resolved, say so plainly.
+
+---
+
+Now add the distributions section and the close.
+
+Key Instructions:
+1. For each distribution request discussed, record: what was requested and the amount; the purpose the beneficiary stated, in their own words; the trust language either party pointed to; the timing; and any related or anticipated future requests.
+2. Record the discussion against each of the four stages the trustee works through — the conversation about what is really being sought and whether a better route exists; whether the distribution would enhance the beneficiary's life rather than merely subsidise it; whether the trust document permits it; and the prudence checks, including size relative to the trust, consistency with past decisions, cumulative impact, effect on other beneficiaries, outside resources, and whether a loan would serve better.
+3. Record the trustee's decision AND the reasoning given for it, together. A decision without its reasoning is not an adequate record. If a decision was deferred, record that and what is needed before it can be made.
+4. Where a request was declined, record the alternatives the trustee offered.
+5. Under "Close", add a markdown table of to-dos with columns Task, Owner, Due date, and record what each party said would make the next meeting better.
+6. Add a final section headed "Advisor only — not for circulation" recording anything either party asked to be kept private, in their own words, plus anything the advisor should take up separately with the trustee or with counsel. This section is internal and must never appear in the follow-up email.</pre>
+    </div>
+
+    <h4 class="blk">Follow-up email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Follow-Up Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are an expert financial communication assistant. Write a follow-up email after a trustee-beneficiary meeting, sent by the trustee or by the advisor on the trustee's behalf.
+
+Key Instructions:
+1. Between 150 and 250 words. Respectful, clear and businesslike. This is a record as much as a courtesy.
+2. Thank the beneficiary for their time and name one specific thing they raised.
+3. State plainly what was decided and the reason given for it. Where a distribution was declined, state the reason and any alternative the trustee offered. Where a decision was deferred, say what is needed before it can be made.
+4. List the to-dos under the line "Agreed next steps:" with the owner and the date for each.
+5. Confirm the date of the next meeting, and repeat that a written request sent in advance gets a fuller hearing than one raised on the day.
+6. Include nothing from the advisor-only section of the notes.
+7. Do not characterise the beneficiary's conduct, and do not offer legal or tax advice — refer those to counsel.
+8. Use no bold and no italics except the line "Agreed next steps:".
+9. Sign off simply, with no marketing footer.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">Why the reasoning matters as much as the decision</span><p>The memo outlives the meeting. It is the template for the next request, the record a successor trustee inherits, and the evidence if the decision is ever questioned inside the family or outside it. A decision with no reasoning attached is not a record.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Trustee-Beneficiary</kbd> appears in your meeting type list, and the notes it produces separate the distribution decision from the reasoning behind it.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 7</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 46</a></p>
+  </div>
+</section>
+
+<div class="phase"><h2>Phase 5 · The planning agent, if you want it</h2><span></span><em>about 30 minutes — optional</em></div>
+
+<section class="step" id="s-planning-decide" data-title="Decide whether to turn this on">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 16 <span class="time">5 minutes</span></p>
+      <h3>Decide whether to turn this on at all.</h3>
+      <p class="gives">Hazel's planning agent is a well-built retirement-adequacy engine. Your families are not asking whether they will run out of money. Read the two columns and make a decision — either answer is fine.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">An honest read</h4>
+    <div class="tw"><table>
+      <tr><th style="width:50%">What it genuinely does well</th><th>What it will not do for your families</th></tr>
+      <tr>
+        <td>Drafts a complete, structured plan document in ten to fifteen minutes from what the household record already holds.</td>
+        <td><b>Model transfer tax at all.</b> No lifetime exemption, no GST, no state estate tax, no valuation discounts. The one estate-adjacent figure is a firm-wide "terminal heir tax rate" of 24% — that is income tax on inherited pre-tax balances, not estate tax.</td>
+      </tr>
+      <tr>
+        <td>Reads statements, tax returns, policy documents and estate documents, including scans and photographs.</td>
+        <td><b>Model tax with any depth.</b> One blended effective rate, shipped at 24% and capped at 50%. No state tax, no NIIT, no AMT, no QSBS, no trust brackets.</td>
+      </tr>
+      <tr>
+        <td>Shows where every figure came from — a source table, the working, and the assumptions behind it — and labels each figure confirmed, unconfirmed or modelled.</td>
+        <td><b>Hold your asset classes.</b> Nine of them: four equity, four fixed income, cash. No private equity, no real estate, no direct holdings, no alternatives.</td>
+      </tr>
+      <tr>
+        <td>Lets you impose your own sections, your own house rules and your own language — this is the part worth having.</td>
+        <td><b>Cover the insurance you actually place.</b> Term life and disability only. No property and casualty, no umbrella, no excess liability, no private placement.</td>
+      </tr>
+      <tr>
+        <td>Takes follow-ups in the plan itself: rewrite a section, add a chart, add a slider, tighten the wording.</td>
+        <td><b>Ask the right headline question.</b> The central metric is a Monte Carlo probability that a portfolio survives. That is not what your families are deciding.</td>
+      </tr>
+      <tr>
+        <td>Exports a clean PDF with your firm's disclaimer as the footer.</td>
+        <td><b>Travel.</b> A plan opens only for the adviser who built it — no permission setting shares it. Only the PDF moves, and the PDF carries no provenance and no assumption appendix.</td>
+      </tr>
+    </table></div>
+
+    <h4 class="blk">Three details that tell you who it was built for</h4>
+    <ul class="plain">
+      <li>The three personas it ships with are life stages organised around a retirement date: high earners aged 28 to 44, pre-retirees 55 to 67, and retirees 65 and up.</li>
+      <li>The default plan includes an emergency fund measured against three to six months of spending, and a debt schedule that pays off balances above 6% APR first.</li>
+      <li>One of the two rules it ships with is about avoiding a Medicare surcharge bracket.</li>
+    </ul>
+
+    <div class="note"><span class="lbl">What to do</span><p><b>Skip it for now.</b> Run the practice on the meeting types and the client record for a quarter. Those two things carry most of the value and cost you nothing extra. Come back to this page when the rest is habit — and when you have a real household you would use it on.</p></div>
+    <div class="note stop"><span class="lbl">If you do turn it on</span><p>Treat it as a drafting tool for the <b>narrative and shape</b> of a deliverable, not as an analysis engine. It writes a good document in your voice. The $30M analysis stays where it already is: in your head, in your instructions to it, and in the numbers you hand it. It is also a paid add-on on top of the base platform, so there is real money attached to the decision.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>You have decided yes or no. If the answer is no, tick this step, skip Steps 17 and 18, and go straight to Phase 6 — that is a perfectly good outcome and nothing later depends on it.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 4</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 13, SOP 30</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-planning-rules" data-title="Set the firm rules first">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 17 <span class="time">12 minutes</span></p>
+      <h3>Set the firm rules before you build a single plan.</h3>
+      <p class="gives">Three settings decide what every plan is allowed to say and what appears at the bottom of the client's copy. Set them now and every plan inherits them. Set them later and you will be re-reading plans you already sent.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this — the disclaimer first</h4>
+    <ol class="do">
+      <li>Go to <span class="path">Settings → Planning</span> and open <kbd>Base template</kbd>.</li>
+      <li>Find <kbd>Client disclaimer</kbd>. The box shows suggested wording, but <b>it is not in force until you edit and save it</b>. Until somebody does, every plan and every PDF goes out with no footer at all.</li>
+      <li>Paste in the wording your compliance group approves. This is the one planning setting that works backwards — Hazel reads it fresh each time a plan opens, so fixing it later also fixes plans you already built.</li>
+    </ol>
+
+    <h4 class="blk">Then the guardrails</h4>
+    <ol class="do">
+      <li>On the same pane, look at <kbd>Guardrails</kbd> — the never-do rules that no persona, plan or request can override.</li>
+      <li>Two ship by default. One stops Hazel proposing a Roth conversion that crosses a Medicare surcharge bracket; that is not what drives decisions at this level, so remove it. The other stops Hazel naming a specific security or ticker — keep that one unless your investment documents are meant to name instruments.</li>
+      <li>Click <kbd>+ Add a rule</kbd> and add your own. Two to six is the right number. The test: could a colleague read a plan and tell whether it broke the rule?</li>
+    </ol>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Suggested guardrails — add one at a time</span><button class="copy" type="button">Copy</button></div>
+      <pre>Never present a probability-of-success figure as the headline conclusion of a plan.
+
+Never state a transfer-tax exposure, exemption amount or gifting capacity as settled. Name the exposure and refer the decision to counsel.
+
+Never recommend creating, amending or terminating a trust or entity, and never recommend a change to a beneficiary designation. Describe the question and route it to counsel.
+
+Never treat an illiquid holding as available to fund spending unless a current valuation or a signed sale agreement is on file.</pre>
+    </div>
+
+    <h4 class="blk">Then the numbers the solver cannot model</h4>
+    <ol class="do">
+      <li>Still on <kbd>Base template</kbd>, open <kbd>Planning assumptions</kbd>. These are free-text label and value rows joined to every plan.</li>
+      <li>The value accepts a number, a percentage or a plain sentence — so this is where anything the built-in settings have no field for belongs.</li>
+      <li>Add the rows below, filling in the figures yourself.</li>
+    </ol>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Suggested assumption rows — label, then value</span><button class="copy" type="button">Copy</button></div>
+      <pre>Longevity age | 95
+
+Healthcare inflation | 5.5%
+
+Education inflation | 5%
+
+Federal estate tax exemption | CHECK CURRENT YEAR — do not use a figure from memory
+
+Generation-skipping transfer exemption | CHECK CURRENT YEAR
+
+State estate tax | name the state, the threshold and the top rate
+
+Annual gift exclusion | CHECK CURRENT YEAR
+
+Valuation discount policy | state the firm's position on marketability and minority discounts, and that any figure requires a current appraisal
+
+Liquidity policy | state how many years of family spending are held in liquid assets before any illiquid commitment is counted
+
+Concentration threshold | state the single-position percentage above which the plan must address concentration explicitly</pre>
+    </div>
+    <div class="note stop"><span class="lbl">Check every threshold, every year</span><p>Exemptions and exclusions change. Hazel will repeat whatever you type here, indefinitely, without noticing it has gone stale. Put a diary note to re-read this pane every January, and never let a figure from this list reach a client without checking it first.</p></div>
+    <div class="note"><span class="lbl">Which setting wins</span><p>Where an instruction and an assumption disagree about a number, <b>the assumption wins</b>. Rules cannot be loosened by anything — not a persona, not a plan, not a request. Instructions are guidance Hazel weighs. Put anything that must always happen in a rule or in the layout, not in an instruction.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>The disclaimer is saved in your own words, you have two to six rules that fit your practice, and the assumption rows are filled in with figures you have checked this year.</p></div>
+    <p class="src">Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 30 — the wealth management plan</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-planning-persona" data-title="Build one persona for your families">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 18 <span class="time">14 minutes</span></p>
+      <h3>Build one persona that actually matches your families.</h3>
+      <p class="gives">A persona is how you tell Hazel what kind of client this is and how a plan for them should read. Build one, and every plan for a family like yours comes out in your shape instead of somebody else's retirement template.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Go to <span class="path">Settings → Planning</span> and find <kbd>Client persona</kbd> in the left rail.</li>
+      <li>Click <kbd>New persona</kbd>. Four fields appear.</li>
+      <li><kbd>Starting template</kbd> — choose <kbd>Base template</kbd>. The shipped presets bring their own retirement-shaped design with them, which is the thing you are trying to avoid.</li>
+      <li><kbd>Name</kbd> — something you will recognise in a list. <kbd>Multi-generational family</kbd> works.</li>
+      <li><kbd>Description</kbd> — paste the block below. <b>This is what Hazel matches households against</b>, so it does the real work.</li>
+      <li><kbd>Age min</kbd> and <kbd>Age max</kbd> — <b>leave both blank</b>. Your families are not defined by an age band, and a band would pull the wrong households in.</li>
+      <li>Click <kbd>Create</kbd>.</li>
+    </ol>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Description”</span><button class="copy" type="button">Copy</button></div>
+      <pre>A family with substantial multi-generational wealth, typically thirty million dollars or more, held across several structures — trusts, partnerships, a closely held operating business, or a concentrated stock position. Whether they can afford to retire is not the question. The plan turns on how the wealth is structured, how and when it moves to the next generation, how much of it can actually be turned into cash, and how the family makes decisions together. There are usually other advisers already involved: an attorney, an accountant, sometimes a trustee or a family office.</pre>
+    </div>
+
+    <h4 class="blk">Then write the instructions</h4>
+    <ol class="do">
+      <li>The persona's pane opens. Find <kbd>Hazel instructions</kbd> and click <kbd>Add instruction</kbd>.</li>
+      <li>Add the eight below <b>one at a time, in this order</b>. Press Enter after each — Enter commits the row and opens the next.</li>
+      <li>Order matters: Hazel works down the list, so the first ones carry the most weight. There are no drag handles, so if you want a different order you have to retype the rows.</li>
+      <li>Each instruction is capped at 400 characters. A longer paste is refused outright rather than trimmed.</li>
+    </ol>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Hazel instructions” — one row at a time</span><button class="copy" type="button">Copy</button></div>
+      <pre>Lead with structure and transfer. Open with what the family owns, through which entities, and what happens to it in the next generation. Do not open with retirement adequacy.
+
+Do not include an emergency fund section or a debt paydown schedule. Neither is a live question for this family, and both read as advice written for somebody else.
+
+Treat any probability-of-success figure as background rather than as the conclusion. If it appears at all, place it late and say plainly what it measures and what it does not.
+
+Name every trust, entity and operating business the record supports, with who controls it and who benefits from it. A plan that only discusses "the portfolio" has missed most of the balance sheet.
+
+State transfer-tax questions as questions for counsel, never as settled figures. Name the exposure, name the decision that follows from it, and name who has to answer it.
+
+Where a holding is illiquid — a business, real estate, a concentrated position — say so explicitly and keep it separate from what can actually fund spending.
+
+Write for an audience that includes the family's attorney and accountant. Assume the document will be forwarded to them and read closely.
+
+Keep every section to one page or less. Cut adjectives. Say the number and the decision it drives.</pre>
+    </div>
+    <div class="note"><span class="lbl">Instructions cannot set numbers</span><p>Writing "assume 4% real returns" or "hold five years of cash" in an instruction does nothing to the maths. Numbers live in the assumption panes from Step 17, and <b>the assumption always wins</b>. Instructions decide what a plan leads with, what it leaves out, and how it reads.</p></div>
+
+    <h4 class="blk">Last, the shape</h4>
+    <ol class="do">
+      <li>On the same pane, open <kbd>Plan design</kbd>. This is the layout: which sections exist, in what order.</li>
+      <li>Remove the modules that do not belong — the emergency fund and the debt schedule — and add sections for the four areas you actually plan across. An empty tab with a heading and instructions works: Hazel composes it from those instructions alone, so you do not have to find a module that matches.</li>
+      <li>Set <kbd>Strictness</kbd> to <kbd>Exact</kbd> if you want every plan to come out in the same shape — the setting exists for exactly this, a deliverable format the firm has standardised on.</li>
+    </ol>
+    <div class="note"><span class="lbl">Read the first few</span><p>Even on <kbd>Exact</kbd>, a plan occasionally publishes with something not matching the design. Read the first three plans this persona produces properly, before you put one in front of a family.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>You have built a plan for one real household, it opened with structure rather than retirement, and there was no emergency fund section in it.</p></div>
+    <p class="src">Reasoning: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">Primer, ch. 4</a> · Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 30 — the four planning areas</a></p>
+  </div>
+</section>
+
+<div class="phase"><h2>Phase 6 · The rhythm from here</h2><span></span><em>about 10 minutes to read, then it is just how you work</em></div>
+
+<section class="step" id="s-week" data-title="Your week from now on">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 19 <span class="time">5 minutes</span></p>
+      <h3>Three habits, and the system stays alive.</h3>
+      <p class="gives">Everything you have installed only works if these three things happen. They take about fifteen minutes a week in total.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Before every client meeting — 2 minutes</h4>
+    <ul class="plain">
+      <li>Open the meeting in Hazel and check the <b>meeting type is right</b>. This is the single most important click in the whole system: it decides the agenda, the notes format and the follow-up email.</li>
+      <li>Check the household is attached. If it is not, Hazel cannot file the notes anywhere.</li>
+      <li>Read the agenda it prepared. Add anything it could not know.</li>
+    </ul>
+    <h4 class="blk">After every client meeting — 8 minutes</h4>
+    <ul class="plain">
+      <li>Review the notes, fix what it misheard, and sync them to your CRM. <b>Nothing syncs on its own.</b></li>
+      <li>Review the tasks it generated and sync those too.</li>
+      <li>Read the follow-up email, make it sound like you, and send it.</li>
+      <li>Spend two minutes in the client's <kbd>Review</kbd> queue confirming the figures you would actually act on.</li>
+    </ul>
+    <h4 class="blk">Friday — 5 minutes</h4>
+    <ul class="plain">
+      <li>Look at the week's meetings. Anything still sitting at <kbd>Ready for Review</kbd> has notes nobody has filed.</li>
+      <li>Check the decisions from any progress meeting made it into the tracker.</li>
+    </ul>
+    <div class="note"><span class="lbl">The one that breaks first</span><p>The after-meeting review. Skip it for a fortnight and the client record fills with unconfirmed figures, the CRM goes stale, and the agendas Hazel prepares get worse — because they are built from the notes you never filed. It is a self-reinforcing loop in both directions.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>You have run one real meeting end to end: right type selected, notes reviewed and synced, follow-up email sent.</p></div>
+    <p class="src">Procedure: <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 05 — meeting protocol</a>, <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">SOP 21 — service standards</a></p>
+  </div>
+</section>
+
+<section class="step" id="s-beyond" data-title="Beyond the week">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 20 <span class="time">5 minutes</span></p>
+      <h3>Four things to revisit, and when.</h3>
+      <p class="gives">Set these as recurring reminders now, while you are thinking about it. Each one takes under an hour.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <div class="tw"><table>
+      <tr><th style="width:20%">When</th><th>What</th></tr>
+      <tr><td><b>Monthly</b></td><td>Read one set of meeting notes as if you were the client. If the notes are wrong in the same way twice, fix the meeting type's prompt rather than the notes.</td></tr>
+      <tr><td><b>Quarterly</b></td><td>Run the expert-network cycle from the Playbook. Check whether any prompt you keep editing by hand should just be changed at the source.</td></tr>
+      <tr><td><b>Twice a year</b></td><td>Re-read your Modes and your meeting types. They drift out of date faster than you expect, and nothing tells you they have.</td></tr>
+      <tr><td><b>Annually</b></td><td>The fee conversation, the engagement re-scoping, and the client survey — all from the Playbook. If you turned on the planning agent, review its assumptions with whoever owns investment policy.</td></tr>
+    </table></div>
+    <h4 class="blk">When something is wrong</h4>
+    <ul class="plain">
+      <li><b>Notes are in the wrong shape.</b> Edit the meeting type's Meeting Notes prompt, not the notes. You are correcting it once instead of every week.</li>
+      <li><b>Hazel keeps missing something.</b> It was probably never said out loud. Say the number, the institution and the owner.</li>
+      <li><b>The notetaker did not join.</b> Almost always the meeting host's platform settings, not Hazel — external participants are blocked.</li>
+      <li><b>Chat stops responding.</b> Start a new one. One topic per conversation.</li>
+      <li><b>You are fighting the tool.</b> The written procedure still stands on its own. Hazel is how the practice runs, not what it is.</li>
+    </ul>
+    <div class="note"><span class="lbl">That is the whole build</span><p>Twenty steps. From here it is meetings, reviews, and the occasional prompt edit. When you want the reasoning behind any of it, the Primer explains it; when you want the full procedure, the Playbook has it. You do not need to read either to keep going.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p>Four reminders are in your calendar.</p></div>
+    <p class="src">Everything else: <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">the Primer</a> · <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">the Playbook</a></p>
+  </div>
+</section>
+
+</main>
+<footer>Steps: 21. Progress is saved in this browser only. The reasoning behind every step is in <a href="https://claude.ai/code/artifact/7eddc750-f492-4071-9490-468515db0d2e">the Primer</a>; the full written procedures are in <a href="https://claude.ai/code/artifact/2890b4bc-3b5a-4a3b-830f-eb49c8d295c7">the Playbook</a>. Hazel is Altruist's AI platform — see <a href="https://docs.hazel.ai">docs.hazel.ai</a>. Verify Hazel's current screens and pricing against their documentation before relying on any step here.</footer>
+<script>
+(function(){
+  var KEY='cfo-setup-v2';
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  var bar=document.querySelector('.bar i'), count=document.querySelector('.count');
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+  function save(s){try{localStorage.setItem(KEY,JSON.stringify(s));}catch(e){}}
+  var state=load();
+  function paint(){
+    var n=0;
+    steps.forEach(function(el){
+      var on=!!state[el.id];
+      el.classList.toggle('done',on);
+      var t=el.querySelector('.tick');
+      if(t){t.setAttribute('aria-pressed',on);t.setAttribute('aria-label',(on?'Mark step incomplete: ':'Mark step complete: ')+(el.dataset.title||''));}
+      if(on)n++;
+    });
+    if(bar)bar.style.width=(steps.length?(n/steps.length*100):0)+'%';
+    if(count)count.textContent=n+' of '+steps.length+' done';
+  }
+  steps.forEach(function(el){
+    var t=el.querySelector('.tick');
+    if(!t)return;
+    t.addEventListener('click',function(){
+      state[el.id]=!state[el.id];
+      if(!state[el.id])delete state[el.id];
+      save(state);paint();
+      if(state[el.id]){var nx=el.nextElementSibling;while(nx&&!nx.classList.contains('step'))nx=nx.nextElementSibling;
+        if(nx)nx.scrollIntoView({block:'start'});}
+    });
+  });
+  var rs=document.querySelector('.reset');
+  if(rs)rs.addEventListener('click',function(){state={};save(state);paint();window.scrollTo({top:0});});
+  paint();
+
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var pre=b.closest('.paste').querySelector('pre');
+      var txt=pre.innerText;
+      var done=function(){var o=b.textContent;b.textContent='Copied';b.classList.add('ok');
+        setTimeout(function(){b.textContent=o;b.classList.remove('ok');},1600);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,function(){fallback(txt,done);});}
+      else fallback(txt,done);
+    });
+  });
+  function fallback(txt,cb){
+    var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');cb();}catch(e){}
+    document.body.removeChild(ta);
+  }
+})();
+</script>

@@ -1,0 +1,119 @@
+<section class="step" id="s-progress" data-title="Build the Progress Meeting type">
+  <div class="step-head">
+    <button class="tick" type="button" aria-pressed="false"></button>
+    <div class="step-t">
+      <p class="step-n">Step 6 <span class="time">12 minutes</span></p>
+      <h3>Build the Progress Meeting type</h3>
+      <p class="gives">This is the meeting you run most. From now on it always ends the same way: a recorded decision against every recommendation, both asks made, and the next meeting booked.</p>
+    </div>
+  </div>
+  <div class="step-body">
+    <h4 class="blk">Do this</h4>
+    <ol class="do">
+      <li>Go to <span class="path">Settings → Meeting Settings</span>.</li>
+      <li>Click <kbd>Add Meeting Type</kbd>, type the name <kbd>Progress Meeting</kbd>, and click <kbd>Save</kbd>.</li>
+      <li>Find <kbd>Progress Meeting</kbd> in the list and click <kbd>Edit</kbd>. Replace all four prompts with the blocks below.</li>
+      <li>Under <kbd>Match on Key Phrases</kbd>, add: <kbd>progress meeting</kbd>, <kbd>review</kbd>, <kbd>quarterly</kbd>, <kbd>annual review</kbd>.</li>
+      <li>Click <kbd>Save and Regenerate</kbd>.</li>
+    </ol>
+
+    <h4 class="blk">Agenda</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Agenda”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are preparing a financial advisor for a recurring progress meeting with an existing client family. This is not a first meeting and nothing is being sold. The relationship is ongoing; an investment plan and an advanced-planning tracker are already in place for this family.
+
+Prepare a one-page agenda for 60 to 90 minutes, in this order:
+1. What has changed since we last met
+2. Progress against goals and the investment plan
+3. The advanced-planning tracker, one area at a time
+4. Decisions needed today
+5. Questions
+6. Next steps and the next meeting
+
+Key Instructions:
+1. From the CRM, email history, prior meeting notes and any connected custodial data, open with a short list of anything that appears to have changed for this family since the last meeting — a life event, a business change, a new account, a new advisor, a large movement of money. Present each as something to ask about, never as established fact.
+2. Report progress using the most recently completed quarter's figures. Never use partial-quarter numbers. State the as-of date beside every figure.
+3. List every open item from the advanced-planning tracker, grouped under the four areas — wealth enhancement, wealth transfer, wealth protection, charitable planning — and mark each one completed, in progress, or future. Put the highest-impact items first within each area.
+4. Mark clearly which items need a decision from the client at this meeting.
+5. If any item on the agenda involves a trust, a family entity, a business succession, or any structure intended to last beyond this generation, add a line reminding the advisor to run the consequences check before anything is executed.
+6. Add a short line headed "Annual items" listing any of these that fall due this quarter: the fee conversation, the investment policy statement review, the engagement scope review, the client satisfaction survey.
+7. End with two reminders for the advisor only, marked internal: ask about assets held elsewhere, and ask for an introduction.
+8. Short headings and bullets. No paragraphs. One page.</pre>
+    </div>
+
+    <h4 class="blk">Reminder email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Reminder Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>Write a short reminder email to an existing client family before a recurring progress meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 50 and 100 words. Warm and familiar, unhurried. This is a relationship of some years; write like it.
+2. Confirm the date, the time, and how the meeting is happening.
+3. Say what the meeting will cover in one sentence: where things stand, what has changed for them, and the handful of decisions worth making now.
+4. Ask them to bring anything that has changed in their life or the family's since you last met, and anything they would like added to the agenda.
+5. Include no performance figures, market commentary, product names or fees.
+6. Plain paragraphs only. No bold, no italics, no bullet points.</pre>
+    </div>
+
+    <h4 class="blk">Meeting notes</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Meeting Notes”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are recording a recurring progress meeting with an existing client family. This is an ongoing advisory relationship, not a first meeting. Capture what changed and where things stand.
+
+Key Instructions:
+1. Use these headings in this order: What changed, Progress against the plan, Discussion.
+2. What changed: everything the client said about their life or the family's since the last meeting — career and business changes, births, marriages, divorces, deaths, health, disputes, sales, moves, anything that touches money. Record who it concerns and when it happened. This section matters more than any other; do not compress it.
+3. Progress against the plan: what was reported on goals, on the investment plan, and on results, with the as-of date of any figure quoted. Add an html table of any numeric financial data discussed.
+4. Discussion: the substance of what was talked through, in the client's own words wherever the phrasing carries meaning.
+5. Note separately anything the client said that changes the plan, changes the profile, or changes how they want to be contacted.
+6. If a heading was not covered, write "Not discussed" under it. Never invent or infer content.
+
+---
+
+Now add a section headed "Decisions".
+
+Key Instructions:
+1. Produce one markdown table with exactly these columns: Item, Area, Decision, Client's reasoning, Next step, Owner, Due.
+2. Include one row for every recommendation, proposal or open item discussed — whether or not it was resolved.
+3. Area must be one of: Wealth enhancement, Wealth transfer, Wealth protection, Charitable, Investment, Other.
+4. Decision must be one of: Do, Defer, Drop, Refer to family team, No decision. Use "No decision" when an item was discussed but left open. Never force a decision that was not actually made.
+5. Client's reasoning is the client's own stated reason, in their words where possible. This column is the point of the table. If they gave no reason, write "None stated".
+6. Next step must be a specific action, not a restatement of the item. If the decision was Drop, write "None".
+7. Owner is a named person. Due is a date if one was agreed, otherwise "Not set".
+8. Below the table, list separately any item the client asked to think about, wait on, or discuss with someone else, together with what they said they needed.
+9. Never invent a decision, a reason, an owner or a date. An empty cell is better than a guess.
+
+---
+
+Now add two short sections for the advisor only.
+
+Key Instructions:
+1. "Asks" — record whether the advisor asked about assets held elsewhere, and whether the advisor asked for an introduction. For each: what was asked, what the client said, and any name, institution or amount mentioned. If an ask was not made, write "Not asked".
+2. "Annual items" — record any of the following that came up, and what was said: the fee conversation, the investment policy statement review, the engagement scope or mandate, the client satisfaction survey. Write "Not discussed" against any that did not come up.
+3. Keep both sections under 150 words in total.
+4. Never record an ask as made if it was not made.
+5. These sections are internal. Never include them in anything client-facing.</pre>
+    </div>
+
+    <h4 class="blk">Follow-up email</h4>
+    <div class="paste">
+      <div class="paste-top"><span class="paste-lbl">Paste into “Follow-Up Email”</span><button class="copy" type="button">Copy</button></div>
+      <pre>You are an expert financial communication assistant. Write a follow-up email to an existing client family after a recurring progress meeting, sent by the advisor.
+
+Key Instructions:
+1. Between 150 and 250 words. Warm, plain and confident. This is a long relationship; write like it.
+2. Open by referring to something specific the client said about their own life at the meeting. Never a generic thank-you.
+3. Play back the decisions that were made, as a short plain list. For each, say what was decided and what happens next. Include only decisions that were actually made.
+4. List anything the advisor committed to, with dates where they were agreed, under the line "What I will do:".
+5. List anything the client agreed to do or send under the line "What I need from you:". Leave this section out entirely if there is nothing.
+6. Confirm the date of the next meeting if one was agreed.
+7. Include no performance figures, market commentary, product names or fee discussion unless the client raised them at the meeting.
+8. Use no bold and no italics anywhere except the two lines "What I will do:" and "What I need from you:".
+9. Sign off simply, with no marketing footer.</pre>
+    </div>
+
+    <div class="note"><span class="lbl">Why the decisions table is the point</span><p>A recommendation without a recorded decision is a recommendation you will make again next quarter, and the client will feel it. Capturing <em>drop, defer or do</em> — and the client's own reason — is what turns a plan into a thing that moves.</p></div>
+    <div class="check"><span class="lbl">Done when</span><p><kbd>Progress Meeting</kbd> appears in your meeting type list, and your next scheduled review picks it up automatically from the calendar title.</p></div>
+    <p class="src">Reasoning: <a href="PRIMER_URL">Primer, ch. 4 &amp; 5</a> · Procedure: <a href="PLAYBOOK_URL">SOP 20, SOP 30</a></p>
+  </div>
+</section>

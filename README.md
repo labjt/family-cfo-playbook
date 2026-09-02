@@ -1,3 +1,4 @@
+<!-- ghonly:start -->
 # The Family CFO Practice
 
 **📖 Read it online → https://labjt.github.io/family-cfo-playbook/**
@@ -9,6 +10,7 @@
 
 ---
 
+<!-- ghonly:end -->
 ## The library
 
 Standard operating procedures for a wealth-management practice serving families with $30M to several hundred million, delivered as the family's **personal chief financial officer**. The library is a Bowen/CEG consultative-process spine with a Hughes family-systems layer and a Palaveev team-building section. Everything here is original procedural writing informed by those sources; nothing is reproduced from them (see `SOURCES.md`).

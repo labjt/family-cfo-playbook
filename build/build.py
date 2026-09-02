@@ -277,6 +277,7 @@ def build_page(docs: list[Doc]) -> str:
     css = (BUILD / "style.css").read_text(encoding="utf-8")
     svg = (BUILD / "process-map.svg").read_text(encoding="utf-8") if (BUILD / "process-map.svg").exists() else ""
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
+    readme_text = re.sub(r"<!-- ghonly:start -->.*?<!-- ghonly:end -->", "", readme_text, flags=re.S)
     readme_doc = Doc(ROOT / "README.md", {"id": "overview"}, readme_text)
     readme_html = render_body(readme_doc, path_to_id, "overview")
     parts = [f"<title>{PAGE_TITLE}</title>",
